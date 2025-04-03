@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Base styles */
 @layer base {
-  :root {
+  /* :root {
     color-scheme: light dark;
-  }
+  } */
+
+  /* * {
+    @apply transition-colors duration-10;
+  } */
 
   html {
     @apply scroll-smooth;

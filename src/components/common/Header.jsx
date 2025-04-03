@@ -14,23 +14,9 @@ import {
 } from "react-icons/fi"
 import { Link, NavLink, useNavigate } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
-import { useMediaQuery } from "react-responsive" // Add this import
-
-const MenuItem = ({ to, icon, text, onClick }) => (
-  <motion.div
-    whileHover={{ x: 2 }}
-    transition={{ type: "spring", stiffness: 300 }}
-  >
-    <Link
-      to={to}
-      onClick={onClick}
-      className="flex items-center px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
-    >
-      <span className="mr-3 h-4 w-4">{icon}</span>
-      {text}
-    </Link>
-  </motion.div>
-)
+import { useMediaQuery } from "react-responsive"
+import { useSelector, useDispatch } from "react-redux"
+import { toggleTheme } from "../../features/themeSlice"
 
 const useClickOutside = (ref, handler) => {
   useEffect(() => {
@@ -63,7 +49,7 @@ const UserDropdown = ({
   const handleUserAction = () => {
     if (isMobile) {
       navigate(isLoggedIn ? "/profile" : "/login")
-      closeMobileMenu?.() // Close mobile menu if function exists
+      closeMobileMenu?.()
     } else {
       setIsOpen(!isOpen)
     }
@@ -82,12 +68,12 @@ const UserDropdown = ({
         onClick={handleUserAction}
         className={`flex items-center gap-3 ml-2 rounded-full transition-all cursor-pointer ${
           isLoggedIn
-            ? "hover:bg-gray-100 dark:hover:bg-gray-700"
+            ? "hover:bg-gray-100 dark:hover:bg-gray-700 p-1"
             : isMobile
             ? ""
             : isScrolled
-            ? "bg-[#1E1E1E] hover:bg-[#2A2A2A]"
-            : "bg-orange-500 hover:bg-orange-600"
+            ? "bg-gray-800 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600"
+            : "bg-orange-500 hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-700"
         }`}
       >
         {isLoggedIn ? (
@@ -95,16 +81,16 @@ const UserDropdown = ({
             <img
               src="https://randomuser.me/api/portraits/men/1.jpg"
               alt="User"
-              className="h-12 w-12 rounded-full object-cover"
+              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-white dark:border-gray-800"
             />
-            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 bg-green-400 rounded-full border border-white dark:border-gray-800"></span>
+            <span className="absolute bottom-0 right-0 h-2.5 w-2.5 bg-green-400 rounded-full border-2 border-white dark:border-gray-800"></span>
           </div>
         ) : isMobile ? (
-          <button className="flex items-center p-2 rounded-full hover:bg-white/10">
-            <div className="bg-orange-500 rounded-full p-1.5 border-2 border-white">
-              <FiUser className="h-4 w-4 fill-[#1E1E1E]" />
+          <button className="flex items-center p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+            <div className="bg-orange-500 dark:bg-orange-600 rounded-full p-1.5 border-2 border-white dark:border-gray-800">
+              <FiUser className="h-4 w-4 text-white" />
             </div>
-            <span className="ml-2 text-white">Login</span>
+            <span className="ml-2 text-gray-900 dark:text-white">Login</span>
           </button>
         ) : (
           <motion.div
@@ -116,24 +102,17 @@ const UserDropdown = ({
               className={`p-1.5 rounded-full transition-all ${
                 isScrolled
                   ? "bg-orange-500 hover:bg-orange-600"
-                  : "bg-gray-900 hover:bg-gray-800"
+                  : "bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
               }`}
               whileHover={{ rotate: 10 }}
             >
-              <FiUser
-                className={`h-4 w-4 ${
-                  isScrolled ? "text-white" : "text-orange-400"
-                } transition-colors`}
-              />
+              <FiUser className="h-4 w-4 text-white" />
             </motion.div>
 
             <motion.span
               className={`text-base font-medium tracking-wide ${
-                isScrolled ? "text-white" : "text-gray-900"
+                isScrolled ? "text-white" : "text-gray-900 dark:text-white"
               } transition-colors`}
-              initial={{ opacity: 0, x: -5 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 }}
             >
               Login
             </motion.span>
@@ -151,7 +130,7 @@ const UserDropdown = ({
               duration: 0.15,
               ease: [0.4, 0, 0.2, 1],
             }}
-            className="absolute right-0 mt-2 w-56 origin-top-right rounded-xl bg-white dark:bg-gray-800 shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden z-50 backdrop-blur-sm bg-opacity-90 dark:bg-opacity-90"
+            className="absolute right-0 mt-2 w-56 origin-top-right rounded-xl bg-white dark:bg-gray-800 shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 overflow-hidden z-50 backdrop-blur-sm bg-opacity-90 dark:bg-opacity-90"
           >
             <div className="py-1">
               {isLoggedIn ? (
@@ -169,7 +148,7 @@ const UserDropdown = ({
                     </p>
                   </motion.div>
 
-                  {/* Menu Items with subtle animations */}
+                  {/* Menu Items */}
                   <motion.div
                     initial={{ opacity: 0, y: 5 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -177,30 +156,38 @@ const UserDropdown = ({
                   >
                     <MenuItem
                       to="/account"
-                      icon={<FiUserCheck />}
+                      icon={
+                        <FiUserCheck className="text-gray-700 dark:text-gray-300" />
+                      }
                       text="My Account"
                       onClick={() => handleMenuItemClick("/account")}
                     />
 
                     <MenuItem
                       to="/orders"
-                      icon={<FiShoppingBag />}
+                      icon={
+                        <FiShoppingBag className="text-gray-700 dark:text-gray-300" />
+                      }
                       text="My Orders"
-                      onClick={() => handleMenuItemClick("/account")}
+                      onClick={() => handleMenuItemClick("/orders")}
                     />
 
                     <MenuItem
                       to="/favorites"
-                      icon={<FiHeart />}
+                      icon={
+                        <FiHeart className="text-gray-700 dark:text-gray-300" />
+                      }
                       text="My Favorites"
-                      onClick={() => handleMenuItemClick("/account")}
+                      onClick={() => handleMenuItemClick("/favorites")}
                     />
 
                     <MenuItem
                       to="/addresses"
-                      icon={<FiHome />}
+                      icon={
+                        <FiHome className="text-gray-700 dark:text-gray-300" />
+                      }
                       text="Saved Addresses"
-                      onClick={() => handleMenuItemClick("/account")}
+                      onClick={() => handleMenuItemClick("/addresses")}
                     />
 
                     <motion.button
@@ -230,7 +217,7 @@ const UserDropdown = ({
                     }}
                     className="flex items-center px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all"
                   >
-                    <FiUser className="mr-3 h-4 w-4" />
+                    <FiUser className="mr-3 h-4 w-4 text-gray-700 dark:text-gray-300" />
                     Log In
                   </Link>
                 </motion.div>
@@ -243,14 +230,26 @@ const UserDropdown = ({
   )
 }
 
-// Usage in your header component:
-// <UserDropdown isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+// MenuItem helper component
+const MenuItem = ({ to, icon, text, onClick }) => (
+  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+    <Link
+      to={to}
+      onClick={onClick}
+      className="flex items-center px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all"
+    >
+      <span className="mr-3">{icon}</span>
+      {text}
+    </Link>
+  </motion.div>
+)
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [darkMode, setDarkMode] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(true) // Add login state
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const dispatch = useDispatch()
+  const theme = useSelector((state) => state.theme.mode)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -260,14 +259,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
-    }
-  }, [darkMode])
-
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Menu", href: "/menu" },
@@ -276,15 +267,15 @@ const Header = () => {
     { name: "Help", href: "/help" },
   ]
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
+  const handleThemeToggle = () => {
+    dispatch(toggleTheme())
   }
 
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white dark:bg-gray-900 shadow-md"
+          ? "bg-white dark:bg-gray-900 shadow-md py-4"
           : "bg-black/30 dark:bg-gray-900/80 backdrop-blur-sm py-4"
       }`}
     >
@@ -348,7 +339,7 @@ const Header = () => {
           >
             {/* Dark/Light mode toggle */}
             <motion.button
-              onClick={toggleDarkMode}
+              onClick={handleThemeToggle}
               whileTap={{ scale: 0.9 }}
               className={`p-2 rounded-full ${
                 isScrolled
@@ -356,10 +347,8 @@ const Header = () => {
                   : "text-white hover:bg-white/10"
               }`}
             >
-              {darkMode ? (
-                <FiSun
-                  className={`h-6 w-6 ${isScrolled ? "" : "text-yellow-300"}`}
-                />
+              {theme === "dark" ? (
+                <FiSun className={`h-6 w-6 text-yellow-300`} />
               ) : (
                 <FiMoon className="h-6 w-6" />
               )}
@@ -376,7 +365,7 @@ const Header = () => {
               }`}
             >
               <FiShoppingCart className="h-6 w-6" />
-              <motion.span className="absolute -top-1 -right-1 bg-orange-500 text-neutral-700 text-sm font-semibold rounded-full h-5 w-5 flex items-center justify-center drop-shadow-md">
+              <motion.span className="absolute -top-1 -right-1 bg-orange-500 text-gray-700 dark:text-gray-100 text-sm font-semibold rounded-full h-5 w-5 flex items-center justify-center drop-shadow-md">
                 3
               </motion.span>
             </motion.button>
@@ -421,7 +410,11 @@ const Header = () => {
           opacity: isMenuOpen ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
-        className={`lg:hidden overflow-hidden w-full bg-gray-900/95 dark:bg-gray-900 backdrop-blur-sm`}
+        className={`lg:hidden overflow-hidden w-full ${
+          theme === "dark"
+            ? "bg-gray-900/95 backdrop-blur-sm"
+            : "bg-white/95 backdrop-blur-sm shadow-lg"
+        }`}
       >
         <div className="container mx-auto px-4 pt-2 pb-6 space-y-2">
           {navLinks.map((link) => (
@@ -434,19 +427,29 @@ const Header = () => {
               <NavLink
                 to={link.href}
                 className={({ isActive }) =>
-                  `block px-3 py-2 rounded-md text-base font-medium text-white ${
-                    isActive ? "bg-orange-500" : "hover:bg-white/10"
+                  `block px-3 py-2 rounded-md text-base font-medium ${
+                    theme === "dark" ? "text-white" : "text-gray-900"
+                  } ${
+                    isActive
+                      ? "bg-orange-500 text-white"
+                      : theme === "dark"
+                      ? "hover:bg-gray-800"
+                      : "hover:bg-gray-100"
                   }`
                 }
-                onClick={() => setIsMenuOpen(false)} // Add this to close menu on click
+                onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}
               </NavLink>
             </motion.div>
           ))}
 
-          {/* Improved Icons Section */}
-          <div className="pt-4 border-t border-gray-200/50 dark:border-gray-700">
+          {/* Icons Section */}
+          <div
+            className={`pt-4 border-t ${
+              theme === "dark" ? "border-gray-700" : "border-gray-200"
+            }`}
+          >
             <div className="flex flex-wrap items-center justify-between space-x-4">
               <UserDropdown
                 isLoggedIn={isLoggedIn}
@@ -456,9 +459,15 @@ const Header = () => {
               />
 
               {/* Cart with badge */}
-              <button className="flex items-center py-2 px-4 rounded-full hover:bg-white/10 relative">
-                <FiShoppingCart className="h-6 w-6 text-white" />
-                <span className="ml-2 text-white text-lg">Cart</span>
+              <button
+                className={`flex items-center py-2 px-4 rounded-full ${
+                  theme === "dark"
+                    ? "hover:bg-gray-800 text-white"
+                    : "hover:bg-gray-100 text-gray-900"
+                } relative`}
+              >
+                <FiShoppingCart className="h-6 w-6" />
+                <span className="ml-2 text-lg">Cart</span>
                 <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-sm rounded-full h-6 w-6 flex items-center justify-center">
                   3
                 </span>
@@ -466,13 +475,15 @@ const Header = () => {
 
               {/* Dark Mode Toggle */}
               <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-full hover:bg-white/10"
+                onClick={handleThemeToggle}
+                className={`p-2 rounded-full ${
+                  theme === "dark" ? "hover:bg-gray-800" : "hover:bg-gray-100"
+                }`}
               >
-                {darkMode ? (
+                {theme === "dark" ? (
                   <FiSun className="h-6 w-6 text-yellow-300" />
                 ) : (
-                  <FiMoon className="h-6 w-6 text-white" />
+                  <FiMoon className="h-6 w-6 text-gray-700" />
                 )}
               </button>
             </div>

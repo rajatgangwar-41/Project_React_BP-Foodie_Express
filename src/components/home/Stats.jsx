@@ -4,89 +4,98 @@ import {
   FaUtensils,
   FaHamburger,
 } from "react-icons/fa"
+import { motion } from "framer-motion"
 
-const Stats = () => {
+const Stats = ({ containerVariants, itemVariants }) => {
+  const stats = [
+    {
+      icon: FaShoppingBag,
+      value: "10,000+",
+      label: "Registered Orders",
+      color: "teal",
+      delay: 0.1,
+    },
+    {
+      icon: FaCheckCircle,
+      value: "8,500+",
+      label: "Orders Delivered",
+      color: "blue",
+      delay: 0.2,
+    },
+    {
+      icon: FaUtensils,
+      value: "500+",
+      label: "Restaurant Partners",
+      color: "amber",
+      delay: 0.3,
+    },
+    {
+      icon: FaHamburger,
+      value: "5,000+",
+      label: "Food Items",
+      color: "purple",
+      delay: 0.4,
+    },
+  ]
+
   return (
-    <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+      className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 dark:bg-gray-900"
+    >
       {/* Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-100">
+        <motion.h2
+          variants={itemVariants}
+          className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-100"
+        >
           Our Growing{" "}
-          <span className="text-orange-400 dark:text-teal-400">Network</span>
-        </h2>
+          <span className="text-orange-500 dark:text-orange-400">Network</span>
+        </motion.h2>
       </div>
 
       {/* Cards grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Registered Orders */}
-        <div className="bg-gradient-to-br from-white/80 to-gray-50 dark:from-gray-800/90 dark:to-gray-900 p-6 rounded-2xl shadow-sm hover:shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 group hover:-translate-y-1">
-          <div className="text-teal-500 dark:text-teal-400 mb-4 flex justify-center">
-            <div className="p-4 rounded-2xl bg-teal-50 dark:bg-teal-900/30 group-hover:bg-teal-100 dark:group-hover:bg-teal-900/40 transition-all">
-              <FaShoppingBag className="text-3xl" />
+      <motion.div
+        variants={containerVariants}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+      >
+        {stats.map((stat, index) => (
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            custom={index}
+            whileHover={{
+              y: -5,
+              boxShadow:
+                "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+            }}
+            className={`bg-gradient-to-br from-white/80 to-gray-50 dark:from-gray-800/90 dark:to-gray-900 p-6 rounded-2xl shadow-sm hover:shadow-md dark:hover:shadow-gray-800/50 border border-gray-100 dark:border-gray-700 transition-all duration-300`}
+          >
+            <div
+              className={`text-${stat.color}-500 dark:text-${stat.color}-400 mb-4 flex justify-center`}
+            >
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className={`p-4 rounded-2xl bg-${stat.color}-50 dark:bg-${stat.color}-900/30 hover:bg-${stat.color}-100 dark:hover:bg-${stat.color}-900/40 transition-all`}
+              >
+                <stat.icon className="text-3xl" />
+              </motion.div>
             </div>
-          </div>
-          <div className="text-center">
-            <p className="text-5xl font-bold mb-2 text-gray-800 dark:text-white">
-              10,000+
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 text-lg font-medium">
-              Registered Orders
-            </p>
-          </div>
-        </div>
-
-        {/* Orders Delivered */}
-        <div className="bg-gradient-to-br from-white/80 to-gray-50 dark:from-gray-800/90 dark:to-gray-900 p-6 rounded-2xl shadow-sm hover:shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 group hover:-translate-y-1">
-          <div className="text-blue-500 dark:text-blue-400 mb-4 flex justify-center">
-            <div className="p-4 rounded-2xl bg-blue-50 dark:bg-blue-900/30 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/40 transition-all">
-              <FaCheckCircle className="text-3xl" />
+            <div className="text-center">
+              <p className="text-5xl font-bold mb-2 text-gray-800 dark:text-white">
+                {stat.value}
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 text-lg font-medium">
+                {stat.label}
+              </p>
             </div>
-          </div>
-          <div className="text-center">
-            <p className="text-5xl font-bold mb-2 text-gray-800 dark:text-white">
-              8,500+
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 text-lg font-medium">
-              Orders Delivered
-            </p>
-          </div>
-        </div>
-
-        {/* Restaurant Partners */}
-        <div className="bg-gradient-to-br from-white/80 to-gray-50 dark:from-gray-800/90 dark:to-gray-900 p-6 rounded-2xl shadow-sm hover:shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 group hover:-translate-y-1">
-          <div className="text-amber-500 dark:text-amber-400 mb-4 flex justify-center">
-            <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-900/30 group-hover:bg-amber-100 dark:group-hover:bg-amber-900/40 transition-all">
-              <FaUtensils className="text-3xl" />
-            </div>
-          </div>
-          <div className="text-center">
-            <p className="text-5xl font-bold mb-2 text-gray-800 dark:text-white">
-              500+
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 text-lg font-medium">
-              Restaurant Partners
-            </p>
-          </div>
-        </div>
-
-        {/* Food Items */}
-        <div className="bg-gradient-to-br from-white/80 to-gray-50 dark:from-gray-800/90 dark:to-gray-900 p-6 rounded-2xl shadow-sm hover:shadow-md border border-gray-100 dark:border-gray-700 transition-all duration-300 group hover:-translate-y-1">
-          <div className="text-purple-500 dark:text-purple-400 mb-4 flex justify-center">
-            <div className="p-4 rounded-2xl bg-purple-50 dark:bg-purple-900/30 group-hover:bg-purple-100 dark:group-hover:bg-purple-900/40 transition-all">
-              <FaHamburger className="text-3xl" />
-            </div>
-          </div>
-          <div className="text-center">
-            <p className="text-5xl font-bold mb-2 text-gray-800 dark:text-white">
-              5,000+
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 text-lg font-medium">
-              Food Items
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.section>
   )
 }
 

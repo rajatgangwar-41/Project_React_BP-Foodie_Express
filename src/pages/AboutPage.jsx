@@ -1,40 +1,30 @@
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import {
+  AboutSection,
+  CTASection,
   HeroSection,
-  QuickHelpSection,
-  PoliciesSection,
-  FaqSection,
-} from "../components/help"
+  MileStonesSection,
+  TeamSection,
+  ValuesSection,
+} from "../components/about"
 
-// Animation variants (unchanged as they're mode-agnostic)
+// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.2,
     },
   },
 }
 
 const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 50, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-}
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
     transition: {
       duration: 0.6,
       ease: "easeOut",
@@ -42,7 +32,19 @@ const fadeInUp = {
   },
 }
 
-const HelpPage = () => {
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+}
+
+const AboutPage = () => {
   const { pathname } = useLocation()
 
   useEffect(() => {
@@ -53,35 +55,44 @@ const HelpPage = () => {
   }, [pathname])
 
   return (
-    <div className="bg-white dark:bg-gray-900">
+    <div className="bg-white dark:bg-gray-900 transition-colors duration-300">
       {/* Hero Section */}
       <HeroSection />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        {/* Quick Help Section */}
-        <QuickHelpSection
+        {/* Our Story Section */}
+        <AboutSection
+          containerVariants={containerVariants}
+          itemVariants={itemVariants}
+        />
+
+        {/* Mission & Values */}
+        <ValuesSection
           containerVariants={containerVariants}
           itemVariants={itemVariants}
           fadeInUp={fadeInUp}
         />
 
-        {/* Policy Cards Grid */}
-        <PoliciesSection
+        {/* Team Section */}
+        <TeamSection
           containerVariants={containerVariants}
           itemVariants={itemVariants}
           fadeInUp={fadeInUp}
         />
 
-        {/* FAQ Section */}
-        <FaqSection
+        {/* Milestones */}
+        <MileStonesSection
           containerVariants={containerVariants}
           itemVariants={itemVariants}
           fadeInUp={fadeInUp}
         />
+
+        {/* CTA Section */}
+        <CTASection containerVariants={containerVariants} fadeInUp={fadeInUp} />
       </div>
     </div>
   )
 }
 
-export default HelpPage
+export default AboutPage

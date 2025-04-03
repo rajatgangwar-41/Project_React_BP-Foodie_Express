@@ -9,143 +9,186 @@ import {
   FiLinkedin,
   FiYoutube,
 } from "react-icons/fi"
+import { motion } from "framer-motion"
 
 const Footer = () => {
+  const socialLinks = [
+    { icon: <FiFacebook />, name: "Facebook", color: "hover:bg-blue-600" },
+    { icon: <FiTwitter />, name: "Twitter", color: "hover:bg-blue-400" },
+    { icon: <FiInstagram />, name: "Instagram", color: "hover:bg-pink-600" },
+    { icon: <FiLinkedin />, name: "LinkedIn", color: "hover:bg-blue-700" },
+    { icon: <FiYoutube />, name: "YouTube", color: "hover:bg-red-600" },
+  ]
+
+  const quickLinks = [
+    ["About Us", "Our Services", "Testimonials", "Careers"],
+    ["FAQs", "Blog", "Partners", "News"],
+  ]
+
+  const legalLinks = [
+    "Privacy Policy",
+    "Terms of Service",
+    "Cookie Policy",
+    "GDPR",
+    "Sitemap",
+  ]
+
   return (
-    <footer className="w-full bg-gray-900 text-gray-300 relative overflow-hidden">
+    <footer className="w-full bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 relative overflow-hidden">
+      {/* Top Separator Line */}
+      <div className="border-t border-gray-200 dark:border-gray-700 w-full"></div>
+
       {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-10 w-32 h-32 rounded-full bg-orange-500 filter blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-20 w-40 h-40 rounded-full bg-teal-500 filter blur-3xl"></div>
+      <div className="absolute inset-0 opacity-10 dark:opacity-5">
+        <motion.div
+          animate={{
+            x: [0, 10, 0],
+            y: [0, 10, 0],
+            transition: { duration: 15, repeat: Infinity },
+          }}
+          className="absolute top-1/4 left-10 w-32 h-32 rounded-full bg-orange-400 dark:bg-orange-500 filter blur-3xl"
+        ></motion.div>
+        <motion.div
+          animate={{
+            x: [0, -10, 0],
+            y: [0, -10, 0],
+            transition: { duration: 20, repeat: Infinity },
+          }}
+          className="absolute bottom-1/3 right-20 w-40 h-40 rounded-full bg-teal-400 dark:bg-teal-500 filter blur-3xl"
+        ></motion.div>
       </div>
 
       <div className="container max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12"
+        >
           {/* Brand Column */}
           <div className="space-y-6">
-            <div className="flex items-center">
-              <span className="text-3xl font-bold text-orange-500">Foodie</span>
-              <span className="text-3xl font-bold text-white">Express</span>
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center"
+            >
+              <span className="text-3xl font-bold text-orange-500 dark:text-orange-400">
+                Foodie
+              </span>
+              <span className="text-3xl font-bold text-gray-800 dark:text-white">
+                Express
+              </span>
+            </motion.div>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
               Delivering culinary excellence to your doorstep since 2015. Our
               mission is to connect food lovers with the best local restaurants.
             </p>
 
             {/* App Downloads */}
             <div className="mt-6">
-              <h4 className="text-white/90 font-medium mb-4 text-lg">
+              <h4 className="text-gray-800 dark:text-white/90 font-medium mb-4 text-lg">
                 Download our app
               </h4>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="#"
-                  className="transition-transform hover:scale-[1.02] active:scale-95"
-                >
-                  <img
-                    alt="App Store"
-                    className="h-12"
-                    src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
-                  />
-                </a>
-                <a
-                  href="#"
-                  className="transition-transform hover:scale-[1.02] active:scale-95"
-                >
-                  <img
-                    alt="Google Play"
-                    className="h-12"
-                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                  />
-                </a>
+                {["App Store", "Google Play"].map((store, index) => (
+                  <motion.a
+                    key={store}
+                    href="#"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
+                    <img
+                      alt={store}
+                      className="h-12"
+                      src={`https://upload.wikimedia.org/wikipedia/commons/${
+                        index === 0
+                          ? "3/3c/Download_on_the_App_Store_Badge.svg"
+                          : "7/78/Google_Play_Store_badge_EN.svg"
+                      }`}
+                      loading="lazy"
+                    />
+                  </motion.a>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Contact Column */}
           <div className="space-y-6">
-            <h3 className="text-white text-lg font-semibold tracking-wide">
+            <h3 className="text-gray-800 dark:text-white text-lg font-semibold tracking-wide">
               Contact Us
             </h3>
             <div className="space-y-4">
-              <div className="flex items-start gap-3 group">
-                <div className="p-2 bg-gray-800 rounded-lg group-hover:bg-orange-500 transition-colors">
-                  <FiMapPin className="text-orange-500 group-hover:text-white transition-colors" />
-                </div>
-                <p className="text-gray-400 text-sm mt-1">
-                  123 Foodie Street, Culinary District
-                  <br />
-                  New York, NY 10001, USA
-                </p>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="p-2 bg-gray-800 rounded-lg group-hover:bg-orange-500 transition-colors">
-                  <FiPhone className="text-orange-500 group-hover:text-white transition-colors" />
-                </div>
-                <p className="text-gray-400 text-sm">+1 (555) 123-4567</p>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="p-2 bg-gray-800 rounded-lg group-hover:bg-orange-500 transition-colors">
-                  <FiMail className="text-orange-500 group-hover:text-white transition-colors" />
-                </div>
-                <p className="text-gray-400 text-sm">
-                  support@foodieexpress.com
-                </p>
-              </div>
-              <div className="flex items-center gap-3 group">
-                <div className="p-2 bg-gray-800 rounded-lg group-hover:bg-orange-500 transition-colors">
-                  <FiClock className="text-orange-500 group-hover:text-white transition-colors" />
-                </div>
-                <p className="text-gray-400 text-sm">24/7 Customer Support</p>
-              </div>
+              {[
+                {
+                  icon: <FiMapPin />,
+                  content:
+                    "123 Foodie Street, Culinary District\nNew York, NY 10001, USA",
+                },
+                {
+                  icon: <FiPhone />,
+                  content: "+1 (555) 123-4567",
+                },
+                {
+                  icon: <FiMail />,
+                  content: "support@foodieexpress.com",
+                },
+                {
+                  icon: <FiClock />,
+                  content: "24/7 Customer Support",
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ x: 5 }}
+                  className="flex items-start gap-3 group"
+                >
+                  <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg group-hover:bg-orange-500 transition-colors">
+                    <div className="text-orange-500 dark:text-orange-400 group-hover:text-white transition-colors">
+                      {item.icon}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-1 whitespace-pre-line">
+                    {item.content}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </div>
 
           {/* Links Column */}
           <div className="space-y-6">
-            <h3 className="text-white text-lg font-semibold tracking-wide">
+            <h3 className="text-gray-800 dark:text-white text-lg font-semibold tracking-wide">
               Quick Links
             </h3>
             <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-3">
-                {["About Us", "Our Services", "Testimonials", "Careers"].map(
-                  (item) => (
-                    <a
+              {quickLinks.map((column, colIndex) => (
+                <div key={colIndex} className="space-y-3">
+                  {column.map((item) => (
+                    <motion.a
                       key={item}
                       href="#"
-                      className="text-gray-400 hover:text-orange-500 transition-colors text-sm block group"
+                      whileHover={{ x: 5 }}
+                      className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors text-sm block group"
                     >
                       <span className="group-hover:pl-2 transition-all duration-300 flex items-center">
-                        <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 mr-2 transition-opacity"></span>
+                        <span className="w-1 h-1 bg-orange-500 dark:bg-orange-400 rounded-full opacity-0 group-hover:opacity-100 mr-2 transition-opacity"></span>
                         {item}
                       </span>
-                    </a>
-                  )
-                )}
-              </div>
-              <div className="space-y-3">
-                {["FAQs", "Blog", "Partners", "News"].map((item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="text-gray-400 hover:text-orange-500 transition-colors text-sm block group"
-                  >
-                    <span className="group-hover:pl-2 transition-all duration-300 flex items-center">
-                      <span className="w-1 h-1 bg-orange-500 rounded-full opacity-0 group-hover:opacity-100 mr-2 transition-opacity"></span>
-                      {item}
-                    </span>
-                  </a>
-                ))}
-              </div>
+                    </motion.a>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Newsletter Column */}
           <div className="space-y-6">
-            <h3 className="text-white text-lg font-semibold tracking-wide">
+            <h3 className="text-gray-800 dark:text-white text-lg font-semibold tracking-wide">
               Stay Updated
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
               Subscribe to our newsletter for the latest updates, offers, and
               culinary tips.
             </p>
@@ -153,14 +196,16 @@ const Footer = () => {
               <div className="relative">
                 <input
                   placeholder="Your email address"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                  className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
                   required
                   type="email"
                 />
               </div>
-              <button
+              <motion.button
                 type="submit"
-                className="w-full bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-orange-500/30 flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-orange-500 to-amber-500 dark:from-orange-600 dark:to-amber-600 hover:from-orange-600 hover:to-amber-600 dark:hover:from-orange-500 dark:hover:to-amber-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-orange-500/30 dark:hover:shadow-orange-400/30 flex items-center justify-center gap-2"
               >
                 Subscribe Now
                 <svg
@@ -177,85 +222,60 @@ const Footer = () => {
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-              </button>
+              </motion.button>
             </form>
 
             {/* Social Media */}
             <div className="pt-4">
-              <h4 className="text-white font-medium mb-4">Follow Us</h4>
+              <h4 className="text-gray-800 dark:text-white font-medium mb-4">
+                Follow Us
+              </h4>
               <div className="flex gap-3">
-                {[
-                  {
-                    icon: <FiFacebook />,
-                    color: "hover:bg-blue-600 hover:text-white",
-                    name: "Facebook",
-                  },
-                  {
-                    icon: <FiTwitter />,
-                    color: "hover:bg-blue-400 hover:text-white",
-                    name: "Twitter",
-                  },
-                  {
-                    icon: <FiInstagram />,
-                    color: "hover:bg-pink-600 hover:text-white",
-                    name: "Instagram",
-                  },
-                  {
-                    icon: <FiLinkedin />,
-                    color: "hover:bg-blue-700 hover:text-white",
-                    name: "LinkedIn",
-                  },
-                  {
-                    icon: <FiYoutube />,
-                    color: "hover:bg-red-600 hover:text-white",
-                    name: "YouTube",
-                  },
-                ].map((social) => (
-                  <a
+                {socialLinks.map((social) => (
+                  <motion.a
                     key={social.name}
                     href="#"
-                    className={`text-gray-400 transition-all duration-300 text-lg bg-gray-800 p-2 rounded-lg w-10 h-10 flex items-center justify-center ${social.color}`}
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`text-gray-600 dark:text-gray-400 transition-all duration-300 text-lg bg-gray-100 dark:bg-gray-800 p-2 rounded-lg w-10 h-10 flex items-center justify-center ${social.color} hover:text-white`}
                     aria-label={social.name}
                   >
                     {social.icon}
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-800 relative">
+      <div className="border-t border-gray-200 dark:border-gray-700 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
-              {[
-                "Privacy Policy",
-                "Terms of Service",
-                "Cookie Policy",
-                "GDPR",
-                "Sitemap",
-              ].map((item) => (
-                <a
+              {legalLinks.map((item) => (
+                <motion.a
                   key={item}
                   href="#"
-                  className="text-gray-400 hover:text-orange-500 transition-colors text-xs sm:text-sm"
+                  whileHover={{ scale: 1.05 }}
+                  className="text-gray-500 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors text-xs sm:text-sm"
                 >
                   {item}
-                </a>
+                </motion.a>
               ))}
             </div>
             <div className="text-center md:text-right">
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-500 dark:text-gray-400 text-sm">
                 © {new Date().getFullYear()} FoodieExpress. All rights reserved.
               </p>
-              <p className="text-gray-500 text-sm mt-1">
-                Crafted with <span className="text-orange-500">♥</span> by{" "}
+              <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                Crafted with{" "}
+                <span className="text-orange-500 dark:text-orange-400">♥</span>{" "}
+                by{" "}
                 <a
                   href="#"
-                  className="text-orange-400 hover:text-orange-300 transition-colors"
+                  className="text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors"
                 >
                   Rajat Gangwar
                 </a>

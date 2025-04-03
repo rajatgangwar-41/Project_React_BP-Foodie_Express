@@ -1,0 +1,88 @@
+import { motion } from "motion/react"
+import { FaQuestionCircle } from "react-icons/fa"
+
+const FaqSection = ({ containerVariants, itemVariants, fadeInUp }) => {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+      className="mb-8"
+      id="faq"
+    >
+      <motion.h2
+        variants={fadeInUp}
+        className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center"
+      >
+        Frequently{" "}
+        <span className="text-orange-500 dark:text-orange-400">
+          Asked Questions
+        </span>
+      </motion.h2>
+      <motion.div
+        variants={fadeInUp}
+        className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-md dark:shadow-gray-900/50 overflow-hidden border border-gray-100 dark:border-gray-700"
+      >
+        <div className="bg-gradient-to-r from-orange-500 to-amber-500 dark:from-orange-600 dark:to-amber-600 p-4 sm:p-6">
+          <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center">
+            <FaQuestionCircle className="mr-3" />
+            Common Questions
+          </h3>
+        </div>
+        <motion.div
+          variants={containerVariants}
+          className="divide-y divide-gray-100 dark:divide-gray-700"
+        >
+          {[
+            {
+              question: "How do I make a reservation?",
+              answer:
+                "You can make reservations through our website, mobile app, or by calling our restaurant directly.",
+            },
+            {
+              question: "What are your delivery hours?",
+              answer:
+                "We deliver from 11:00 AM to 10:00 PM daily, with extended hours until 11:00 PM on weekends.",
+            },
+            {
+              question: "Do you offer gluten-free options?",
+              answer:
+                "Yes, we have a dedicated gluten-free menu. Please inform your server about any dietary restrictions.",
+            },
+            {
+              question: "How can I modify or cancel my order?",
+              answer:
+                "Orders can be modified or canceled within 15 minutes of placement through your account or by calling us.",
+            },
+            {
+              question: "What payment methods do you accept?",
+              answer:
+                "We accept all major credit cards, Apple Pay, Google Pay, and cash for in-person orders.",
+            },
+          ].map((item, index) => (
+            <motion.details
+              key={index}
+              variants={itemVariants}
+              className="group p-4 sm:p-6 hover:bg-orange-50 dark:hover:bg-gray-700 transition-colors duration-200"
+            >
+              <summary className="flex justify-between items-center cursor-pointer list-none">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 group-hover:text-orange-600 dark:group-hover:text-orange-400">
+                  {item.question}
+                </h3>
+                <span className="text-orange-500 dark:text-orange-400 text-sm group-open:rotate-180 transition-transform duration-200">
+                  ▼
+                </span>
+              </summary>
+              <p className="text-gray-600 dark:text-gray-300 mt-3 text-sm sm:text-base">
+                {item.answer}
+              </p>
+            </motion.details>
+          ))}
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+export default FaqSection

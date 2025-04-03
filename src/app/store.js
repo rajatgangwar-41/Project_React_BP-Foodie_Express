@@ -1,10 +1,10 @@
-// import { configureStore } from "@reduxjs/toolkit"
-// // import foodReducer from "../features/food/foodSlice"
-// // import cartReducer from "../features/cart/cartSlice"
+import { configureStore } from "@reduxjs/toolkit"
+import themeReducer from "../features/themeSlice"
 
-// export const store = configureStore({
-//   reducer: {
-//     // food: foodReducer,
-//     // cart: cartReducer,
-//   },
-// })
+const store = configureStore({
+  reducer: {
+    theme: themeReducer,
+  },
+})
+
+export default store
