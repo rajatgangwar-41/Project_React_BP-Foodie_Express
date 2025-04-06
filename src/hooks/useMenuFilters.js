@@ -7,7 +7,7 @@ export const useMenuFilters = (foodItems) => {
     currentPage,
     windowWidth,
     isMobileFiltersOpen,
-    openFilterSections,
+    filtersSection,
   } = useSelector((state) => state.menu, shallowEqual)
 
   const filteredItems = useMemo(() => {
@@ -109,6 +109,6 @@ export const useMenuFilters = (foodItems) => {
     windowWidth,
     isMobileFiltersOpen,
     currentPage,
-    openFilterSections,
+    filtersSection,
   }
 }

@@ -1,4 +1,5 @@
 import { motion } from "motion/react"
+import { milestones } from "../../constants"
 
 const MileStonesSection = ({ containerVariants, itemVariants, fadeInUp }) => {
   return (
@@ -21,34 +22,7 @@ const MileStonesSection = ({ containerVariants, itemVariants, fadeInUp }) => {
         <div className="hidden lg:block absolute left-1/2 h-full w-1 bg-orange-100 dark:bg-orange-900/50 transform -translate-x-1/2"></div>
 
         <div className="space-y-12 lg:space-y-0">
-          {[
-            {
-              year: "2015",
-              title: "Founded in San Francisco",
-              description:
-                "Started as a single restaurant with delivery service",
-            },
-            {
-              year: "2017",
-              title: "First Expansion",
-              description: "Added 10 new restaurant partners in the Bay Area",
-            },
-            {
-              year: "2019",
-              title: "Mobile App Launch",
-              description: "Released our award-winning ordering platform",
-            },
-            {
-              year: "2021",
-              title: "West Coast Coverage",
-              description: "Expanded to serve all major California cities",
-            },
-            {
-              year: "2023",
-              title: "National Recognition",
-              description: "Named 'Best Food Delivery Service' by Food & Wine",
-            },
-          ].map((milestone, index) => (
+          {milestones.map((milestone, index) => (
             <motion.div
               key={index}
               variants={itemVariants}

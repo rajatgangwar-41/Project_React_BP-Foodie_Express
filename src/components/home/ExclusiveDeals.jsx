@@ -1,87 +1,17 @@
 import { FaChevronLeft, FaChevronRight, FaTag, FaStar } from "react-icons/fa"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useRef, useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { openFilterSection, setFilters } from "../../features/menuSlice"
+import { useDispatch } from "react-redux"
+import { exclusiveDeals } from "../../constants"
 
 const ExclusiveDeals = ({ containerVariants, itemVariants }) => {
   const scrollContainerRef = useRef(null)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(false)
-
-  const restaurants = [
-    {
-      id: 1,
-      name: "The Golden Fork",
-      originalPrice: 1200,
-      discountPercentage: 40,
-      discountedPrice: 720,
-      rating: 4.7,
-      cuisine: "Fine Dining",
-      deliveryTime: "25-35 min",
-      image:
-        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
-    },
-    {
-      id: 2,
-      name: "Bella Napoli Pizzeria",
-      originalPrice: 900,
-      discountPercentage: 35,
-      discountedPrice: 585,
-      rating: 4.5,
-      cuisine: "Italian",
-      deliveryTime: "20-30 min",
-      image:
-        "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      id: 3,
-      name: "Sakura Sushi Bar",
-      originalPrice: 1500,
-      discountPercentage: 25,
-      discountedPrice: 1125,
-      rating: 4.9,
-      cuisine: "Japanese",
-      deliveryTime: "30-40 min",
-      image:
-        "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-      id: 4,
-      name: "Le Petit Bistro",
-      originalPrice: 1100,
-      discountPercentage: 30,
-      discountedPrice: 770,
-      rating: 4.3,
-      cuisine: "French",
-      deliveryTime: "25-35 min",
-      image:
-        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-      id: 5,
-      name: "Burger Junction",
-      originalPrice: 800,
-      discountPercentage: 20,
-      discountedPrice: 640,
-      rating: 4.2,
-      cuisine: "American",
-      deliveryTime: "15-25 min",
-      image:
-        "https://plus.unsplash.com/premium_photo-1661433201283-fcb240e88ad4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
-    },
-    {
-      id: 6,
-      name: "Tandoori Nights",
-      originalPrice: 950,
-      discountPercentage: 15,
-      discountedPrice: 807.5,
-      rating: 4.6,
-      cuisine: "Indian",
-      deliveryTime: "20-30 min",
-      image:
-        "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
-    },
-  ]
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const checkScrollPosition = () => {
     if (scrollContainerRef.current) {
@@ -108,6 +38,17 @@ const ExclusiveDeals = ({ containerVariants, itemVariants }) => {
         behavior: "smooth",
       })
     }
+  }
+
+  const handleViewAll = () => {
+    dispatch(openFilterSection("restaurant"))
+    navigate("/menu")
+  }
+
+  const handleOrderButton = (restaurantName) => {
+    dispatch(openFilterSection("restaurant"))
+    dispatch(setFilters({ filterType: "restaurant", value: restaurantName }))
+    navigate("/menu")
   }
 
   useEffect(() => {
@@ -143,12 +84,12 @@ const ExclusiveDeals = ({ containerVariants, itemVariants }) => {
           </h2>
           <FaTag className="text-black dark:text-white text-2xl sm:text-3xl ml-3 mt-1" />
         </div>
-        <Link
-          to="/categories"
+        <button
+          onClick={handleViewAll}
           className="px-6 py-2 sm:px-8 sm:py-3 bg-black dark:bg-gray-800 text-white text-base sm:text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg dark:hover:bg-gray-700"
         >
           View All
-        </Link>
+        </button>
       </motion.div>
 
       <motion.div variants={itemVariants} className="relative">
@@ -168,7 +109,7 @@ const ExclusiveDeals = ({ containerVariants, itemVariants }) => {
           ref={scrollContainerRef}
           className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide scroll-smooth"
         >
-          {restaurants.map((restaurant) => (
+          {exclusiveDeals.map((restaurant) => (
             <motion.div
               key={restaurant.id}
               variants={itemVariants}
@@ -218,12 +159,12 @@ const ExclusiveDeals = ({ containerVariants, itemVariants }) => {
                       ₹{restaurant.discountedPrice}
                     </span>
                   </div>
-                  <Link
-                    to={`/restaurant/${restaurant.id}`}
+                  <button
+                    onClick={() => handleOrderButton(restaurant.name)}
                     className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-full transition-colors duration-300 text-sm"
                   >
                     Order Now
-                  </Link>
+                  </button>
                 </div>
               </div>
             </motion.div>

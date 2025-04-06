@@ -1,6 +1,6 @@
 import React from "react"
 import { motion } from "motion/react"
-import { menuHeroSection } from "../../assets/menu"
+import { menuHeroSection } from "../../assets"
 
 const HeroSection = () => {
   return (

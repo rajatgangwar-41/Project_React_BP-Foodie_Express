@@ -5,6 +5,7 @@ import {
   FaQuestionCircle,
   FaShieldAlt,
 } from "react-icons/fa"
+import { helpTopics } from "../../constants"
 
 const QuickHelpSection = ({ containerVariants, itemVariants, fadeInUp }) => {
   return (
@@ -28,28 +29,7 @@ const QuickHelpSection = ({ containerVariants, itemVariants, fadeInUp }) => {
         variants={containerVariants}
         className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6"
       >
-        {[
-          {
-            icon: <FaQuestionCircle className="text-xl sm:text-2xl" />,
-            title: "Getting Started",
-            link: "##",
-          },
-          {
-            icon: <FaFileAlt className="text-xl sm:text-2xl" />,
-            title: "Orders",
-            link: "#",
-          },
-          {
-            icon: <FaShieldAlt className="text-xl sm:text-2xl" />,
-            title: "Account",
-            link: "#",
-          },
-          {
-            icon: <FaCookieBite className="text-xl sm:text-2xl" />,
-            title: "Payments",
-            link: "#",
-          },
-        ].map((item, index) => (
+        {helpTopics.map((item, index) => (
           <motion.a
             key={index}
             variants={itemVariants}
@@ -58,7 +38,7 @@ const QuickHelpSection = ({ containerVariants, itemVariants, fadeInUp }) => {
             className="bg-orange-50 dark:bg-gray-800 hover:bg-orange-100 dark:hover:bg-gray-700 rounded-lg sm:rounded-xl p-4 sm:p-6 flex flex-col items-center text-center transition-all duration-300 border border-orange-100 dark:border-gray-700 shadow-sm hover:shadow-md dark:shadow-gray-900/50 dark:hover:shadow-gray-900"
           >
             <div className="bg-orange-100 dark:bg-orange-900/30 p-3 sm:p-4 rounded-full mb-3 sm:mb-4 text-orange-600 dark:text-orange-400">
-              {item.icon}
+              {<item.icon className="text-xl sm:text-2xl" />}
             </div>
             <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-900 dark:text-gray-100">
               {item.title}

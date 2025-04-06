@@ -1,5 +1,6 @@
 import { motion } from "motion/react"
 import { FaQuestionCircle } from "react-icons/fa"
+import { faqs } from "../../constants"
 
 const FaqSection = ({ containerVariants, itemVariants, fadeInUp }) => {
   return (
@@ -34,33 +35,7 @@ const FaqSection = ({ containerVariants, itemVariants, fadeInUp }) => {
           variants={containerVariants}
           className="divide-y divide-gray-100 dark:divide-gray-700"
         >
-          {[
-            {
-              question: "How do I make a reservation?",
-              answer:
-                "You can make reservations through our website, mobile app, or by calling our restaurant directly.",
-            },
-            {
-              question: "What are your delivery hours?",
-              answer:
-                "We deliver from 11:00 AM to 10:00 PM daily, with extended hours until 11:00 PM on weekends.",
-            },
-            {
-              question: "Do you offer gluten-free options?",
-              answer:
-                "Yes, we have a dedicated gluten-free menu. Please inform your server about any dietary restrictions.",
-            },
-            {
-              question: "How can I modify or cancel my order?",
-              answer:
-                "Orders can be modified or canceled within 15 minutes of placement through your account or by calling us.",
-            },
-            {
-              question: "What payment methods do you accept?",
-              answer:
-                "We accept all major credit cards, Apple Pay, Google Pay, and cash for in-person orders.",
-            },
-          ].map((item, index) => (
+          {faqs.map((item, index) => (
             <motion.details
               key={index}
               variants={itemVariants}

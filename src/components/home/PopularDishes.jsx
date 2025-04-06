@@ -1,75 +1,17 @@
 import { useEffect, useRef, useState } from "react"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
+import { popularDishes } from "../../constants"
+import { openFilterSection, setFilters } from "../../features/menuSlice"
+import { useDispatch } from "react-redux"
 
 const PopularDishes = ({ containerVariants, itemVariants }) => {
   const scrollContainerRef = useRef(null)
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(false)
-
-  const categories = [
-    {
-      name: "Soup",
-      path: "/category/soup",
-      image:
-        "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    },
-    {
-      name: "Bread",
-      path: "/category/bread",
-      image:
-        "https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    },
-    {
-      name: "Steak",
-      path: "/category/steak",
-      image:
-        "https://images.unsplash.com/photo-1432139509613-5c4255815697?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    },
-    {
-      name: "Pasta",
-      path: "/category/pasta",
-      image:
-        "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    },
-    {
-      name: "Dessert",
-      path: "/category/dessert",
-      image:
-        "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    },
-    {
-      name: "Drinks",
-      path: "/category/drinks",
-      image:
-        "https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    },
-    {
-      name: "Burgers",
-      path: "/category/burgers",
-      image:
-        "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    },
-    {
-      name: "Pizza",
-      path: "/category/pizza",
-      image:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    },
-    {
-      name: "Sushi",
-      path: "/category/sushi",
-      image:
-        "https://images.unsplash.com/photo-1583623025817-d180a2221d0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    },
-    {
-      name: "Salads",
-      path: "/category/salads",
-      image:
-        "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80",
-    },
-  ]
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const checkScrollPosition = () => {
     if (scrollContainerRef.current) {
@@ -96,6 +38,17 @@ const PopularDishes = ({ containerVariants, itemVariants }) => {
         behavior: "smooth",
       })
     }
+  }
+
+  const handleViewAll = () => {
+    dispatch(openFilterSection("dish"))
+    navigate("/menu")
+  }
+
+  const handleOrderButton = (dishName) => {
+    dispatch(openFilterSection("dish"))
+    dispatch(setFilters({ filterType: "dish", value: dishName }))
+    navigate("/menu")
   }
 
   useEffect(() => {
@@ -128,12 +81,12 @@ const PopularDishes = ({ containerVariants, itemVariants }) => {
           Popular{" "}
           <span className="text-orange-500 dark:text-orange-400">Dishes</span>
         </h2>
-        <Link
-          to="/categories"
+        <button
+          onClick={handleViewAll}
           className="px-6 sm:px-8 py-2 sm:py-3 bg-black dark:bg-gray-800 text-white text-base sm:text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg dark:hover:bg-gray-700"
         >
           View All
-        </Link>
+        </button>
       </motion.div>
 
       <motion.div variants={itemVariants} className="relative">
@@ -153,28 +106,28 @@ const PopularDishes = ({ containerVariants, itemVariants }) => {
           ref={scrollContainerRef}
           className="flex gap-6 overflow-x-auto pb-8 scrollbar-hide scroll-smooth"
         >
-          {categories.map((category, index) => (
+          {popularDishes.map((dish, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               whileHover={{ y: -5 }}
               className="flex-shrink-0 w-64 sm:w-72 md:w-80 h-36 sm:h-40 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 snap-start"
             >
-              <Link
-                to={category.path}
+              <div
+                onClick={() => handleOrderButton(dish.name)}
                 className="w-full h-full flex items-center px-6 sm:px-8 border-2 border-gray-100 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-500 bg-white dark:bg-gray-800 rounded-2xl overflow-hidden"
               >
                 <motion.div className="relative" whileHover={{ scale: 1.05 }}>
                   <img
-                    alt={category.name}
+                    alt={dish.name}
                     className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-2 border-orange-100 dark:border-gray-600"
-                    src={category.image}
+                    src={dish.image}
                     loading="lazy"
                   />
                 </motion.div>
                 <div className="flex-grow text-center px-3 sm:px-4">
                   <span className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-gray-100">
-                    {category.name}
+                    {dish.name}
                   </span>
                 </div>
                 <motion.span
@@ -183,7 +136,7 @@ const PopularDishes = ({ containerVariants, itemVariants }) => {
                 >
                   →
                 </motion.span>
-              </Link>
+              </div>
             </motion.div>
           ))}
         </div>

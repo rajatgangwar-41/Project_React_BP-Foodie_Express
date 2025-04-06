@@ -55,7 +55,7 @@ const MenuPage = () => {
     windowWidth,
     isMobileFiltersOpen,
     currentPage,
-    openFilterSections,
+    filtersSection,
   } = useMenuFilters(foodItems)
 
   const itemsPerPage = 8
@@ -94,7 +94,7 @@ const MenuPage = () => {
           <FilterSection
             filters={filters}
             isMobileFiltersOpen={isMobileFiltersOpen}
-            openFilterSections={openFilterSections}
+            filtersSection={filtersSection}
             windowWidth={windowWidth}
           />
 

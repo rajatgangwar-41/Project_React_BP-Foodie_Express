@@ -1,4 +1,5 @@
 import { motion } from "motion/react"
+import { team } from "../../constants"
 
 const TeamSection = ({ containerVariants, itemVariants, fadeInUp }) => {
   return (
@@ -19,32 +20,7 @@ const TeamSection = ({ containerVariants, itemVariants, fadeInUp }) => {
         </span>
       </motion.h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {[
-          {
-            name: "Marco Rodriguez",
-            role: "Founder & CEO",
-            bio: "Former Michelin-star chef turned entrepreneur",
-            img: "https://randomuser.me/api/portraits/men/32.jpg",
-          },
-          {
-            name: "Sarah Chen",
-            role: "Head of Operations",
-            bio: "Supply chain expert with 15 years experience",
-            img: "https://randomuser.me/api/portraits/women/44.jpg",
-          },
-          {
-            name: "James Wilson",
-            role: "Technology Director",
-            bio: "Built our award-winning delivery platform",
-            img: "https://randomuser.me/api/portraits/men/75.jpg",
-          },
-          {
-            name: "Elena Petrov",
-            role: "Culinary Director",
-            bio: "Curates our restaurant partnerships",
-            img: "https://randomuser.me/api/portraits/women/68.jpg",
-          },
-        ].map((person, index) => (
+        {team.map((person, index) => (
           <motion.div
             key={index}
             variants={itemVariants}

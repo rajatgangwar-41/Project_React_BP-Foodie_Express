@@ -11,7 +11,8 @@ const foodApi = createApi({
       query: () => "/foodItems",
       transformResponse: (response) => {
         // Optional: transform the response data
-        return response.reverse() // Newest items first
+        // return response.reverse() // Newest items first
+        return response // Newest items first
       },
       // Optional: providesTags if you'll add caching later
       providesTags: ["FoodItems"],

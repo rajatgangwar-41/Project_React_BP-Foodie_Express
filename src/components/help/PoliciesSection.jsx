@@ -1,12 +1,5 @@
 import { motion } from "motion/react"
-import {
-  FaCookieBite,
-  FaFileAlt,
-  FaQuestionCircle,
-  FaShieldAlt,
-  FaSitemap,
-  FaUserLock,
-} from "react-icons/fa"
+import { policies } from "../../constants"
 
 const PoliciesSection = ({ containerVariants, itemVariants, fadeInUp }) => {
   return (
@@ -30,50 +23,7 @@ const PoliciesSection = ({ containerVariants, itemVariants, fadeInUp }) => {
         variants={containerVariants}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
       >
-        {[
-          {
-            icon: <FaShieldAlt className="text-lg sm:text-xl" />,
-            title: "Privacy Policy",
-            description:
-              "Learn how we collect, use, and protect your personal information.",
-            link: "#",
-          },
-          {
-            icon: <FaFileAlt className="text-lg sm:text-xl" />,
-            title: "Terms of Service",
-            description:
-              "Understand the terms governing your use of our services and website.",
-            link: "#",
-          },
-          {
-            icon: <FaCookieBite className="text-lg sm:text-xl" />,
-            title: "Cookie Policy",
-            description:
-              "Discover how we use cookies to enhance your browsing experience.",
-            link: "#",
-          },
-          {
-            icon: <FaUserLock className="text-lg sm:text-xl" />,
-            title: "GDPR Compliance",
-            description:
-              "Information about our compliance with EU data protection regulations.",
-            link: "#",
-          },
-          {
-            icon: <FaSitemap className="text-lg sm:text-xl" />,
-            title: "Sitemap",
-            description:
-              "Navigate our website structure and find what you're looking for.",
-            link: "#",
-          },
-          {
-            icon: <FaQuestionCircle className="text-lg sm:text-xl" />,
-            title: "Contact Support",
-            description:
-              "Can't find what you need? Our support team is here to help.",
-            link: "#contact",
-          },
-        ].map((item, index) => (
+        {policies.map((item, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
@@ -83,7 +33,7 @@ const PoliciesSection = ({ containerVariants, itemVariants, fadeInUp }) => {
             <div className="bg-gradient-to-r from-orange-50 to-amber-50 dark:from-gray-700 dark:to-gray-700 p-4 sm:p-6 flex items-center border-b border-gray-100 dark:border-gray-700">
               <div className="bg-white dark:bg-gray-800 p-2 sm:p-3 rounded-full mr-3 sm:mr-4 shadow-sm dark:shadow-gray-900/50">
                 <div className="text-orange-500 dark:text-orange-400">
-                  {item.icon}
+                  {<item.icon className="text-lg sm:text-xl" />}
                 </div>
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100">

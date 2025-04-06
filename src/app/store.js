@@ -1,12 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
-import themeReducer from "../features/themeSlice"
-import menuReducer from "../features/menuSlice"
-import foodApi from "../features/foodApiSlice"
+import { themeReducer, menuReducer, contactReducer, foodApi } from "../features"
 
 const store = configureStore({
   reducer: {
     theme: themeReducer,
     menu: menuReducer,
+    contact: contactReducer,
     [foodApi.reducerPath]: foodApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

@@ -18,13 +18,13 @@ import {
 } from "react-icons/fi"
 import { Range } from "react-range"
 import { BiDish } from "react-icons/bi"
-import { cuisines, dishes, restaurants, tags } from "../../constants/foodItems"
+import { cuisines, dishes, restaurants, tags } from "../../constants"
 import { IoFastFoodOutline, IoRestaurantOutline } from "react-icons/io5"
 
 const FilterSection = ({
   filters,
   isMobileFiltersOpen,
-  openFilterSections,
+  filtersSection,
   windowWidth,
 }) => {
   const dispatch = useDispatch()
@@ -67,10 +67,10 @@ const FilterSection = ({
                   <FaRupeeSign className="h-5 w-5 text-orange-500" />
                   Price range
                 </h3>
-                {openFilterSections.price ? <FiChevronUp /> : <FiChevronDown />}
+                {filtersSection.price ? <FiChevronUp /> : <FiChevronDown />}
               </div>
 
-              {openFilterSections.price && (
+              {filtersSection.price && (
                 <div className="pl-7">
                   <Range
                     step={10}
@@ -122,14 +122,10 @@ const FilterSection = ({
                   <FiHeart className="h-5 w-5 text-pink-500" />
                   Dietary Preferences
                 </h3>
-                {openFilterSections.dietary ? (
-                  <FiChevronUp />
-                ) : (
-                  <FiChevronDown />
-                )}
+                {filtersSection.dietary ? <FiChevronUp /> : <FiChevronDown />}
               </div>
 
-              {openFilterSections.dietary && (
+              {filtersSection.dietary && (
                 <div className="pl-7 space-y-3">
                   {/* Vegetarian Filter */}
                   <div className="flex items-center justify-between">
@@ -243,14 +239,10 @@ const FilterSection = ({
                   <FiStar className="h-5 w-5 text-yellow-500" />
                   Rating
                 </h3>
-                {openFilterSections.rating ? (
-                  <FiChevronUp />
-                ) : (
-                  <FiChevronDown />
-                )}
+                {filtersSection.rating ? <FiChevronUp /> : <FiChevronDown />}
               </div>
 
-              {openFilterSections.rating && (
+              {filtersSection.rating && (
                 <div className="pl-7 space-y-2">
                   {[4, 3, 2].map((rating) => (
                     <div key={rating} className="flex items-center">
@@ -322,14 +314,10 @@ const FilterSection = ({
                   <BiDish className="h-5 w-5 text-green-500" />
                   Cuisine
                 </h3>
-                {openFilterSections.cuisine ? (
-                  <FiChevronUp />
-                ) : (
-                  <FiChevronDown />
-                )}
+                {filtersSection.cuisine ? <FiChevronUp /> : <FiChevronDown />}
               </div>
 
-              {openFilterSections.cuisine && (
+              {filtersSection.cuisine && (
                 <div className="pl-7 space-y-2">
                   {cuisines.map((cuisine) => (
                     <div key={cuisine} className="flex items-center">
@@ -369,10 +357,10 @@ const FilterSection = ({
                   <IoFastFoodOutline className="h-5 w-5 text-green-500" />
                   Dish
                 </h3>
-                {openFilterSections.dish ? <FiChevronUp /> : <FiChevronDown />}
+                {filtersSection.dish ? <FiChevronUp /> : <FiChevronDown />}
               </div>
 
-              {openFilterSections.dish && (
+              {filtersSection.dish && (
                 <div className="pl-7 space-y-2">
                   {dishes.map((type) => (
                     <div key={type} className="flex items-center">
@@ -412,14 +400,14 @@ const FilterSection = ({
                   <IoRestaurantOutline className="h-5 w-5 text-blue-500" />
                   Restaurant
                 </h3>
-                {openFilterSections.restaurant ? (
+                {filtersSection.restaurant ? (
                   <FiChevronUp />
                 ) : (
                   <FiChevronDown />
                 )}
               </div>
 
-              {openFilterSections.restaurant && (
+              {filtersSection.restaurant && (
                 <div className="pl-7 space-y-2">
                   {restaurants.map((restaurant) => (
                     <div key={restaurant} className="flex items-center">
@@ -459,10 +447,10 @@ const FilterSection = ({
                   <MdOutlineLocalOffer className="h-5 w-5 text-purple-500" />
                   Tags
                 </h3>
-                {openFilterSections.tag ? <FiChevronUp /> : <FiChevronDown />}
+                {filtersSection.tag ? <FiChevronUp /> : <FiChevronDown />}
               </div>
 
-              {openFilterSections.tag && (
+              {filtersSection.tag && (
                 <div className="pl-7">
                   <div className="flex flex-wrap gap-2">
                     {tags.map((tag) => (

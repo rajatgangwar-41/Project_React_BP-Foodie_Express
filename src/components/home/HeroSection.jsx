@@ -1,84 +1,21 @@
 import { FaStar, FaCheck, FaLock } from "react-icons/fa"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { useNavigate } from "react-router-dom"
-import { stats } from "../../constants"
+import { Link, useNavigate } from "react-router-dom"
+import { stats, popularFoodItems } from "../../constants"
 
 const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const navigate = useNavigate()
 
-  const foodItems = [
-    {
-      id: 1,
-      title: "Premium Steak",
-      description: "Aged ribeye with roasted vegetables and signature sauce",
-      price: 28.99,
-      image:
-        "https://images.unsplash.com/photo-1588168333986-5078d3ae3976?q=80&w=1000",
-      bgImage:
-        "https://images.unsplash.com/photo-1588168333986-5078d3ae3976?q=80&w=1000",
-    },
-    {
-      id: 2,
-      title: "Gourmet Burger",
-      description: "Wagyu beef patty with truffle aioli and aged cheddar",
-      price: 22.99,
-      image:
-        "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1000",
-      bgImage:
-        "https://images.unsplash.com/photo-1512152272829-e3139592d56f?q=80&w=1000",
-    },
-    {
-      id: 3,
-      title: "Seafood Pasta",
-      description: "Fresh lobster and shrimp in a creamy garlic sauce",
-      price: 26.99,
-      image:
-        "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?q=80&w=1000",
-      bgImage:
-        "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1000",
-    },
-    {
-      id: 4,
-      title: "Truffle Pizza",
-      description: "Wood-fired with wild mushrooms and truffle oil",
-      price: 24.99,
-      image:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1000",
-      bgImage:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1000",
-    },
-    {
-      id: 5,
-      title: "Sushi Platter",
-      description: "Chef's selection of 12 premium nigiri and maki",
-      price: 32.99,
-      image:
-        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1000",
-      bgImage:
-        "https://images.unsplash.com/photo-1432139555190-58524dae6a55?q=80&w=1000",
-    },
-    {
-      id: 6,
-      title: "Chocolate Soufflé",
-      description: "Warm chocolate center with vanilla bean ice cream",
-      price: 14.99,
-      image:
-        "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1000",
-      bgImage:
-        "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1000",
-    },
-  ]
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === foodItems.length - 1 ? 0 : prevIndex + 1
+        prevIndex === popularFoodItems.length - 1 ? 0 : prevIndex + 1
       )
     }, 5000)
     return () => clearInterval(interval)
-  }, [foodItems.length])
+  }, [])
 
   const goToSlide = (index) => {
     setCurrentIndex(index)
@@ -107,7 +44,7 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
               exit={{ opacity: 0 }}
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url('${foodItems[currentIndex].bgImage}')`,
+                backgroundImage: `url('${popularFoodItems[currentIndex].image}')`,
                 backgroundPosition: "center 30%",
                 filter: "brightness(0.7)",
               }}
@@ -289,7 +226,11 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
 
           {/* Right Content - Food Card */}
           <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-end p-4 lg:p-8">
-            <div className="relative w-full max-w-lg">
+            <Link
+              to={`/food-item/${popularFoodItems[currentIndex].id}`}
+              state={popularFoodItems[currentIndex]}
+              className="relative  w-full max-w-lg"
+            >
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
@@ -326,14 +267,14 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
                       }}
                       exit={{ opacity: 0 }}
                       className="w-full h-full object-cover"
-                      src={foodItems[currentIndex].image}
-                      alt={foodItems[currentIndex].title}
+                      src={popularFoodItems[currentIndex].image}
+                      alt={popularFoodItems[currentIndex].name}
                     />
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       className="absolute bottom-4 left-4 bg-gradient-to-r from-orange-500 to-amber-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md flex items-center"
                     >
-                      ${foodItems[currentIndex].price.toFixed(2)}
+                      ${popularFoodItems[currentIndex].price.toFixed(2)}
                     </motion.div>
                   </div>
                   <div className="p-6 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700">
@@ -343,7 +284,7 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
                       transition={{ delay: 0.2 }}
                       className="text-2xl font-bold text-gray-900 dark:text-white mb-3"
                     >
-                      {foodItems[currentIndex].title}
+                      {popularFoodItems[currentIndex].name}
                     </motion.h3>
                     <motion.p
                       initial={{ y: 10 }}
@@ -351,7 +292,7 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
                       transition={{ delay: 0.3 }}
                       className="text-gray-600 dark:text-gray-300 mb-6"
                     >
-                      {foodItems[currentIndex].description}
+                      {popularFoodItems[currentIndex].description}
                     </motion.p>
                     <motion.button
                       whileHover={{ scale: 1.03 }}
@@ -363,14 +304,14 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
                   </div>
                 </motion.div>
               </AnimatePresence>
-            </div>
+            </Link>
           </div>
         </motion.div>
       </div>
 
       {/* Slider Indicators */}
       <div className="absolute bottom-6 lg:bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10 w-full max-w-screen-9xl px-4 justify-center">
-        {foodItems.map((item, index) => (
+        {popularFoodItems.map((item, index) => (
           <motion.button
             key={item.id}
             onClick={() => goToSlide(index)}
@@ -381,7 +322,7 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
                 ? "w-8 bg-gradient-to-r from-orange-400 to-amber-500 shadow-[0_0_8px_rgba(251,146,60,0.6)]"
                 : "w-4 bg-white/60"
             }`}
-            aria-label={`Show ${item.title}`}
+            aria-label={`Show ${item.name}`}
           ></motion.button>
         ))}
       </div>

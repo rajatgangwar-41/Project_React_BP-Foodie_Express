@@ -3,6 +3,15 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { FaLeaf, FaPepperHot, FaPizzaSlice } from "react-icons/fa"
+import { toast } from "react-hot-toast"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import {
+  resetForm,
+  resetStatus,
+  sendContactForm,
+  updateFormField,
+} from "../../features/contactSlice"
 
 // Zod validation schema
 const contactFormSchema = z.object({
@@ -21,9 +30,63 @@ const ContactFormSection = () => {
     resolver: zodResolver(contactFormSchema),
   })
 
+  const dispatch = useDispatch()
+  const { formData, status, error } = useSelector((state) => state.contact)
+
+  useEffect(() => {
+    if (status === "loading") {
+      toast.loading("Sending your message...", {
+        id: "form-loading-toast", // Unique ID for the loading toast
+        position: "top-center",
+        style: {
+          background: "#F97316",
+          color: "#fff",
+        },
+        icon: "✉️",
+      })
+    } else if (status === "succeeded") {
+      // Remove loading toast before showing success
+      toast.dismiss("form-loading-toast")
+
+      toast.success(
+        "Message sent successfully! We will get back to you soon.",
+        {
+          duration: 4000,
+          position: "top-center",
+          icon: "👋",
+          style: {
+            background: "#10B981",
+            color: "#fff",
+          },
+        }
+      )
+      dispatch(resetForm())
+    } else if (status === "failed") {
+      // Remove loading toast before showing error
+      toast.dismiss("form-loading-toast")
+
+      toast.error(
+        `Failed to send message: ${error?.message || "Please try again."}`,
+        {
+          duration: 4000,
+          position: "top-center",
+          icon: "❌",
+          style: {
+            background: "#EF4444",
+            color: "#fff",
+          },
+        }
+      )
+      dispatch(resetStatus())
+    }
+  }, [status, error, dispatch])
+
   const onSubmit = (data) => {
-    console.log(data)
-    // Handle form submission here
+    dispatch(sendContactForm(data))
+  }
+
+  const handleInputChange = (field, value) => {
+    dispatch(updateFormField({ field, value }))
   }
 
   return (
@@ -52,7 +115,9 @@ const ContactFormSection = () => {
             </label>
             <input
               id="name"
+              value={formData.name}
               {...register("name")}
+              onChange={(e) => handleInputChange("name", e.target.value)}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg border ${
                 errors.name
                   ? "border-red-500 dark:border-red-400"
@@ -76,7 +141,9 @@ const ContactFormSection = () => {
             </label>
             <input
               id="email"
+              value={formData.email}
               {...register("email")}
+              onChange={(e) => handleInputChange("email", e.target.value)}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg border ${
                 errors.email
                   ? "border-red-500 dark:border-red-400"
@@ -100,7 +167,9 @@ const ContactFormSection = () => {
             </label>
             <input
               id="phone"
+              value={formData.phone}
               {...register("phone")}
+              onChange={(e) => handleInputChange("phone", e.target.value)}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg border ${
                 errors.phone
                   ? "border-red-500 dark:border-red-400"
@@ -124,7 +193,9 @@ const ContactFormSection = () => {
             </label>
             <textarea
               id="message"
+              value={formData.message}
               {...register("message")}
+              onChange={(e) => handleInputChange("message", e.target.value)}
               rows={4}
               className={`w-full px-3 py-2 sm:px-4 sm:py-3 rounded-lg border ${
                 errors.message
@@ -144,9 +215,12 @@ const ContactFormSection = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
-            className="w-full bg-orange-600 dark:bg-orange-500 hover:bg-orange-700 dark:hover:bg-orange-600 text-white font-bold py-2 sm:py-3 px-4 rounded-lg transition duration-300 text-sm sm:text-base"
+            disabled={status === "loading"}
+            className={`w-full bg-orange-600 dark:bg-orange-500 hover:bg-orange-700 dark:hover:bg-orange-600 text-white font-bold py-2 sm:py-3 px-4 rounded-lg transition duration-300 text-sm sm:text-base ${
+              status === "loading" ? "opacity-70 cursor-not-allowed" : ""
+            }`}
           >
-            Send Message
+            {status === "loading" ? "Sending..." : "Send Message"}
           </motion.button>
         </form>
       </motion.div>

@@ -19,7 +19,7 @@ const initialState = {
   currentPage: 1,
   windowWidth: window.innerWidth,
   isMobileFiltersOpen: false,
-  openFilterSections: {
+  filtersSection: {
     price: true,
     rating: false,
     cuisine: false,
@@ -43,9 +43,12 @@ const menuSlice = createSlice({
     setIsMobileFiltersOpen: (state, action) => {
       state.isMobileFiltersOpen = action.payload
     },
+    openFilterSection: (state, action) => {
+      state.filtersSection[action.payload] = true
+    },
     toggleFilterSection: (state, action) => {
-      state.openFilterSections[action.payload] =
-        !state.openFilterSections[action.payload]
+      state.filtersSection[action.payload] =
+        !state.filtersSection[action.payload]
     },
     setFilters: (state, action) => {
       const { filterType, value } = action.payload
@@ -78,6 +81,7 @@ export const {
   setIsMobileFiltersOpen,
   setFilters,
   clearAllFilters,
+  openFilterSection,
   toggleFilterSection,
 } = menuSlice.actions
 

@@ -1,11 +1,5 @@
 import { motion } from "motion/react"
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-  FaYoutube,
-} from "react-icons/fa"
+import { socialMedia } from "../../constants"
 
 const SocialMediaSection = ({ containerVariants, itemVariants }) => {
   return (
@@ -26,33 +20,7 @@ const SocialMediaSection = ({ containerVariants, itemVariants }) => {
         variants={itemVariants}
         className="flex flex-wrap justify-center gap-4 sm:gap-6"
       >
-        {[
-          {
-            icon: <FaFacebook className="text-2xl sm:text-3xl" />,
-            label: "Facebook",
-            color: "text-blue-600 dark:text-blue-400",
-          },
-          {
-            icon: <FaTwitter className="text-2xl sm:text-3xl" />,
-            label: "Twitter",
-            color: "text-sky-500 dark:text-sky-400",
-          },
-          {
-            icon: <FaInstagram className="text-2xl sm:text-3xl" />,
-            label: "Instagram",
-            color: "text-pink-600 dark:text-pink-400",
-          },
-          {
-            icon: <FaLinkedin className="text-2xl sm:text-3xl" />,
-            label: "LinkedIn",
-            color: "text-blue-700 dark:text-blue-500",
-          },
-          {
-            icon: <FaYoutube className="text-2xl sm:text-3xl" />,
-            label: "YouTube",
-            color: "text-red-600 dark:text-red-500",
-          },
-        ].map((social, index) => (
+        {socialMedia.map((social, index) => (
           <motion.a
             key={index}
             whileHover={{ y: -5, scale: 1.1 }}
@@ -60,7 +28,7 @@ const SocialMediaSection = ({ containerVariants, itemVariants }) => {
             className={`${social.color} hover:opacity-80 transition-all`}
             aria-label={social.label}
           >
-            {social.icon}
+            {<social.icon className={social.className} />}
           </motion.a>
         ))}
       </motion.div>
