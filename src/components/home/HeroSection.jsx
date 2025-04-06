@@ -1,9 +1,12 @@
 import { FaStar, FaCheck, FaLock } from "react-icons/fa"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useNavigate } from "react-router-dom"
+import { stats } from "../../constants"
 
 const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const navigate = useNavigate()
 
   const foodItems = [
     {
@@ -168,6 +171,7 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate("/menu")}
                   className="relative overflow-hidden px-8 py-4 bg-gradient-to-r from-orange-500 to-amber-600 text-white font-bold rounded-xl shadow-xl shadow-orange-500/30"
                 >
                   <span className="relative z-10 text-lg sm:text-xl">
@@ -181,6 +185,7 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => navigate("/menu")}
                   className="px-8 py-4 bg-transparent border-2 border-white/40 hover:border-white text-white font-medium rounded-xl shadow-lg backdrop-blur-sm hover:backdrop-blur transition-all duration-300 text-lg sm:text-xl"
                 >
                   View Menu
@@ -241,23 +246,7 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
                 variants={itemVariants}
                 className="flex flex-col min-[530px]:flex-row justify-start gap-4"
               >
-                {[
-                  {
-                    icon: "https://cdn-icons-png.flaticon.com/512/1828/1828884.png",
-                    value: "4.9",
-                    label: "8.4k Reviews",
-                  },
-                  {
-                    icon: "https://cdn-icons-png.flaticon.com/512/2413/2413394.png",
-                    value: "2500+",
-                    label: "Restaurants",
-                  },
-                  {
-                    icon: "https://cdn-icons-png.flaticon.com/512/5787/5787100.png",
-                    value: "6000+",
-                    label: "Food Items",
-                  },
-                ].map((stat, index) => (
+                {stats.map((stat, index) => (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.05 }}

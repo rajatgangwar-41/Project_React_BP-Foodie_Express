@@ -1,43 +1,7 @@
-import {
-  FaShoppingBag,
-  FaCheckCircle,
-  FaUtensils,
-  FaHamburger,
-} from "react-icons/fa"
 import { motion } from "framer-motion"
+import { platformStats } from "../../constants"
 
 const Stats = ({ containerVariants, itemVariants }) => {
-  const stats = [
-    {
-      icon: FaShoppingBag,
-      value: "10,000+",
-      label: "Registered Orders",
-      color: "teal",
-      delay: 0.1,
-    },
-    {
-      icon: FaCheckCircle,
-      value: "8,500+",
-      label: "Orders Delivered",
-      color: "blue",
-      delay: 0.2,
-    },
-    {
-      icon: FaUtensils,
-      value: "500+",
-      label: "Restaurant Partners",
-      color: "amber",
-      delay: 0.3,
-    },
-    {
-      icon: FaHamburger,
-      value: "5,000+",
-      label: "Food Items",
-      color: "purple",
-      delay: 0.4,
-    },
-  ]
-
   return (
     <motion.section
       initial="hidden"
@@ -62,7 +26,7 @@ const Stats = ({ containerVariants, itemVariants }) => {
         variants={containerVariants}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
       >
-        {stats.map((stat, index) => (
+        {platformStats.map((stat, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
