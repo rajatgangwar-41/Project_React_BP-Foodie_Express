@@ -9,6 +9,7 @@ import {
   exclusiveDeals,
   popularDishes,
   popularRestaurants,
+  testimonials,
 } from "./foodItems"
 import {
   socialLinks,
@@ -32,6 +33,7 @@ export {
   exclusiveDeals,
   popularDishes,
   popularRestaurants,
+  testimonials,
   socialLinks,
   quickLinks,
   legalLinks,

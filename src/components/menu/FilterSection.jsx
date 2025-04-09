@@ -120,7 +120,7 @@ const FilterSection = ({
               >
                 <h3 className="text-base font-medium text-gray-800 dark:text-white flex items-center gap-2">
                   <FiHeart className="h-5 w-5 text-pink-500" />
-                  Dietary Preferences
+                  Dietary
                 </h3>
                 {filtersSection.dietary ? <FiChevronUp /> : <FiChevronDown />}
               </div>

@@ -274,7 +274,7 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
                       whileHover={{ scale: 1.1 }}
                       className="absolute bottom-4 left-4 bg-gradient-to-r from-orange-500 to-amber-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-md flex items-center"
                     >
-                      ${popularFoodItems[currentIndex].price.toFixed(2)}
+                      ₹{popularFoodItems[currentIndex].price.toFixed(2)}
                     </motion.div>
                   </div>
                   <div className="p-6 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-700">

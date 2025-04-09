@@ -13,7 +13,10 @@
         "Bamboo shoots",
         "Pork fat"
       ],
-      "tags": ["Juicy", "Authentic"],
+      "tags": [
+        "Juicy",
+        "Authentic"
+      ],
       "prepTime": "20-30",
       "price": 349,
       "restaurant": "Urban Eats",
@@ -167,7 +170,10 @@
         "Avocado",
         "Assorted fish"
       ],
-      "tags": ["Healthy", "Best Seller"],
+      "tags": [
+        "Healthy",
+        "Best Seller"
+      ],
       "prepTime": "15-25",
       "price": 263,
       "restaurant": "Sweet Surrender",
@@ -252,7 +258,10 @@
         "Amchur",
         "Tea leaves (for color)"
       ],
-      "tags": ["Sweet", "Classic"],
+      "tags": [
+        "Sweet",
+        "Classic"
+      ],
       "prepTime": "30-45",
       "price": 810,
       "restaurant": "Sweet Surrender",
@@ -369,7 +378,10 @@
         "Yogurt",
         "Food coloring"
       ],
-      "tags": ["Sweet", "Classic"],
+      "tags": [
+        "Sweet",
+        "Classic"
+      ],
       "prepTime": "30-120",
       "price": 488,
       "restaurant": "Urban Eats",
@@ -498,7 +510,10 @@
         "Parmesan",
         "Fontina"
       ],
-      "tags": ["Shareable", "Wood-fired"],
+      "tags": [
+        "Shareable",
+        "Wood-fired"
+      ],
       "prepTime": "15-25",
       "price": 621,
       "restaurant": "Pizza Hut",
@@ -570,7 +585,10 @@
         "Egg yolk",
         "Pecorino cheese"
       ],
-      "tags": ["Spicy", "Seasonal"],
+      "tags": [
+        "Spicy",
+        "Seasonal"
+      ],
       "prepTime": "20-35",
       "price": 282,
       "restaurant": "Fresh Kitchen",
@@ -720,7 +738,10 @@
         "Fennel",
         "Yogurt"
       ],
-      "tags": ["Spicy", "Sweet"],
+      "tags": [
+        "Spicy",
+        "Sweet"
+      ],
       "prepTime": "30-45",
       "price": 225,
       "restaurant": "Sweet Surrender",
@@ -787,7 +808,10 @@
         "Turmeric",
         "Salt"
       ],
-      "tags": ["Breakfast", "Fresh"],
+      "tags": [
+        "Breakfast",
+        "Fresh"
+      ],
       "prepTime": "40-60",
       "price": 118,
       "restaurant": "Spice Route",
@@ -940,8 +964,16 @@
       "type": "Salad",
       "name": "Bombay Street Salad",
       "cuisine": "Indian",
-      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
-      "tags": ["Seasonal", "Fresh"],
+      "ingredients": [
+        "Lemon juice",
+        "Fresh cilantro",
+        "Chaat masala",
+        "Salt"
+      ],
+      "tags": [
+        "Seasonal",
+        "Fresh"
+      ],
       "prepTime": "10-20",
       "price": 830,
       "restaurant": "Sweet Surrender",
@@ -1038,8 +1070,16 @@
       "type": "Salad",
       "name": "Sprouted Moong Salad",
       "cuisine": "Indian",
-      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
-      "tags": ["Seasonal", "Vegetarian"],
+      "ingredients": [
+        "Lemon juice",
+        "Fresh cilantro",
+        "Chaat masala",
+        "Salt"
+      ],
+      "tags": [
+        "Seasonal",
+        "Vegetarian"
+      ],
       "prepTime": "10-20",
       "price": 754,
       "restaurant": "Fresh Kitchen",
@@ -1119,7 +1159,10 @@
         "Spicy salami",
         "Chili flakes"
       ],
-      "tags": ["Shareable", "Fresh"],
+      "tags": [
+        "Shareable",
+        "Fresh"
+      ],
       "prepTime": "15-25",
       "price": 423,
       "restaurant": "Spice Route",
@@ -1219,7 +1262,10 @@
         "Amchur",
         "Tea leaves (for color)"
       ],
-      "tags": ["Sweet", "Comfort Food"],
+      "tags": [
+        "Sweet",
+        "Comfort Food"
+      ],
       "prepTime": "30-45",
       "price": 625,
       "restaurant": "Gourmet Bites",
@@ -1287,7 +1333,10 @@
         "Bacon",
         "Crème fraîche"
       ],
-      "tags": ["Comfort Food", "Classic"],
+      "tags": [
+        "Comfort Food",
+        "Classic"
+      ],
       "prepTime": "45-60",
       "price": 668,
       "restaurant": "Soup Central",
@@ -1427,7 +1476,10 @@
         "Dark soy sauce",
         "Chicken/Pork"
       ],
-      "tags": ["Dairy-Free", "Spicy"],
+      "tags": [
+        "Dairy-Free",
+        "Spicy"
+      ],
       "prepTime": "15-30",
       "price": 341,
       "restaurant": "Gourmet Bites",
@@ -1574,7 +1626,10 @@
         "Flour",
         "Rose water"
       ],
-      "tags": ["Vegetarian", "Classic"],
+      "tags": [
+        "Vegetarian",
+        "Classic"
+      ],
       "prepTime": "30-120",
       "price": 709,
       "restaurant": "Urban Eats",
@@ -1631,7 +1686,10 @@
         "Turmeric",
         "Salt"
       ],
-      "tags": ["Street Food", "Spicy"],
+      "tags": [
+        "Street Food",
+        "Spicy"
+      ],
       "prepTime": "40-60",
       "price": 90,
       "restaurant": "Urban Eats",
@@ -1761,7 +1819,10 @@
         "Spicy mayo",
         "Scallions"
       ],
-      "tags": ["Fresh", "Seafood"],
+      "tags": [
+        "Fresh",
+        "Seafood"
+      ],
       "prepTime": "15-25",
       "price": 549,
       "restaurant": "Gourmet Bites",
@@ -1874,7 +1935,10 @@
         "Red pepper flakes",
         "Parsley"
       ],
-      "tags": ["Comfort Food", "Spicy"],
+      "tags": [
+        "Comfort Food",
+        "Spicy"
+      ],
       "prepTime": "20-35",
       "price": 620,
       "restaurant": "Fresh Kitchen",
@@ -1955,7 +2019,10 @@
         "Toasted bread",
         "Swiss cheese"
       ],
-      "tags": ["Fresh", "Classic"],
+      "tags": [
+        "Fresh",
+        "Classic"
+      ],
       "prepTime": "45-60",
       "price": 771,
       "restaurant": "Ocean Delights",
@@ -2117,7 +2184,10 @@
         "Pickles",
         "Special sauce"
       ],
-      "tags": ["Spicy", "New"],
+      "tags": [
+        "Spicy",
+        "New"
+      ],
       "prepTime": "15-25",
       "price": 346,
       "restaurant": "Urban Eats",
@@ -2272,7 +2342,10 @@
         "Dry fruits",
         "Pistachios"
       ],
-      "tags": ["Vegetarian", "Best Seller"],
+      "tags": [
+        "Vegetarian",
+        "Best Seller"
+      ],
       "prepTime": "30-120",
       "price": 223,
       "restaurant": "Sweet Surrender",
@@ -2361,8 +2434,16 @@
       "type": "Salad",
       "name": "Kachumber Salad",
       "cuisine": "Indian",
-      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
-      "tags": ["Healthy", "Vegetarian"],
+      "ingredients": [
+        "Lemon juice",
+        "Fresh cilantro",
+        "Chaat masala",
+        "Salt"
+      ],
+      "tags": [
+        "Healthy",
+        "Vegetarian"
+      ],
       "prepTime": "10-20",
       "price": 825,
       "restaurant": "Urban Eats",
@@ -2507,7 +2588,10 @@
         "Coffee",
         "Vanilla ice cream"
       ],
-      "tags": ["Breakfast", "Best Seller"],
+      "tags": [
+        "Breakfast",
+        "Best Seller"
+      ],
       "prepTime": "5-30",
       "price": 181,
       "restaurant": "Mcdonald",
@@ -2656,7 +2740,10 @@
         "Nuts",
         "Condensed milk"
       ],
-      "tags": ["Breakfast", "Vegetarian"],
+      "tags": [
+        "Breakfast",
+        "Vegetarian"
+      ],
       "prepTime": "30-120",
       "price": 738,
       "restaurant": "Urban Eats",
@@ -2762,7 +2849,10 @@
         "Milk",
         "Butter"
       ],
-      "tags": ["Vegetarian", "Comfort Food"],
+      "tags": [
+        "Vegetarian",
+        "Comfort Food"
+      ],
       "prepTime": "10-15",
       "price": 78,
       "restaurant": "Sweet Surrender",
@@ -2878,7 +2968,10 @@
         "Cognac",
         "Country bread"
       ],
-      "tags": ["Classic", "Spicy"],
+      "tags": [
+        "Classic",
+        "Spicy"
+      ],
       "prepTime": "45-60",
       "price": 629,
       "restaurant": "Fresh Kitchen",
@@ -2928,7 +3021,10 @@
         "Pepper jack",
         "Chipotle mayo"
       ],
-      "tags": ["New", "Spicy"],
+      "tags": [
+        "New",
+        "Spicy"
+      ],
       "prepTime": "15-25",
       "price": 731,
       "restaurant": "Mcdonald",
@@ -2982,7 +3078,10 @@
         "Bean sprouts",
         "Peanuts"
       ],
-      "tags": ["Quick Meal", "Dairy-Free"],
+      "tags": [
+        "Quick Meal",
+        "Dairy-Free"
+      ],
       "prepTime": "15-30",
       "price": 245,
       "restaurant": "Spice Route",
@@ -3048,7 +3147,10 @@
         "Milk",
         "Butter"
       ],
-      "tags": ["Vegetarian", "Classic"],
+      "tags": [
+        "Vegetarian",
+        "Classic"
+      ],
       "prepTime": "10-15",
       "price": 33,
       "restaurant": "Ocean Delights",
@@ -3116,7 +3218,10 @@
         "Beaufort",
         "Raclette"
       ],
-      "tags": ["Fresh", "Comfort Food"],
+      "tags": [
+        "Fresh",
+        "Comfort Food"
+      ],
       "prepTime": "45-60",
       "price": 683,
       "restaurant": "Ocean Delights",
@@ -3215,7 +3320,10 @@
         "Dry fruits",
         "Pistachios"
       ],
-      "tags": ["Classic", "Best Seller"],
+      "tags": [
+        "Classic",
+        "Best Seller"
+      ],
       "prepTime": "30-120",
       "price": 220,
       "restaurant": "Fresh Kitchen",
@@ -3290,7 +3398,10 @@
         "Flour",
         "Rose water"
       ],
-      "tags": ["Best Seller", "Sweet"],
+      "tags": [
+        "Best Seller",
+        "Sweet"
+      ],
       "prepTime": "30-120",
       "price": 209,
       "restaurant": "Sweet Surrender",
@@ -3355,7 +3466,10 @@
         "Turmeric",
         "Salt"
       ],
-      "tags": ["Street Food", "Breakfast"],
+      "tags": [
+        "Street Food",
+        "Breakfast"
+      ],
       "prepTime": "40-60",
       "price": 113,
       "restaurant": "Gourmet Bites",
@@ -3512,7 +3626,10 @@
         "Minced pork",
         "Mint"
       ],
-      "tags": ["Spicy", "Street Food"],
+      "tags": [
+        "Spicy",
+        "Street Food"
+      ],
       "prepTime": "15-30",
       "price": 288,
       "restaurant": "Spice Route",
@@ -3561,7 +3678,10 @@
         "Chicken broth gelatin",
         "Scallions"
       ],
-      "tags": ["Authentic", "Juicy"],
+      "tags": [
+        "Authentic",
+        "Juicy"
+      ],
       "prepTime": "20-30",
       "price": 525,
       "restaurant": "Fresh Kitchen",
@@ -3626,7 +3746,10 @@
         "Mushrooms",
         "Carrots"
       ],
-      "tags": ["Hand-folded", "Juicy"],
+      "tags": [
+        "Hand-folded",
+        "Juicy"
+      ],
       "prepTime": "20-30",
       "price": 406,
       "restaurant": "Gourmet Bites",
@@ -3699,7 +3822,10 @@
         "Grilled vegetables",
         "Black beans"
       ],
-      "tags": ["Seasonal", "Street Food"],
+      "tags": [
+        "Seasonal",
+        "Street Food"
+      ],
       "prepTime": "10-20",
       "price": 593,
       "restaurant": "Taco Bell",
@@ -3846,7 +3972,10 @@
         "Flour",
         "Rose water"
       ],
-      "tags": ["Breakfast", "Vegetarian"],
+      "tags": [
+        "Breakfast",
+        "Vegetarian"
+      ],
       "prepTime": "30-120",
       "price": 356,
       "restaurant": "Sweet Surrender",
@@ -3951,7 +4080,10 @@
         "Gelatin broth",
         "Crab roe"
       ],
-      "tags": ["Authentic", "Steamed"],
+      "tags": [
+        "Authentic",
+        "Steamed"
+      ],
       "prepTime": "20-30",
       "price": 287,
       "restaurant": "Urban Eats",
@@ -3999,7 +4131,10 @@
         "Basil",
         "Olive oil"
       ],
-      "tags": ["Comfort Food", "Shareable"],
+      "tags": [
+        "Comfort Food",
+        "Shareable"
+      ],
       "prepTime": "15-25",
       "price": 689,
       "restaurant": "Pizza Hut",
@@ -4161,7 +4296,10 @@
         "Flour",
         "Rose water"
       ],
-      "tags": ["Sweet", "Vegetarian"],
+      "tags": [
+        "Sweet",
+        "Vegetarian"
+      ],
       "prepTime": "30-120",
       "price": 249,
       "restaurant": "Sweet Surrender",
@@ -4314,7 +4452,10 @@
         "Bamboo shoots",
         "Pork fat"
       ],
-      "tags": ["Hand-folded", "Authentic"],
+      "tags": [
+        "Hand-folded",
+        "Authentic"
+      ],
       "prepTime": "20-30",
       "price": 493,
       "restaurant": "Sweet Surrender",
@@ -4381,7 +4522,10 @@
         "Nuts",
         "Condensed milk"
       ],
-      "tags": ["Classic", "Vegetarian"],
+      "tags": [
+        "Classic",
+        "Vegetarian"
+      ],
       "prepTime": "30-120",
       "price": 612,
       "restaurant": "Sweet Surrender",
@@ -4502,7 +4646,10 @@
         "Turmeric",
         "Salt"
       ],
-      "tags": ["Spicy", "Fresh"],
+      "tags": [
+        "Spicy",
+        "Fresh"
+      ],
       "prepTime": "40-60",
       "price": 148,
       "restaurant": "Ocean Delights",
@@ -4639,8 +4786,16 @@
       "type": "Salad",
       "name": "Bombay Street Salad",
       "cuisine": "Indian",
-      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
-      "tags": ["Seasonal", "Vegetarian"],
+      "ingredients": [
+        "Lemon juice",
+        "Fresh cilantro",
+        "Chaat masala",
+        "Salt"
+      ],
+      "tags": [
+        "Seasonal",
+        "Vegetarian"
+      ],
       "prepTime": "10-20",
       "price": 354,
       "restaurant": "Sweet Surrender",
@@ -4801,7 +4956,10 @@
         "Toasted bread",
         "Swiss cheese"
       ],
-      "tags": ["Spicy", "Comfort Food"],
+      "tags": [
+        "Spicy",
+        "Comfort Food"
+      ],
       "prepTime": "45-60",
       "price": 394,
       "restaurant": "Fresh Kitchen",
@@ -4946,8 +5104,16 @@
       "type": "Salad",
       "name": "Sprouted Moong Salad",
       "cuisine": "Indian",
-      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
-      "tags": ["Vegetarian", "Fresh"],
+      "ingredients": [
+        "Lemon juice",
+        "Fresh cilantro",
+        "Chaat masala",
+        "Salt"
+      ],
+      "tags": [
+        "Vegetarian",
+        "Fresh"
+      ],
       "prepTime": "10-20",
       "price": 443,
       "restaurant": "Subway",
@@ -5095,7 +5261,10 @@
         "Dark soy sauce",
         "Chicken/Pork"
       ],
-      "tags": ["Street Food", "Dairy-Free"],
+      "tags": [
+        "Street Food",
+        "Dairy-Free"
+      ],
       "prepTime": "15-30",
       "price": 234,
       "restaurant": "Noodle World",
@@ -5240,7 +5409,10 @@
         "White sauce",
         "Mozzarella"
       ],
-      "tags": ["Comfort Food", "Street Food"],
+      "tags": [
+        "Comfort Food",
+        "Street Food"
+      ],
       "prepTime": "20-35",
       "price": 514,
       "restaurant": "Sweet Surrender",
@@ -5305,8 +5477,16 @@
       "type": "Salad",
       "name": "Beetroot & Peanut Salad",
       "cuisine": "Indian",
-      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
-      "tags": ["Vegetarian", "Fresh"],
+      "ingredients": [
+        "Lemon juice",
+        "Fresh cilantro",
+        "Chaat masala",
+        "Salt"
+      ],
+      "tags": [
+        "Vegetarian",
+        "Fresh"
+      ],
       "prepTime": "10-20",
       "price": 986,
       "restaurant": "Urban Eats",
@@ -5445,6 +5625,36 @@
       "deliveryTime": "29-44",
       "isPopular": false,
       "lastOrdered": "2025-04-06T05:27:34.501Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "6ad5",
+      "username": "hello",
+      "email": "hello@gmail.com",
+      "phone": "1111111111",
+      "password": "HelloWorld92!@#"
+    },
+    {
+      "id": "48e2",
+      "username": "hello",
+      "email": "hello@gmail.com",
+      "phone": "1111111111",
+      "password": "HelloWorld92!@#"
+    },
+    {
+      "id": "7dfc",
+      "username": "hello",
+      "email": "hello@gmail.com",
+      "phone": "1111111111",
+      "password": "HelloWorld92!@#"
+    },
+    {
+      "id": "0234",
+      "username": "hello",
+      "email": "hello@gmail.com",
+      "phone": "1111111111",
+      "password": "HelloWorld92!@#"
     }
   ]
 }
