@@ -5,7 +5,8 @@ const generateMockToken = (email) => `mock-token-${btoa(email)}-${Date.now()}`
 const foodApi = createApi({
   reducerPath: "foodApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3000",
+    // baseUrl: "http://localhost:3000",
+    baseUrl: "https://rajatgangwar-foodieexpress.onrender.com",
   }),
   endpoints: (builder) => ({
     getFoodItems: builder.query({
