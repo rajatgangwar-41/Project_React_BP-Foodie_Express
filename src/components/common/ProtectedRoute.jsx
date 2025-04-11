@@ -3,13 +3,20 @@ import { useAuth } from "../../hooks"
 
 const ProtectedRoute = ({ children }) => {
   const location = useLocation()
-  const { isLoggedIn } = useAuth()
+  const {
+    user: { userId },
+    isLoggedIn,
+  } = useAuth()
 
   if (!isLoggedIn) {
     return <Navigate to="/login" replace state={{ from: location.pathname }} />
   }
 
-  return { children }
+  if (userId !== location.pathname.split("/")[2]) {
+    return <Navigate to="/" replace />
+  }
+
+  return children
 }
 
 export default ProtectedRoute

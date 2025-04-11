@@ -47,7 +47,7 @@ const HeaderIcons = ({
       >
         <FiShoppingCart className="h-6 w-6" />
         <motion.span className="absolute -top-1 -right-1 bg-orange-500 text-gray-700 dark:text-gray-100 text-sm font-semibold rounded-full h-5 w-5 flex items-center justify-center drop-shadow-md">
-          {cartItemsCount}
+          {cartItemsCount || 0}
         </motion.span>
       </motion.button>
 

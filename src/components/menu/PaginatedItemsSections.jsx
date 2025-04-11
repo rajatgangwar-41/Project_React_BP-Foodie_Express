@@ -3,8 +3,12 @@ import { motion } from "motion/react"
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 import { FiClock, FiShoppingCart, FiStar } from "react-icons/fi"
 import { Link } from "react-router-dom"
-import { useUpsertCartItemMutation } from "../../features/cartApiSlice"
-import { useAuth } from "../../hooks"
+import {
+  useAddItemMutation,
+  useIncreaseQuantityMutation,
+} from "../../features/cartApiSlice"
+import { useAuth, usePopup } from "../../hooks"
+import toast from "react-hot-toast"
 
 // Tag colors mapping
 const tagColors = {
@@ -57,8 +61,10 @@ const PaginatedItemsSections = ({
   }
 
   const [_, setMenuItems] = useState(filteredItems)
-  const [upsertCartItem] = useUpsertCartItemMutation()
-  const { cartId } = useAuth()
+  const { items: cartItems } = usePopup()
+  const [addItem] = useAddItemMutation()
+  const [increaseQuantity] = useIncreaseQuantityMutation()
+  const { id } = useAuth()
 
   // Toggle favorite status
   const toggleFavorite = (itemId) => {
@@ -70,10 +76,42 @@ const PaginatedItemsSections = ({
   }
 
   const handleAddToCart = (item) => {
-    upsertCartItem({
-      cartId,
-      item,
-    })
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id)
+
+    if (existingItem) {
+      const newItems = cartItems.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      )
+      increaseQuantity({
+        id,
+        item,
+        quantity: 1,
+        cartItems: [...newItems],
+      })
+      toast.success(`${item.name} quantity increased by 1!`, {
+        position: "top-center",
+        style: {
+          background: "#10B981",
+          color: "#fff",
+        },
+      })
+    } else {
+      addItem({
+        id,
+        item,
+        quantity: 1,
+        cartItems: [{ ...item, quantity: 1 }, ...cartItems],
+      })
+      toast.success(`1 ${item.name} Added to the cart!`, {
+        position: "top-center",
+        style: {
+          background: "#10B981",
+          color: "#fff",
+        },
+      })
+    }
   }
 
   return (

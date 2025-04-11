@@ -1,12 +1,16 @@
 import { useSelector } from "react-redux"
 
 const useAuth = () => {
-  const { user, token, cartId, orderId, favoriteId, status } = useSelector(
-    (state) => state.auth
-  )
+  const { user, token, status } = useSelector((state) => state.auth)
   const isLoggedIn = status === "authenticated"
+  const id = user?.id
 
-  return { user, token, status, cartId, orderId, favoriteId, isLoggedIn }
+  return {
+    user,
+    id,
+    token,
+    isLoggedIn,
+  }
 }
 
 export default useAuth

@@ -41,20 +41,20 @@ const authApi = createApi({
           const newUser = {
             ...userData,
             userId: generateId("user-id", userData.email),
-            cartId: generateId("cart-id", userData.email),
-            favoriteId: generateId("favorite-id", userData.email),
-            orderId: generateId("order-id", userData.email),
             token: generateId("token", userData.email),
+            cart: [],
+            favorites: [],
+            orders: [],
           }
 
-          await baseQuery({
+          const response = await baseQuery({
             url: "/users",
             method: "POST",
             body: newUser,
             headers: { "Content-Type": "application/json" },
           })
 
-          return { data: newUser }
+          return { data: response.data }
         } catch (error) {
           return {
             error: {
@@ -102,14 +102,14 @@ const authApi = createApi({
           }
 
           // Update the user with new token (if you want to persist it)
-          await baseQuery({
+          const response = await baseQuery({
             url: `/users/${user.id}`,
             method: "PUT",
             body: updatedUser,
             headers: { "Content-Type": "application/json" },
           })
 
-          return { data: updatedUser }
+          return { data: response.data }
         } catch (error) {
           return {
             error: {

@@ -4,75 +4,37 @@ const cartApi = createApi({
   reducerPath: "cartApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://rajatgangwar-foodieexpress.onrender.com",
+    prepareHeaders: (headers) => {
+      const token = localStorage.getItem("token")
+      if (token) {
+        headers.set("Authorization", `Bearer ${token}`)
+      }
+      return headers
+    },
   }),
   tagTypes: ["Cart"],
   endpoints: (builder) => ({
-    /* ----------------- QUERIES ----------------- */
-
-    // Get cart by ID
     getCartItems: builder.query({
-      query: (cartId) => `/carts/${cartId}`,
-      providesTags: (result, _error, cartId) =>
-        result ? [{ type: "Cart", id: cartId }] : ["Cart"],
-      transformResponse: (response) => {
-        return response || { id: null, items: [] }
-      },
+      query: (id) => `/users/${id}`,
+      transformResponse: (response) => response || { cart: [] },
+      providesTags: (result, _error, id) => [{ type: "Cart", id }],
     }),
 
-    /* ----------------- MUTATIONS ----------------- */
-
-    // Create new cart or add item to existing cart
-    upsertCartItem: builder.mutation({
-      query: ({ cartId, product }) => ({
-        url: cartId ? `/carts/${cartId}/items` : "/carts",
-        method: "POST",
-        body: cartId ? product : { id: `cart-${Date.now()}`, items: [product] },
-      }),
-      async onQueryStarted({ cartId, product }, { dispatch, queryFulfilled }) {
-        const item = {
-          ...product,
-          id: `temp-${Date.now()}`,
-          quantity: product.quantity || 1,
-        }
-
-        const patchResult = dispatch(
-          cartApi.util.updateQueryData(
-            "getCart",
-            cartId || "NEW_CART",
-            (draft) => {
-              if (!draft.id) draft.id = `temp-${Date.now()}`
-
-              const existingItem = draft.items.find(
-                (i) => i.productId === product.id
-              )
-              existingItem
-                ? (existingItem.quantity += item.quantity)
-                : draft.items.push(item)
-            }
-          )
-        )
-
-        try {
-          const { data } = await queryFulfilled
-          dispatch(cartApi.util.updateQueryData("getCart", data.id, () => data))
-        } catch {
-          patchResult.undo()
-        }
-      },
-      invalidatesTags: (result) => [{ type: "Cart", id: result?.id }],
-    }),
-
-    // Increase item quantity
-    increaseQuantity: builder.mutation({
-      query: ({ cartId, itemId }) => ({
-        url: `/carts/${cartId}/items/${itemId}/increase`,
+    // Add New item
+    addItem: builder.mutation({
+      query: ({ id, cartItems }) => ({
+        url: `/users/${id}`,
         method: "PATCH",
+        body: { cart: [...cartItems] },
       }),
-      async onQueryStarted({ cartId, itemId }, { dispatch, queryFulfilled }) {
+      invalidatesTags: (result, error, { id }) => [{ type: "Cart", id }],
+      async onQueryStarted(
+        { id, item, quantity },
+        { dispatch, queryFulfilled }
+      ) {
         const patchResult = dispatch(
-          cartApi.util.updateQueryData("getCart", cartId, (draft) => {
-            const item = draft.items.find((i) => i.id === itemId)
-            if (item) item.quantity += 1
+          cartApi.util.updateQueryData("getCartItems", id, (draft) => {
+            draft.cart.unshift({ ...item, quantity })
           })
         )
         try {
@@ -81,49 +43,51 @@ const cartApi = createApi({
           patchResult.undo()
         }
       },
-      invalidatesTags: (result, error, { cartId }) => [
-        { type: "Cart", id: cartId },
-      ],
-    }),
-
-    // Decrease item quantity (removes if quantity reaches 0)
-    decreaseQuantity: builder.mutation({
-      query: ({ cartId, itemId }) => ({
-        url: `/carts/${cartId}/items/${itemId}/decrease`,
-        method: "PATCH",
-      }),
-      async onQueryStarted({ cartId, itemId }, { dispatch, queryFulfilled }) {
-        const patchResult = dispatch(
-          cartApi.util.updateQueryData("getCart", cartId, (draft) => {
-            const index = draft.items.findIndex((i) => i.id === itemId)
-            if (index !== -1) {
-              draft.items[index].quantity > 1
-                ? (draft.items[index].quantity -= 1)
-                : draft.items.splice(index, 1)
-            }
-          })
-        )
-        try {
-          await queryFulfilled
-        } catch {
-          patchResult.undo()
-        }
-      },
-      invalidatesTags: (result, error, { cartId }) => [
-        { type: "Cart", id: cartId },
-      ],
     }),
 
     // Remove item completely
     removeItem: builder.mutation({
-      query: ({ cartId, itemId }) => ({
-        url: `/carts/${cartId}/items/${itemId}`,
-        method: "DELETE",
+      query: ({ id, cartItems }) => ({
+        url: `/users/${id}`,
+        method: "PATCH",
+        body: { cart: [...cartItems] },
       }),
-      async onQueryStarted({ cartId, itemId }, { dispatch, queryFulfilled }) {
+      invalidatesTags: (result, error, { id }) => [{ type: "Cart", id }],
+      async onQueryStarted({ id, item }, { dispatch, queryFulfilled }) {
         const patchResult = dispatch(
-          cartApi.util.updateQueryData("getCart", cartId, (draft) => {
-            draft.items = draft.items.filter((i) => i.id !== itemId)
+          cartApi.util.updateQueryData("getCartItems", id, (draft) => {
+            const itemIndex = draft.cart.findIndex((ele) => ele.id === item.id)
+            draft.cart.splice(itemIndex, 1)
+          })
+        )
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        }
+        1
+      },
+    }),
+
+    // Increase item quantity
+    increaseQuantity: builder.mutation({
+      query: ({ id, cartItems }) => ({
+        url: `/users/${id}`,
+        method: "PATCH",
+        body: { cart: [...cartItems] },
+      }),
+      invalidatesTags: (result, error, { id }) => [{ type: "Cart", id }],
+      async onQueryStarted(
+        { id, item, quantity },
+        { dispatch, queryFulfilled }
+      ) {
+        const patchResult = dispatch(
+          cartApi.util.updateQueryData("getCartItems", id, (draft) => {
+            const itemIndex = draft.cart.findIndex((ele) => ele.id === item.id)
+            draft.cart[itemIndex] = {
+              ...item,
+              quantity: item.quantity + quantity,
+            }
           })
         )
         try {
@@ -132,22 +96,46 @@ const cartApi = createApi({
           patchResult.undo()
         }
       },
-      invalidatesTags: (result, error, { cartId }) => [
-        { type: "Cart", id: cartId },
-      ],
+    }),
+
+    // Decrease item quantity
+    decreaseQuantity: builder.mutation({
+      query: ({ id, cartItems }) => ({
+        url: `/users/${id}`,
+        method: "PATCH",
+        body: { cart: [...cartItems] },
+      }),
+      invalidatesTags: (result, error, { id }) => [{ type: "Cart", id }],
+      async onQueryStarted({ id, item }, { dispatch, queryFulfilled }) {
+        const patchResult = dispatch(
+          cartApi.util.updateQueryData("getCartItems", id, (draft) => {
+            const itemIndex = draft.cart.findIndex((ele) => ele.id === item.id)
+            draft.cart[itemIndex] = {
+              ...draft.cart[itemIndex],
+              quantity: item.quantity - 1,
+            }
+          })
+        )
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        }
+      },
     }),
 
     // Clear entire cart
     clearCart: builder.mutation({
-      query: (cartId) => ({
-        url: `/carts/${cartId}/clear`,
+      query: ({ id }) => ({
+        url: `/users/${id}`,
         method: "PATCH",
-        body: { items: [] },
+        body: { cart: [] },
       }),
-      async onQueryStarted(cartId, { dispatch, queryFulfilled }) {
+      invalidatesTags: (result, error, { id }) => [{ type: "Cart", id }],
+      async onQueryStarted({ id }, { dispatch, queryFulfilled }) {
         const patchResult = dispatch(
-          cartApi.util.updateQueryData("getCart", cartId, (draft) => {
-            draft.items = []
+          cartApi.util.updateQueryData("getCartItems", id, (draft) => {
+            draft.cart = []
           })
         )
         try {
@@ -156,20 +144,16 @@ const cartApi = createApi({
           patchResult.undo()
         }
       },
-      invalidatesTags: (result, error, cartId) => [
-        { type: "Cart", id: cartId },
-      ],
     }),
   }),
 })
 
-// Export hooks for usage in components
 export const {
   useGetCartItemsQuery,
-  useUpsertCartItemMutation,
+  useAddItemMutation,
+  useRemoveItemMutation,
   useIncreaseQuantityMutation,
   useDecreaseQuantityMutation,
-  useRemoveItemMutation,
   useClearCartMutation,
 } = cartApi
 

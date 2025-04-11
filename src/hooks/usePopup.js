@@ -1,46 +1,47 @@
 import { useSelector } from "react-redux"
 import {
   useClearCartMutation,
-  useGetCartItemsQuery,
-  useRemoveItemMutation,
-  useIncreaseQuantityMutation,
   useDecreaseQuantityMutation,
+  useGetCartItemsQuery,
+  useIncreaseQuantityMutation,
+  useRemoveItemMutation,
 } from "../features/cartApiSlice"
-
-const MAX_DELIVERY_FEE = 50
-const MIN_DELIVERY_FEE = 10
+import { useAuth } from "../hooks"
 
 const usePopup = () => {
   const { isCartOpen, isLoginPopupOpen } = useSelector((state) => state.popup)
-  const { data: items, isLoading, isError, error } = useGetCartItemsQuery()
+  const { user } = useAuth()
+  const { data, isLoading, isError, error, refetch } = useGetCartItemsQuery(
+    user?.id,
+    {
+      skip: !user?.id,
+    }
+  )
+
+  const items = data?.cart
   const [clearCart] = useClearCartMutation()
   const [removeItem] = useRemoveItemMutation()
   const [increaseQuantity] = useIncreaseQuantityMutation()
   const [decreaseQuantity] = useDecreaseQuantityMutation()
 
-  const cartItemsCount = items?.length
-  const totalAmount = items?.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  )
-  const deliveryFee = Math.floor(
-    Math.random() * (MAX_DELIVERY_FEE - MIN_DELIVERY_FEE) + MIN_DELIVERY_FEE
-  )
+  const cartItemsCount = items?.length || 0
+  const totalAmount =
+    items?.reduce((total, item) => total + item.price * item.quantity, 0) || 0
 
   return {
-    isCartOpen,
-    isLoginPopupOpen,
     items,
     isLoading,
     isError,
     error,
-    cartItemsCount,
-    totalAmount,
-    deliveryFee,
+    refetch,
+    isCartOpen,
+    isLoginPopupOpen,
     clearCart,
     removeItem,
     increaseQuantity,
     decreaseQuantity,
+    cartItemsCount,
+    totalAmount,
   }
 }
 

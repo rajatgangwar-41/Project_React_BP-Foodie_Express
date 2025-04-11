@@ -294,13 +294,13 @@ const HeroSection = ({ containerVariants, itemVariants, fadeInUp }) => {
                     >
                       {popularFoodItems[currentIndex].description}
                     </motion.p>
-                    <motion.button
+                    <motion.div
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
-                      className="w-full bg-gradient-to-r from-gray-900 to-gray-800 dark:from-orange-600 dark:to-orange-500 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all"
+                      className="w-full text-center bg-gradient-to-r from-gray-900 to-gray-800 dark:from-orange-600 dark:to-orange-500 text-white font-medium py-3 px-6 z-200 rounded-lg shadow-md hover:shadow-lg transition-all"
                     >
-                      Add to Cart
-                    </motion.button>
+                      About the Dish
+                    </motion.div>
                   </div>
                 </motion.div>
               </AnimatePresence>

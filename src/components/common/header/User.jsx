@@ -14,8 +14,22 @@ import {
 import { useAuth } from "../../../hooks"
 import { logout } from "../../../features/authSlice"
 
-const UserDropdownMenu = ({ handleMenuItemClick, handleLogout, setIsOpen }) => {
-  const navigate = useNavigate()
+const useClickOutside = (ref, handler) => {
+  useEffect(() => {
+    const listener = (event) => {
+      if (!ref.current || ref.current.contains(event.target)) {
+        return
+      }
+      handler(event)
+    }
+    document.addEventListener("mousedown", listener)
+    return () => {
+      document.removeEventListener("mousedown", listener)
+    }
+  }, [ref, handler])
+}
+
+const UserDropdownMenu = ({ handleMenuItemClick, handleLogout }) => {
   const dropdownItems = [
     {
       text: "My Account",
@@ -30,52 +44,6 @@ const UserDropdownMenu = ({ handleMenuItemClick, handleLogout, setIsOpen }) => {
       icon: FiShoppingBag,
     },
   ]
-
-  const handleLogoutClick = async () => {
-    const toastOptions = {
-      position: "top-center",
-      duration: 4000,
-      style: {
-        color: "#fff",
-      },
-    }
-
-    const toastId = toast.loading("Logging out...", {
-      ...toastOptions,
-      style: {
-        ...toastOptions.style,
-        background: "#F59E0B",
-      },
-      icon: "⏳",
-    })
-    try {
-      await handleLogout() // If it's an async function
-
-      setIsOpen(false)
-
-      toast.success("Logged out successfully!", {
-        ...toastOptions,
-        icon: "👋",
-        style: {
-          ...toastOptions.style,
-          background: "#10B981",
-        },
-        id: toastId,
-      })
-
-      navigate("/")
-    } catch (error) {
-      toast.error(`Failed to logout-${error}`, {
-        ...toastOptions,
-        icon: "❌",
-        style: {
-          ...toastOptions.style,
-          background: "#EF4444",
-        },
-        id: toastId,
-      })
-    }
-  }
 
   return (
     <motion.div
@@ -103,7 +71,7 @@ const UserDropdownMenu = ({ handleMenuItemClick, handleLogout, setIsOpen }) => {
       <motion.button
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        onClick={handleLogoutClick}
+        onClick={handleLogout}
         className="w-full flex items-center px-4 py-3 text-sm text-red-500 dark:text-red-400 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all"
       >
         <FiLogOut className="mr-3 h-4 w-4" />
@@ -111,21 +79,6 @@ const UserDropdownMenu = ({ handleMenuItemClick, handleLogout, setIsOpen }) => {
       </motion.button>
     </motion.div>
   )
-}
-
-const useClickOutside = (ref, handler) => {
-  useEffect(() => {
-    const listener = (event) => {
-      if (!ref.current || ref.current.contains(event.target)) {
-        return
-      }
-      handler(event)
-    }
-    document.addEventListener("mousedown", listener)
-    return () => {
-      document.removeEventListener("mousedown", listener)
-    }
-  }, [ref, handler])
 }
 
 const User = ({ isScrolled, closeMobileMenu }) => {
@@ -140,7 +93,7 @@ const User = ({ isScrolled, closeMobileMenu }) => {
 
   const handleUserAction = () => {
     if (isMobile) {
-      isLoggedIn ? navigate("/profile") : navigate("/login")
+      isLoggedIn ? navigate(`/user/${user.userId}`) : navigate("/login")
       closeMobileMenu?.()
     } else {
       isLoggedIn ? setIsOpen(!isOpen) : navigate("/login")
@@ -149,11 +102,53 @@ const User = ({ isScrolled, closeMobileMenu }) => {
 
   const handleMenuItemClick = () => {
     setIsOpen(false)
-    navigate(`/user/${user.id}`)
+    navigate(`/user/${user.userId}`)
   }
 
   const handleLogout = () => {
-    dispatch(logout())
+    const toastOptions = {
+      position: "top-center",
+      duration: 4000,
+      style: {
+        color: "#fff",
+      },
+    }
+
+    const toastId = toast.loading("Logging out...", {
+      ...toastOptions,
+      style: {
+        ...toastOptions.style,
+        background: "#F59E0B",
+      },
+      icon: "⏳",
+    })
+    try {
+      dispatch(logout())
+
+      setIsOpen(false)
+
+      toast.success("Logged out successfully!", {
+        ...toastOptions,
+        icon: "👋",
+        style: {
+          ...toastOptions.style,
+          background: "#10B981",
+        },
+        id: toastId,
+      })
+
+      navigate("/")
+    } catch (error) {
+      toast.error(`Failed to logout-${error}`, {
+        ...toastOptions,
+        icon: "❌",
+        style: {
+          ...toastOptions.style,
+          background: "#EF4444",
+        },
+        id: toastId,
+      })
+    }
   }
 
   return (
@@ -243,8 +238,6 @@ const User = ({ isScrolled, closeMobileMenu }) => {
 
               <UserDropdownMenu
                 handleMenuItemClick={handleMenuItemClick}
-                setIsOpen={setIsOpen}
-                user={user}
                 handleLogout={handleLogout}
               />
             </div>

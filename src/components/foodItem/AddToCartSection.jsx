@@ -2,19 +2,58 @@ import { motion } from "motion/react"
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { FiMinus, FiPlus, FiShoppingCart } from "react-icons/fi"
+import { useAuth, usePopup } from "../../hooks"
+import {
+  useAddItemMutation,
+  useIncreaseQuantityMutation,
+} from "../../features/cartApiSlice"
 
 const AddToCartSection = ({ foodItem }) => {
   const [quantity, setQuantity] = useState(1)
+  const { items: cartItems } = usePopup()
+  const { id } = useAuth()
+
+  const [addItem] = useAddItemMutation()
+  const [increaseQuantity] = useIncreaseQuantityMutation()
 
   // Handle add to cart
-  const handleAddToCart = () => {
-    toast.success(`${quantity} ${foodItem.name} added to cart!`, {
-      position: "top-center",
-      style: {
-        background: "#10B981",
-        color: "#fff",
-      },
-    })
+  const handleAddToCart = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id)
+
+    if (existingItem) {
+      const newItems = cartItems.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity + quantity }
+          : cartItem
+      )
+      increaseQuantity({
+        id,
+        item,
+        quantity,
+        cartItems: [...newItems],
+      })
+      toast.success(`${item.name} quantity increased by 1!`, {
+        position: "top-center",
+        style: {
+          background: "#10B981",
+          color: "#fff",
+        },
+      })
+    } else {
+      addItem({
+        id,
+        item,
+        quantity,
+        cartItems: [{ ...item, quantity }, ...cartItems],
+      })
+      toast.success(`${quantity} ${item.name} Added to the cart!`, {
+        position: "top-center",
+        style: {
+          background: "#10B981",
+          color: "#fff",
+        },
+      })
+    }
   }
   return (
     <motion.div
@@ -79,7 +118,7 @@ const AddToCartSection = ({ foodItem }) => {
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          onClick={handleAddToCart}
+          onClick={() => handleAddToCart(foodItem)}
           className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white rounded-lg shadow-md font-medium text-lg"
         >
           <FiShoppingCart className="h-5 w-5" />

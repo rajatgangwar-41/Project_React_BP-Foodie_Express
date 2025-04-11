@@ -41,7 +41,6 @@ const contactSlice = createSlice({
   initialState,
   reducers: {
     updateFormField: (state, action) => {
-      console.log(1)
       const { field, value } = action.payload
       state.formData[field] = value
     },
