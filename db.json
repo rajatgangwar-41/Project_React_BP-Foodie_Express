@@ -13,13 +13,11 @@
         "Bamboo shoots",
         "Pork fat"
       ],
-      "tags": [
-        "Juicy",
-        "Authentic"
-      ],
+      "tags": ["Juicy", "Authentic"],
       "prepTime": "20-30",
       "price": 349,
       "restaurant": "Urban Eats",
+      "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
       "image": "https://plus.unsplash.com/premium_photo-1673809798703-6082a015f931?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "calories": 227,
       "about": "Classic dim sum dumplings with translucent wrappers showcasing the pink shrimp filling. The wrapper has just the right chew.",
@@ -170,13 +168,11 @@
         "Avocado",
         "Assorted fish"
       ],
-      "tags": [
-        "Healthy",
-        "Best Seller"
-      ],
+      "tags": ["Healthy", "Best Seller"],
       "prepTime": "15-25",
       "price": 263,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://plus.unsplash.com/premium_photo-1668143358351-b20146dbcc02?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3VzaGl8ZW58MHx8MHx8fDA%3D",
       "calories": 557,
       "about": "California roll topped with an array of colorful fish slices. The combination of creamy avocado and fresh fish creates perfect harmony.",
@@ -258,13 +254,11 @@
         "Amchur",
         "Tea leaves (for color)"
       ],
-      "tags": [
-        "Sweet",
-        "Classic"
-      ],
+      "tags": ["Sweet", "Classic"],
       "prepTime": "30-45",
       "price": 810,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://plus.unsplash.com/premium_photo-1695456063769-e291a14c3ca1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hpY2twZWElMjBjdXJyeXxlbnwwfHwwfHx8MA%3D%3D",
       "calories": null,
       "about": "Spicy chickpea curry popular as street food and home meal",
@@ -378,13 +372,11 @@
         "Yogurt",
         "Food coloring"
       ],
-      "tags": [
-        "Sweet",
-        "Classic"
-      ],
+      "tags": ["Sweet", "Classic"],
       "prepTime": "30-120",
       "price": 488,
       "restaurant": "Urban Eats",
+      "restaurantImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://images.pexels.com/photos/7566499/pexels-photo-7566499.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "calories": 220,
       "about": "Crispy orange swirls soaked in sugar syrup. Best served hot with rabri or milk.",
@@ -510,13 +502,11 @@
         "Parmesan",
         "Fontina"
       ],
-      "tags": [
-        "Shareable",
-        "Wood-fired"
-      ],
+      "tags": ["Shareable", "Wood-fired"],
       "prepTime": "15-25",
       "price": 621,
       "restaurant": "Pizza Hut",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661433201283-fcb240e88ad4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1595854341625-f33ee10dbf94",
       "calories": 1180,
       "about": "Luxurious blend of four Italian cheeses (Gorgonzola, Fontina, Parmesan and Mozzarella) carefully balanced for perfect harmony.",
@@ -585,13 +575,11 @@
         "Egg yolk",
         "Pecorino cheese"
       ],
-      "tags": [
-        "Spicy",
-        "Seasonal"
-      ],
+      "tags": ["Spicy", "Seasonal"],
       "prepTime": "20-35",
       "price": 282,
       "restaurant": "Fresh Kitchen",
+      "restaurantImage": "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://plus.unsplash.com/premium_photo-1691948106030-d5e76d461b14?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BhZ2hldHRpJTIwY2FyYm9uYXJhfGVufDB8fDB8fHww",
       "calories": 765,
       "about": "Authentic Roman pasta with crispy pancetta in a creamy egg-cheese sauce. We use farm-fresh eggs and aged pecorino for rich flavor.",
@@ -738,13 +726,11 @@
         "Fennel",
         "Yogurt"
       ],
-      "tags": [
-        "Spicy",
-        "Sweet"
-      ],
+      "tags": ["Spicy", "Sweet"],
       "prepTime": "30-45",
       "price": 225,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
       "image": "https://images.unsplash.com/photo-1652545297020-f5e8ad779eb4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG11dHRvbiUyMGN1cnJ5fGVufDB8fDB8fHww",
       "calories": null,
       "about": "Aromatic lamb curry from Kashmir with deep red color",
@@ -808,13 +794,11 @@
         "Turmeric",
         "Salt"
       ],
-      "tags": [
-        "Breakfast",
-        "Fresh"
-      ],
+      "tags": ["Breakfast", "Fresh"],
       "prepTime": "40-60",
       "price": 118,
       "restaurant": "Spice Route",
+      "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "calories": 598,
       "about": "Delicious Classic Potato Samosa Samosa",
@@ -964,19 +948,12 @@
       "type": "Salad",
       "name": "Bombay Street Salad",
       "cuisine": "Indian",
-      "ingredients": [
-        "Lemon juice",
-        "Fresh cilantro",
-        "Chaat masala",
-        "Salt"
-      ],
-      "tags": [
-        "Seasonal",
-        "Fresh"
-      ],
+      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
+      "tags": ["Seasonal", "Fresh"],
       "prepTime": "10-20",
       "price": 830,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://plus.unsplash.com/premium_photo-1673590981774-d9f534e0c617?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "calories": 556,
       "about": "Delicious Bombay Street Salad Salad",
@@ -1070,19 +1047,12 @@
       "type": "Salad",
       "name": "Sprouted Moong Salad",
       "cuisine": "Indian",
-      "ingredients": [
-        "Lemon juice",
-        "Fresh cilantro",
-        "Chaat masala",
-        "Salt"
-      ],
-      "tags": [
-        "Seasonal",
-        "Vegetarian"
-      ],
+      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
+      "tags": ["Seasonal", "Vegetarian"],
       "prepTime": "10-20",
       "price": 754,
       "restaurant": "Fresh Kitchen",
+      "restaurantImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://images.unsplash.com/photo-1622732777601-e744c3401d44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3Byb3V0c3xlbnwwfHwwfHx8MA%3D%3D",
       "calories": 407,
       "about": "Delicious Sprouted Moong Salad Salad",
@@ -1159,13 +1129,11 @@
         "Spicy salami",
         "Chili flakes"
       ],
-      "tags": [
-        "Shareable",
-        "Fresh"
-      ],
+      "tags": ["Shareable", "Fresh"],
       "prepTime": "15-25",
       "price": 423,
       "restaurant": "Spice Route",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661433201283-fcb240e88ad4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1541529086526-db283c563270?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8c2FsYW1pfGVufDB8fDB8fHww",
       "calories": 955,
       "about": "For spice lovers - combines spicy salami with chili oil. Heat balanced by sweet tomato sauce and creamy mozzarella.",
@@ -1262,13 +1230,11 @@
         "Amchur",
         "Tea leaves (for color)"
       ],
-      "tags": [
-        "Sweet",
-        "Comfort Food"
-      ],
+      "tags": ["Sweet", "Comfort Food"],
       "prepTime": "30-45",
       "price": 625,
       "restaurant": "Gourmet Bites",
+      "restaurantImage": "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://plus.unsplash.com/premium_photo-1695456063769-e291a14c3ca1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hpY2twZWElMjBjdXJyeXxlbnwwfHwwfHx8MA%3D%3D",
       "calories": null,
       "about": "Spicy chickpea curry popular as street food and home meal",
@@ -1333,13 +1299,11 @@
         "Bacon",
         "Crème fraîche"
       ],
-      "tags": [
-        "Comfort Food",
-        "Classic"
-      ],
+      "tags": ["Comfort Food", "Classic"],
       "prepTime": "45-60",
       "price": 668,
       "restaurant": "Soup Central",
+      "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
       "image": "https://images.unsplash.com/photo-1550431221-6f1495d56cf3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bXVzaHJvb20lMjBmb29kfGVufDB8fDB8fHww",
       "calories": 479,
       "about": "A rustic interpretation enriched with wild mushrooms and smoked bacon.",
@@ -1476,13 +1440,11 @@
         "Dark soy sauce",
         "Chicken/Pork"
       ],
-      "tags": [
-        "Dairy-Free",
-        "Spicy"
-      ],
+      "tags": ["Dairy-Free", "Spicy"],
       "prepTime": "15-30",
       "price": 341,
       "restaurant": "Gourmet Bites",
+      "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4df?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "calories": 560,
       "about": "Comforting wide noodles caramelized in dark soy sauce with Chinese broccoli and your choice of protein",
@@ -1626,13 +1588,11 @@
         "Flour",
         "Rose water"
       ],
-      "tags": [
-        "Vegetarian",
-        "Classic"
-      ],
+      "tags": ["Vegetarian", "Classic"],
       "prepTime": "30-120",
       "price": 709,
       "restaurant": "Urban Eats",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://media.gettyimages.com/id/864323434/photo/gulab-jamun.webp?s=2048x2048&w=gi&k=20&c=99gdyOaF2KM7BhaNrbFZtvQGaKODcpgRr1Va3xzXanM=",
       "calories": 296,
       "about": "Golden brown milk-solid dumplings soaked in rose-flavored sugar syrup. A festival favorite across India.",
@@ -1686,13 +1646,11 @@
         "Turmeric",
         "Salt"
       ],
-      "tags": [
-        "Street Food",
-        "Spicy"
-      ],
+      "tags": ["Street Food", "Spicy"],
       "prepTime": "40-60",
       "price": 90,
       "restaurant": "Urban Eats",
+      "restaurantImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://plus.unsplash.com/premium_photo-1695297516710-854716c51121?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2Ftb3NhfGVufDB8fDB8fHww",
       "calories": 474,
       "about": "Delicious Vegetable Samosa Samosa",
@@ -1819,13 +1777,11 @@
         "Spicy mayo",
         "Scallions"
       ],
-      "tags": [
-        "Fresh",
-        "Seafood"
-      ],
+      "tags": ["Fresh", "Seafood"],
       "prepTime": "15-25",
       "price": 549,
       "restaurant": "Gourmet Bites",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661433201283-fcb240e88ad4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3VzaGklMjByb2xsc3xlbnwwfHwwfHx8MA%3D%3D",
       "calories": 504,
       "about": "Fresh tuna mixed with our house-made spicy mayo, featuring just the right amount of heat. The scallions add a fresh crunch.",
@@ -1935,13 +1891,11 @@
         "Red pepper flakes",
         "Parsley"
       ],
-      "tags": [
-        "Comfort Food",
-        "Spicy"
-      ],
+      "tags": ["Comfort Food", "Spicy"],
       "prepTime": "20-35",
       "price": 620,
       "restaurant": "Fresh Kitchen",
+      "restaurantImage": "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb",
       "calories": 686,
       "about": "Spicy tomato sauce with garlic and chili flakes. Slow-simmered with San Marzano tomatoes for depth of flavor.",
@@ -2019,13 +1973,11 @@
         "Toasted bread",
         "Swiss cheese"
       ],
-      "tags": [
-        "Fresh",
-        "Classic"
-      ],
+      "tags": ["Fresh", "Classic"],
       "prepTime": "45-60",
       "price": 771,
       "restaurant": "Ocean Delights",
+      "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
       "image": "https://images.unsplash.com/photo-1652088079703-38f4a8d6b981?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNvdXB8ZW58MHx8MHx8fDA%3D",
       "calories": 449,
       "about": "Our traditional version features onions slowly caramelized in butter, homemade broth, and toasted bread with melted Swiss cheese.",
@@ -2184,13 +2136,11 @@
         "Pickles",
         "Special sauce"
       ],
-      "tags": [
-        "Spicy",
-        "New"
-      ],
+      "tags": ["Spicy", "New"],
       "prepTime": "15-25",
       "price": 346,
       "restaurant": "Urban Eats",
+      "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://plus.unsplash.com/premium_photo-1675864532183-8f37e8834db5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hlZXNlYnVyZ2VyfGVufDB8fDB8fHww",
       "calories": 757,
       "about": "Our signature burger featuring a half-pound grass-fed beef patty, melted American cheese, and house-made special sauce on a brioche bun.",
@@ -2342,13 +2292,11 @@
         "Dry fruits",
         "Pistachios"
       ],
-      "tags": [
-        "Vegetarian",
-        "Best Seller"
-      ],
+      "tags": ["Vegetarian", "Best Seller"],
       "prepTime": "30-120",
       "price": 223,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://www.prideofindia.net.in/cdn/shop/articles/shutterstock_1701572134_1000x.jpg?v=1629451594",
       "calories": 317,
       "about": "Creamy rice pudding with cardamom and dry fruits. Served at celebrations and temples.",
@@ -2434,19 +2382,12 @@
       "type": "Salad",
       "name": "Kachumber Salad",
       "cuisine": "Indian",
-      "ingredients": [
-        "Lemon juice",
-        "Fresh cilantro",
-        "Chaat masala",
-        "Salt"
-      ],
-      "tags": [
-        "Healthy",
-        "Vegetarian"
-      ],
+      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
+      "tags": ["Healthy", "Vegetarian"],
       "prepTime": "10-20",
       "price": 825,
       "restaurant": "Urban Eats",
+      "restaurantImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://plus.unsplash.com/premium_photo-1676047258557-de72954cf17c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHNhbGFkfGVufDB8fDB8fHww",
       "calories": 557,
       "about": "Delicious Kachumber Salad Salad",
@@ -2588,13 +2529,11 @@
         "Coffee",
         "Vanilla ice cream"
       ],
-      "tags": [
-        "Breakfast",
-        "Best Seller"
-      ],
+      "tags": ["Breakfast", "Best Seller"],
       "prepTime": "5-30",
       "price": 181,
       "restaurant": "Mcdonald",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661433201283-fcb240e88ad4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1527678357412-ef45dfbd9ecc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGljZWQlMjBjb2ZmZWV8ZW58MHx8MHx8fDA%3D",
       "calories": null,
       "about": "Iced coffee version with milk and vanilla ice cream - richer than western iced coffee",
@@ -2740,13 +2679,11 @@
         "Nuts",
         "Condensed milk"
       ],
-      "tags": [
-        "Breakfast",
-        "Vegetarian"
-      ],
+      "tags": ["Breakfast", "Vegetarian"],
       "prepTime": "30-120",
       "price": 738,
       "restaurant": "Urban Eats",
+      "restaurantImage": "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1517244683847-7456b63c5969?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGFsd2F8ZW58MHx8MHx8fDA%3D",
       "calories": 361,
       "about": "Slow-cooked carrot pudding with milk, ghee and nuts. Winter specialty in North India.",
@@ -2849,13 +2786,11 @@
         "Milk",
         "Butter"
       ],
-      "tags": [
-        "Vegetarian",
-        "Comfort Food"
-      ],
+      "tags": ["Vegetarian", "Comfort Food"],
       "prepTime": "10-15",
       "price": 78,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
       "image": "https://www.yummytummyaarthi.com/wp-content/uploads/2014/10/1-30.jpg",
       "calories": null,
       "about": "Amritsari specialty - leavened bread with stuffing options",
@@ -2968,13 +2903,11 @@
         "Cognac",
         "Country bread"
       ],
-      "tags": [
-        "Classic",
-        "Spicy"
-      ],
+      "tags": ["Classic", "Spicy"],
       "prepTime": "45-60",
       "price": 629,
       "restaurant": "Fresh Kitchen",
+      "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1616501268826-ee9731c915d4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHNvdXB8ZW58MHx8MHx8fDA%3D",
       "calories": 446,
       "about": "Prepared with authentic techniques including a splash of cognac and white wine for depth.",
@@ -3021,13 +2954,11 @@
         "Pepper jack",
         "Chipotle mayo"
       ],
-      "tags": [
-        "New",
-        "Spicy"
-      ],
+      "tags": ["New", "Spicy"],
       "prepTime": "15-25",
       "price": 731,
       "restaurant": "Mcdonald",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://plus.unsplash.com/premium_photo-1661265914974-2aaa4dfb9be7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
       "calories": 862,
       "about": "For heat lovers - fresh jalapeños, pepper jack cheese, and chipotle mayo create a spicy kick balanced by cool lettuce and tomato.",
@@ -3078,13 +3009,11 @@
         "Bean sprouts",
         "Peanuts"
       ],
-      "tags": [
-        "Quick Meal",
-        "Dairy-Free"
-      ],
+      "tags": ["Quick Meal", "Dairy-Free"],
       "prepTime": "15-30",
       "price": 245,
       "restaurant": "Spice Route",
+      "restaurantImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://images.unsplash.com/photo-1637806931098-af30b519be53?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFkJTIwdGhhaXxlbnwwfHwwfHx8MA%3D%3D",
       "calories": 747,
       "about": "Thailand's most famous export - stir-fried rice noodles with perfect sweet-savory-tangy balance, topped with crushed peanuts",
@@ -3147,13 +3076,11 @@
         "Milk",
         "Butter"
       ],
-      "tags": [
-        "Vegetarian",
-        "Classic"
-      ],
+      "tags": ["Vegetarian", "Classic"],
       "prepTime": "10-15",
       "price": 33,
       "restaurant": "Ocean Delights",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661433201283-fcb240e88ad4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://www.yummytummyaarthi.com/wp-content/uploads/2014/10/1-30.jpg",
       "calories": null,
       "about": "Amritsari specialty - leavened bread with stuffing options",
@@ -3218,13 +3145,11 @@
         "Beaufort",
         "Raclette"
       ],
-      "tags": [
-        "Fresh",
-        "Comfort Food"
-      ],
+      "tags": ["Fresh", "Comfort Food"],
       "prepTime": "45-60",
       "price": 683,
       "restaurant": "Ocean Delights",
+      "restaurantImage": "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://www.daisybrand.com/wp-content/uploads/2019/12/cheese-beer-soup-770x628_8663.jpg",
       "calories": 539,
       "about": "A gourmet blend of three premium French cheeses for an unforgettable experience.",
@@ -3320,13 +3245,11 @@
         "Dry fruits",
         "Pistachios"
       ],
-      "tags": [
-        "Classic",
-        "Best Seller"
-      ],
+      "tags": ["Classic", "Best Seller"],
       "prepTime": "30-120",
       "price": 220,
       "restaurant": "Fresh Kitchen",
+      "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
       "image": "https://www.prideofindia.net.in/cdn/shop/articles/shutterstock_1701572134_1000x.jpg?v=1629451594",
       "calories": 311,
       "about": "Creamy rice pudding with cardamom and dry fruits. Served at celebrations and temples.",
@@ -3398,13 +3321,11 @@
         "Flour",
         "Rose water"
       ],
-      "tags": [
-        "Best Seller",
-        "Sweet"
-      ],
+      "tags": ["Best Seller", "Sweet"],
       "prepTime": "30-120",
       "price": 209,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://media.gettyimages.com/id/864323434/photo/gulab-jamun.webp?s=2048x2048&w=gi&k=20&c=99gdyOaF2KM7BhaNrbFZtvQGaKODcpgRr1Va3xzXanM=",
       "calories": 279,
       "about": "Golden brown milk-solid dumplings soaked in rose-flavored sugar syrup. A festival favorite across India.",
@@ -3466,13 +3387,11 @@
         "Turmeric",
         "Salt"
       ],
-      "tags": [
-        "Street Food",
-        "Breakfast"
-      ],
+      "tags": ["Street Food", "Breakfast"],
       "prepTime": "40-60",
       "price": 113,
       "restaurant": "Gourmet Bites",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://plus.unsplash.com/premium_photo-1695297516142-398762d80f66?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHNhbW9zYXxlbnwwfHwwfHx8MA%3D%3D",
       "calories": 453,
       "about": "Delicious Keema Samosa Samosa",
@@ -3626,13 +3545,11 @@
         "Minced pork",
         "Mint"
       ],
-      "tags": [
-        "Spicy",
-        "Street Food"
-      ],
+      "tags": ["Spicy", "Street Food"],
       "prepTime": "15-30",
       "price": 288,
       "restaurant": "Spice Route",
+      "restaurantImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://plantbasedfolk.com/wp-content/uploads/2021/07/Cold-Noodle-Salad.jpg",
       "calories": 426,
       "about": "Light and refreshing clear noodle salad with zesty lime dressing and protein toppings",
@@ -3678,13 +3595,11 @@
         "Chicken broth gelatin",
         "Scallions"
       ],
-      "tags": [
-        "Authentic",
-        "Juicy"
-      ],
+      "tags": ["Authentic", "Juicy"],
       "prepTime": "20-30",
       "price": 525,
       "restaurant": "Fresh Kitchen",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661433201283-fcb240e88ad4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://www.foodpleasureandhealth.com/wp-content/uploads/2020/03/IMG_1615-720x960.jpg",
       "calories": 250,
       "about": "Lighter version of soup dumplings with chicken filling and clear broth. Delicate flavors with the same satisfying soup burst.",
@@ -3746,13 +3661,11 @@
         "Mushrooms",
         "Carrots"
       ],
-      "tags": [
-        "Hand-folded",
-        "Juicy"
-      ],
+      "tags": ["Hand-folded", "Juicy"],
       "prepTime": "20-30",
       "price": 406,
       "restaurant": "Gourmet Bites",
+      "restaurantImage": "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246",
       "calories": 193,
       "about": "Pan-fried then steamed vegetable dumplings with crispy bottoms. The filling stays vibrant and crunchy.",
@@ -3822,13 +3735,11 @@
         "Grilled vegetables",
         "Black beans"
       ],
-      "tags": [
-        "Seasonal",
-        "Street Food"
-      ],
+      "tags": ["Seasonal", "Street Food"],
       "prepTime": "10-20",
       "price": 593,
       "restaurant": "Taco Bell",
+      "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
       "image": "https://www.twopeasandtheirpod.com/wp-content/uploads/2021/06/Veggie-Tacos4577-650x975.jpg",
       "calories": 326,
       "about": "Grilled seasonal vegetables with black bean spread and avocado crema. A fresh, satisfying option packed with flavor.",
@@ -3972,13 +3883,11 @@
         "Flour",
         "Rose water"
       ],
-      "tags": [
-        "Breakfast",
-        "Vegetarian"
-      ],
+      "tags": ["Breakfast", "Vegetarian"],
       "prepTime": "30-120",
       "price": 356,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://media.gettyimages.com/id/864323434/photo/gulab-jamun.webp?s=2048x2048&w=gi&k=20&c=99gdyOaF2KM7BhaNrbFZtvQGaKODcpgRr1Va3xzXanM=",
       "calories": 263,
       "about": "Golden brown milk-solid dumplings soaked in rose-flavored sugar syrup. A festival favorite across India.",
@@ -4080,13 +3989,11 @@
         "Gelatin broth",
         "Crab roe"
       ],
-      "tags": [
-        "Authentic",
-        "Steamed"
-      ],
+      "tags": ["Authentic", "Steamed"],
       "prepTime": "20-30",
       "price": 287,
       "restaurant": "Urban Eats",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2020/11/19/0/MW612_pork-dumplings_s4x3.jpg.rend.hgtvcom.826.620.suffix/1605802271825.webp",
       "calories": 275,
       "about": "Xiao long bao with delicate pleated wrappers containing pork filling and rich broth. Our chefs make exactly 18 pleats on each dumpling.",
@@ -4131,13 +4038,11 @@
         "Basil",
         "Olive oil"
       ],
-      "tags": [
-        "Comfort Food",
-        "Shareable"
-      ],
+      "tags": ["Comfort Food", "Shareable"],
       "prepTime": "15-25",
       "price": 689,
       "restaurant": "Pizza Hut",
+      "restaurantImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002",
       "calories": 830,
       "about": "Our signature Margherita follows authentic Neapolitan tradition with San Marzano tomato sauce, fresh mozzarella, and hand-picked basil. Cooked in 900°F wood-fired oven for perfect char.",
@@ -4296,13 +4201,11 @@
         "Flour",
         "Rose water"
       ],
-      "tags": [
-        "Sweet",
-        "Vegetarian"
-      ],
+      "tags": ["Sweet", "Vegetarian"],
       "prepTime": "30-120",
       "price": 249,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661433201283-fcb240e88ad4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://media.gettyimages.com/id/864323434/photo/gulab-jamun.webp?s=2048x2048&w=gi&k=20&c=99gdyOaF2KM7BhaNrbFZtvQGaKODcpgRr1Va3xzXanM=",
       "calories": 256,
       "about": "Golden brown milk-solid dumplings soaked in rose-flavored sugar syrup. A festival favorite across India.",
@@ -4452,13 +4355,11 @@
         "Bamboo shoots",
         "Pork fat"
       ],
-      "tags": [
-        "Hand-folded",
-        "Authentic"
-      ],
+      "tags": ["Hand-folded", "Authentic"],
       "prepTime": "20-30",
       "price": 493,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://plus.unsplash.com/premium_photo-1673809798703-6082a015f931?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "calories": 246,
       "about": "Classic dim sum dumplings with translucent wrappers showcasing the pink shrimp filling. The wrapper has just the right chew.",
@@ -4522,13 +4423,11 @@
         "Nuts",
         "Condensed milk"
       ],
-      "tags": [
-        "Classic",
-        "Vegetarian"
-      ],
+      "tags": ["Classic", "Vegetarian"],
       "prepTime": "30-120",
       "price": 612,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
       "image": "https://images.unsplash.com/photo-1517244683847-7456b63c5969?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGFsd2F8ZW58MHx8MHx8fDA%3D",
       "calories": 356,
       "about": "Slow-cooked carrot pudding with milk, ghee and nuts. Winter specialty in North India.",
@@ -4646,13 +4545,11 @@
         "Turmeric",
         "Salt"
       ],
-      "tags": [
-        "Spicy",
-        "Fresh"
-      ],
+      "tags": ["Spicy", "Fresh"],
       "prepTime": "40-60",
       "price": 148,
       "restaurant": "Ocean Delights",
+      "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1721980743533-49f5fa70994b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHNhbW9zYXxlbnwwfHwwfHx8MA%3D%3D",
       "calories": 568,
       "about": "Delicious Classic Potato Samosa Samosa",
@@ -4786,19 +4683,12 @@
       "type": "Salad",
       "name": "Bombay Street Salad",
       "cuisine": "Indian",
-      "ingredients": [
-        "Lemon juice",
-        "Fresh cilantro",
-        "Chaat masala",
-        "Salt"
-      ],
-      "tags": [
-        "Seasonal",
-        "Vegetarian"
-      ],
+      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
+      "tags": ["Seasonal", "Vegetarian"],
       "prepTime": "10-20",
       "price": 354,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://plus.unsplash.com/premium_photo-1673590981774-d9f534e0c617?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "calories": 537,
       "about": "Delicious Bombay Street Salad Salad",
@@ -4956,13 +4846,11 @@
         "Toasted bread",
         "Swiss cheese"
       ],
-      "tags": [
-        "Spicy",
-        "Comfort Food"
-      ],
+      "tags": ["Spicy", "Comfort Food"],
       "prepTime": "45-60",
       "price": 394,
       "restaurant": "Fresh Kitchen",
+      "restaurantImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
       "image": "https://images.unsplash.com/photo-1652088079703-38f4a8d6b981?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNvdXB8ZW58MHx8MHx8fDA%3D",
       "calories": 408,
       "about": "Our traditional version features onions slowly caramelized in butter, homemade broth, and toasted bread with melted Swiss cheese.",
@@ -5104,19 +4992,12 @@
       "type": "Salad",
       "name": "Sprouted Moong Salad",
       "cuisine": "Indian",
-      "ingredients": [
-        "Lemon juice",
-        "Fresh cilantro",
-        "Chaat masala",
-        "Salt"
-      ],
-      "tags": [
-        "Vegetarian",
-        "Fresh"
-      ],
+      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
+      "tags": ["Vegetarian", "Fresh"],
       "prepTime": "10-20",
       "price": 443,
       "restaurant": "Subway",
+      "restaurantImage": "https://plus.unsplash.com/premium_photo-1661433201283-fcb240e88ad4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1622732777601-e744c3401d44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3Byb3V0c3xlbnwwfHwwfHx8MA%3D%3D",
       "calories": 496,
       "about": "Delicious Sprouted Moong Salad Salad",
@@ -5261,13 +5142,11 @@
         "Dark soy sauce",
         "Chicken/Pork"
       ],
-      "tags": [
-        "Street Food",
-        "Dairy-Free"
-      ],
+      "tags": ["Street Food", "Dairy-Free"],
       "prepTime": "15-30",
       "price": 234,
       "restaurant": "Noodle World",
+      "restaurantImage": "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4df?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "calories": 567,
       "about": "Comforting wide noodles caramelized in dark soy sauce with Chinese broccoli and your choice of protein",
@@ -5409,13 +5288,11 @@
         "White sauce",
         "Mozzarella"
       ],
-      "tags": [
-        "Comfort Food",
-        "Street Food"
-      ],
+      "tags": ["Comfort Food", "Street Food"],
       "prepTime": "20-35",
       "price": 514,
       "restaurant": "Sweet Surrender",
+      "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
       "image": "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "calories": 1085,
       "about": "Classic layered pasta with slow-cooked meat sauce, creamy béchamel, and melted cheese topping.",
@@ -5477,19 +5354,12 @@
       "type": "Salad",
       "name": "Beetroot & Peanut Salad",
       "cuisine": "Indian",
-      "ingredients": [
-        "Lemon juice",
-        "Fresh cilantro",
-        "Chaat masala",
-        "Salt"
-      ],
-      "tags": [
-        "Vegetarian",
-        "Fresh"
-      ],
+      "ingredients": ["Lemon juice", "Fresh cilantro", "Chaat masala", "Salt"],
+      "tags": ["Vegetarian", "Fresh"],
       "prepTime": "10-20",
       "price": 986,
       "restaurant": "Urban Eats",
+      "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
       "image": "https://images.unsplash.com/photo-1551248429-40975aa4de74?q=80&w=1890&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "calories": 531,
       "about": "Delicious Beetroot & Peanut Salad Salad",
@@ -5629,32 +5499,31 @@
   ],
   "users": [
     {
-      "id": "6ad5",
-      "username": "hello",
-      "email": "hello@gmail.com",
-      "phone": "1111111111",
-      "password": "HelloWorld92!@#"
+      "id": "cec3",
+      "username": "Rajat",
+      "email": "rajat.gangwar41@gmail.com",
+      "phone": "9258763646",
+      "password": "rajat92587",
+      "userId": "user-id-cmFqYXQuZ2FuZ3dhcjQxQGdtYWlsLmNvbQ==-1744352221072",
+      "cartId": "cart-id-cmFqYXQuZ2FuZ3dhcjQxQGdtYWlsLmNvbQ==-1744352221072",
+      "favoriteId": "favorite-id-cmFqYXQuZ2FuZ3dhcjQxQGdtYWlsLmNvbQ==-1744352221072",
+      "orderId": "order-id-cmFqYXQuZ2FuZ3dhcjQxQGdtYWlsLmNvbQ==-1744352221072",
+      "token": "token-cmFqYXQuZ2FuZ3dhcjQxQGdtYWlsLmNvbQ==-1744352221072"
     },
     {
-      "id": "48e2",
-      "username": "hello",
-      "email": "hello@gmail.com",
-      "phone": "1111111111",
-      "password": "HelloWorld92!@#"
-    },
-    {
-      "id": "7dfc",
-      "username": "hello",
-      "email": "hello@gmail.com",
-      "phone": "1111111111",
-      "password": "HelloWorld92!@#"
-    },
-    {
-      "id": "0234",
-      "username": "hello",
-      "email": "hello@gmail.com",
-      "phone": "1111111111",
-      "password": "HelloWorld92!@#"
+      "id": "b8b9",
+      "username": "Ishan",
+      "email": "ishan@gmail.com",
+      "phone": "9583687345",
+      "password": "ishan95836",
+      "userId": "user-id-aXNoYW5AZ21haWwuY29t-1744352310130",
+      "cartId": "cart-id-aXNoYW5AZ21haWwuY29t-1744352310130",
+      "favoriteId": "favorite-id-aXNoYW5AZ21haWwuY29t-1744352310130",
+      "orderId": "order-id-aXNoYW5AZ21haWwuY29t-1744352310130",
+      "token": "token-aXNoYW5AZ21haWwuY29t-1744352310130"
     }
-  ]
+  ],
+  "carts": [],
+  "favorites": [],
+  "orders": []
 }

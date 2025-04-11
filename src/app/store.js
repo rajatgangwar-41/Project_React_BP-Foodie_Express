@@ -2,21 +2,30 @@ import { configureStore } from "@reduxjs/toolkit"
 import {
   themeReducer,
   menuReducer,
-  contactReducer,
   authReducer,
+  popupReducer,
+  contactReducer,
   foodApi,
+  authApi,
+  cartApi,
 } from "../features"
 
 const store = configureStore({
   reducer: {
     theme: themeReducer,
     menu: menuReducer,
-    contact: contactReducer,
     auth: authReducer,
+    popup: popupReducer,
+    contact: contactReducer,
     [foodApi.reducerPath]: foodApi.reducer,
+    [authApi.reducerPath]: authApi.reducer,
+    [cartApi.reducerPath]: cartApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(foodApi.middleware),
+    getDefaultMiddleware()
+      .concat(foodApi.middleware)
+      .concat(authApi.middleware)
+      .concat(cartApi.middleware),
 })
 
 export default store

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import { RootLayout } from "./layouts"
+import { ProtectedRoute, ProtectedAuthRoute } from "./components/common"
 import {
   HomePage,
   MenuPage,
@@ -26,14 +27,37 @@ const router = createBrowserRouter([
       { path: "/about", element: <AboutPage /> },
       { path: "/contact", element: <ContactPage /> },
       { path: "/help", element: <HelpPage /> },
-      { path: "/login", element: <LoginPage /> },
-      { path: "/signup", element: <SignupPage /> },
       { path: "/food-item/:id", element: <FoodItemPage /> },
-      { path: "/user/:id", element: <UserProfilePage /> },
-      { path: "/order-details/:id", element: <OrderDetailsPage /> },
+      { path: "*", element: <NotFoundPage /> },
+      // Auth routes - only accessible when NOT logged in
+      {
+        path: "/login",
+        element: (
+          <ProtectedAuthRoute>
+            <LoginPage />
+          </ProtectedAuthRoute>
+        ),
+      },
+      {
+        path: "/signup",
+        element: (
+          <ProtectedAuthRoute>
+            <SignupPage />
+          </ProtectedAuthRoute>
+        ),
+      },
+      // Protected routes - only accessible when logged in
+      {
+        path: "/user/:id",
+        element: (
+          <ProtectedRoute>
+            <UserProfilePage />
+          </ProtectedRoute>
+        ),
+      },
       { path: "/checkout/:id", element: <CheckoutPage /> },
       { path: "/payment-status/:id", element: <PaymentStatusPage /> },
-      { path: "*", element: <NotFoundPage /> },
+      { path: "/order-details/:id", element: <OrderDetailsPage /> },
     ],
   },
 ])

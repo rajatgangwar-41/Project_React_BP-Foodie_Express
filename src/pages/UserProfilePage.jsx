@@ -30,7 +30,7 @@ const UserProfilePage = () => {
     profilePic: "https://randomuser.me/api/portraits/men/32.jpg",
     firstName: "Alex",
     lastName: "Johnson",
-    username: "alexj",
+    username: "alex",
     email: "alex.johnson@example.com",
     phone: "+1 (555) 123-4567",
     about: "Food enthusiast and restaurant reviewer",
@@ -85,7 +85,7 @@ const UserProfilePage = () => {
     },
   ]
 
-  const [orders, setOrders] = useState({
+  const [orders, _setOrders] = useState({
     inProcess: [
       {
         id: "ORD-89123",

@@ -3,6 +3,8 @@ import { motion } from "motion/react"
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 import { FiClock, FiShoppingCart, FiStar } from "react-icons/fi"
 import { Link } from "react-router-dom"
+import { useUpsertCartItemMutation } from "../../features/cartApiSlice"
+import { useAuth } from "../../hooks"
 
 // Tag colors mapping
 const tagColors = {
@@ -55,6 +57,8 @@ const PaginatedItemsSections = ({
   }
 
   const [_, setMenuItems] = useState(filteredItems)
+  const [upsertCartItem] = useUpsertCartItemMutation()
+  const { cartId } = useAuth()
 
   // Toggle favorite status
   const toggleFavorite = (itemId) => {
@@ -65,15 +69,11 @@ const PaginatedItemsSections = ({
     )
   }
 
-  // Add to cart
-  const addToCart = (itemId) => {
-    setMenuItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === itemId ? { ...item, inCart: true } : item
-      )
-    )
-    // Show a toast notification
-    console.log("Added to cart!")
+  const handleAddToCart = (item) => {
+    upsertCartItem({
+      cartId,
+      item,
+    })
   }
 
   return (
@@ -166,7 +166,7 @@ const PaginatedItemsSections = ({
 
           <div className="px-4 pb-4">
             <button
-              onClick={() => addToCart(item.id)}
+              onClick={() => handleAddToCart(item)}
               className="w-full flex items-center justify-center gap-2 py-2 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors"
             >
               <FiShoppingCart className="h-5 w-5" />

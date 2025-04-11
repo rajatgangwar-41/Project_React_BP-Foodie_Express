@@ -21,8 +21,10 @@ import {
 import { values, team, milestones } from "./about"
 import { reachOut, contactInfo, socialMedia } from "./contact"
 import { helpTopics, policies, faqs } from "./help"
+import { navLinks } from "./header"
 
 export {
+  navLinks,
   platformStats,
   stats,
   popularFoodItems,
