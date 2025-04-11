@@ -5500,10 +5500,10 @@
   "users": [
     {
       "id": "ffa3",
-      "username": "hello",
-      "email": "hello@gmail.com",
+      "username": "rajat",
+      "email": "rajat@gmail.com",
       "phone": "1111111111",
-      "password": "hello123",
+      "password": "rajat123",
       "userId": "user-id-aGVsbG9AZ21haWwuY29t-1744372897472",
       "token": "token-aGVsbG9AZ21haWwuY29t-1744372897472",
       "cart": [],
