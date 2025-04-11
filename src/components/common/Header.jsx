@@ -7,6 +7,7 @@ import { toggleTheme } from "../../features/themeSlice"
 import { setIsCartOpen, setIsLoginPopupOpen } from "../../features/popupSlice"
 import { usePopup, useTheme, useAuth } from "../../hooks"
 import { DesktopNavigation, HeaderIcons, MobileMenu } from "./header"
+import { toast } from "react-hot-toast"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -24,6 +25,16 @@ const Header = () => {
 
   const handleThemeToggle = () => {
     dispatch(toggleTheme())
+
+    toast.success(`Switched to ${theme === "light" ? "Dark" : "Light"} Mode`, {
+      icon: theme === "light" ? "🌙" : "☀️",
+      position: "top-center",
+      duration: 1500,
+      style: {
+        background: theme === "light" ? "#1f2937" : "#f9fafb",
+        color: theme === "light" ? "#f9fafb" : "#1f2937",
+      },
+    })
   }
 
   const handleCartStatus = (value) => {

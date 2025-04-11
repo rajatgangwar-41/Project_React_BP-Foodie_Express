@@ -154,6 +154,8 @@ export const popularFoodItems = [
     prepTime: "20-35",
     price: 620,
     restaurant: "Fresh Kitchen",
+    restaurantImage:
+      "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
     image: penneArrabiata,
     calories: 686,
     about:
@@ -246,6 +248,8 @@ export const popularFoodItems = [
     prepTime: "30-45",
     price: 810,
     restaurant: "Sweet Surrender",
+    restaurantImage:
+      "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
     image: chanaMasala,
     calories: null,
     about: "Spicy chickpea curry popular as street food and home meal",
@@ -370,6 +374,8 @@ export const popularFoodItems = [
     prepTime: "15-25",
     price: 689,
     restaurant: "Pizza Hut",
+    restaurantImage:
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
     image: margherita,
     calories: 830,
     about:
@@ -547,6 +553,8 @@ export const popularFoodItems = [
     prepTime: "15-25",
     price: 621,
     restaurant: "Pizza Hut",
+    restaurantImage:
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
     image: fourCheese,
     calories: 1180,
     about:
@@ -625,6 +633,8 @@ export const popularFoodItems = [
     prepTime: "45-60",
     price: 668,
     restaurant: "Soup Central",
+    restaurantImage:
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
     image: forestMushroom,
     calories: 479,
     about:
@@ -776,6 +786,8 @@ export const popularFoodItems = [
     prepTime: "20-30",
     price: 406,
     restaurant: "Gourmet Bites",
+    restaurantImage:
+      "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
     image: vegetablePotstickers,
     calories: 193,
     about:
