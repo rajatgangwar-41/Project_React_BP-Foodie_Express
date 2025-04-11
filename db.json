@@ -5499,31 +5499,16 @@
   ],
   "users": [
     {
-      "id": "cec3",
-      "username": "Rajat",
-      "email": "rajat.gangwar41@gmail.com",
-      "phone": "9258763646",
-      "password": "rajat92587",
-      "userId": "user-id-cmFqYXQuZ2FuZ3dhcjQxQGdtYWlsLmNvbQ==-1744352221072",
-      "cartId": "cart-id-cmFqYXQuZ2FuZ3dhcjQxQGdtYWlsLmNvbQ==-1744352221072",
-      "favoriteId": "favorite-id-cmFqYXQuZ2FuZ3dhcjQxQGdtYWlsLmNvbQ==-1744352221072",
-      "orderId": "order-id-cmFqYXQuZ2FuZ3dhcjQxQGdtYWlsLmNvbQ==-1744352221072",
-      "token": "token-cmFqYXQuZ2FuZ3dhcjQxQGdtYWlsLmNvbQ==-1744352221072"
-    },
-    {
-      "id": "b8b9",
-      "username": "Ishan",
-      "email": "ishan@gmail.com",
-      "phone": "9583687345",
-      "password": "ishan95836",
-      "userId": "user-id-aXNoYW5AZ21haWwuY29t-1744352310130",
-      "cartId": "cart-id-aXNoYW5AZ21haWwuY29t-1744352310130",
-      "favoriteId": "favorite-id-aXNoYW5AZ21haWwuY29t-1744352310130",
-      "orderId": "order-id-aXNoYW5AZ21haWwuY29t-1744352310130",
-      "token": "token-aXNoYW5AZ21haWwuY29t-1744352310130"
+      "id": "ffa3",
+      "username": "hello",
+      "email": "hello@gmail.com",
+      "phone": "1111111111",
+      "password": "hello123",
+      "userId": "user-id-aGVsbG9AZ21haWwuY29t-1744372897472",
+      "token": "token-aGVsbG9AZ21haWwuY29t-1744372897472",
+      "cart": [],
+      "favorites": [],
+      "orders": []
     }
-  ],
-  "carts": [],
-  "favorites": [],
-  "orders": []
+  ]
 }
