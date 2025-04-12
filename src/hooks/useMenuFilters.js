@@ -11,7 +11,6 @@ export const useMenuFilters = (foodItems) => {
   } = useSelector((state) => state.menu, shallowEqual)
 
   const filteredItems = useMemo(() => {
-    console.log("Filtering items...")
     if (!foodItems) return []
 
     let results = [...foodItems]

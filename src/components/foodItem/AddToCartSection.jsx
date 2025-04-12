@@ -2,57 +2,92 @@ import { motion } from "motion/react"
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { FiMinus, FiPlus, FiShoppingCart } from "react-icons/fi"
-import { useAuth, usePopup } from "../../hooks"
+import { useAuth } from "../../hooks"
 import {
   useAddItemMutation,
   useIncreaseQuantityMutation,
 } from "../../features/cartApiSlice"
+import { setCredentials } from "../../features/authSlice"
+import { useDispatch } from "react-redux"
 
 const AddToCartSection = ({ foodItem }) => {
   const [quantity, setQuantity] = useState(1)
-  const { items: cartItems } = usePopup()
-  const { id } = useAuth()
+  const dispatch = useDispatch()
+
+  const { user, id } = useAuth()
+  const cartItems = user?.cart || []
 
   const [addItem] = useAddItemMutation()
   const [increaseQuantity] = useIncreaseQuantityMutation()
 
   // Handle add to cart
-  const handleAddToCart = (item) => {
-    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id)
+  const handleAddToCart = async (item) => {
+    try {
+      const existingItem = cartItems.find((cartItem) => cartItem.id === item.id)
 
-    if (existingItem) {
-      const newItems = cartItems.map((cartItem) =>
-        cartItem.id === item.id
-          ? { ...cartItem, quantity: cartItem.quantity + quantity }
-          : cartItem
-      )
-      increaseQuantity({
-        id,
-        item,
-        quantity,
-        cartItems: [...newItems],
-      })
-      toast.success(`${item.name} quantity increased by 1!`, {
+      if (existingItem) {
+        // Increase quantity for existing item
+        const newItems = cartItems.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + quantity }
+            : cartItem
+        )
+
+        const { token: _, ...updatedUser } = await increaseQuantity({
+          id,
+          item,
+          quantity,
+          cartItems: [...newItems],
+        }).unwrap()
+
+        toast.success(`${item.name} quantity increased by ${quantity}!`, {
+          position: "top-center",
+          style: {
+            background: "#10B981",
+            color: "#fff",
+            width: "fit-content",
+            whiteSpace: "nowrap",
+            padding: "12px 24px",
+          },
+          duration: 2000,
+        })
+        dispatch(setCredentials({ user: updatedUser }))
+      } else {
+        // Add new item to cart
+        const { token: _, ...updatedUser } = await addItem({
+          id,
+          item,
+          quantity,
+          cartItems: [{ ...item, quantity }, ...cartItems],
+        }).unwrap()
+
+        toast.success(`${quantity} ${item.name} added to cart!`, {
+          position: "top-center",
+          style: {
+            background: "#10B981",
+            color: "#fff",
+            width: "fit-content",
+            whiteSpace: "nowrap",
+            padding: "12px 24px",
+          },
+          duration: 2000,
+        })
+        dispatch(setCredentials({ user: updatedUser }))
+      }
+    } catch (error) {
+      toast.dismiss() // Clear any existing success toasts
+      toast.error(`Failed to update cart for ${item.name}!`, {
         position: "top-center",
         style: {
-          background: "#10B981",
+          background: "#EF4444",
           color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
         },
+        duration: 3000,
       })
-    } else {
-      addItem({
-        id,
-        item,
-        quantity,
-        cartItems: [{ ...item, quantity }, ...cartItems],
-      })
-      toast.success(`${quantity} ${item.name} Added to the cart!`, {
-        position: "top-center",
-        style: {
-          background: "#10B981",
-          color: "#fff",
-        },
-      })
+      console.error("Failed to update cart:", error)
     }
   }
   return (

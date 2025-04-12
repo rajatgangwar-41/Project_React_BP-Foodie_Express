@@ -35,7 +35,7 @@ const CartItem = ({
         </motion.button>
       </div>
       <p className="text-orange-500 font-medium mt-1">
-        ₹{item?.price.toFixed(2)}
+        ₹{item?.price?.toFixed(2)}
       </p>
       <div className="flex items-center mt-2">
         <motion.button

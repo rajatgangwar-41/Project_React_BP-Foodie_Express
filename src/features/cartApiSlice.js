@@ -65,7 +65,6 @@ const cartApi = createApi({
         } catch {
           patchResult.undo()
         }
-        1
       },
     }),
 

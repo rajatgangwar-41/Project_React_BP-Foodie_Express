@@ -1,4 +1,3 @@
-import React, { useState } from "react"
 import { motion } from "motion/react"
 import { FaHeart, FaRegHeart } from "react-icons/fa"
 import { FiClock, FiShoppingCart, FiStar } from "react-icons/fi"
@@ -7,8 +6,11 @@ import {
   useAddItemMutation,
   useIncreaseQuantityMutation,
 } from "../../features/cartApiSlice"
-import { useAuth, usePopup } from "../../hooks"
+import { useAuth } from "../../hooks"
 import toast from "react-hot-toast"
+import { useDispatch } from "react-redux"
+import { setCredentials, updateCredentials } from "../../features/authSlice"
+import { useUpdateFavoritesMutation } from "../../features/favoritesApiSlice"
 
 // Tag colors mapping
 const tagColors = {
@@ -50,7 +52,7 @@ const PaginatedItemsSections = ({
   containerVariants,
   itemVariants,
   paginatedItems,
-  filteredItems,
+  // filteredItems,
 }) => {
   // Get color for tag
   const getTagColor = (tag) => {
@@ -59,58 +61,155 @@ const PaginatedItemsSections = ({
       "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
     )
   }
-
-  const [_, setMenuItems] = useState(filteredItems)
-  const { items: cartItems } = usePopup()
+  const dispatch = useDispatch()
   const [addItem] = useAddItemMutation()
   const [increaseQuantity] = useIncreaseQuantityMutation()
-  const { id } = useAuth()
+  const [updateFavorites] = useUpdateFavoritesMutation()
+  const { user, id } = useAuth()
+  const cartItems = user?.cart || []
 
   // Toggle favorite status
-  const toggleFavorite = (itemId) => {
-    setMenuItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === itemId ? { ...item, isFavorite: !item.isFavorite } : item
-      )
-    )
+  const toggleFavorite = async (item) => {
+    try {
+      if (user?.favorites?.some((food) => food.id === item.id)) {
+        // Remove from favorites
+        const { token: _, ...updatedUser } = await updateFavorites({
+          id,
+          item,
+          favorites: user.favorites.filter((food) => food.id !== item.id),
+        }).unwrap()
+
+        const successToast = toast.success(
+          `${item.name} removed from favorites!`,
+          {
+            position: "top-center",
+            style: {
+              background: "#EF4444", // Red background for removal
+              color: "#fff",
+              width: "fit-content",
+              whiteSpace: "nowrap",
+              padding: "12px 24px",
+            },
+            duration: 2000,
+            icon: "🗑️", // Trash icon for removal
+          }
+        )
+
+        dispatch(updateCredentials({ user: updatedUser }))
+
+        return successToast
+      } else {
+        // Add to favorites
+        const { token: _, ...updatedUser } = await updateFavorites({
+          id,
+          item,
+          favorites: [item, ...user.favorites],
+        }).unwrap()
+
+        const successToast = toast.success(`${item.name} added to favorites!`, {
+          position: "top-center",
+          style: {
+            background: "#10B981", // Green background for addition
+            color: "#fff",
+            width: "fit-content",
+            whiteSpace: "nowrap",
+            padding: "12px 24px",
+          },
+          duration: 2000,
+          icon: "❤️", // Heart icon for addition
+        })
+
+        dispatch(updateCredentials({ user: updatedUser }))
+
+        return successToast
+      }
+    } catch (error) {
+      // Dismiss any existing success toasts before showing error
+      toast.dismiss()
+
+      toast.error(`Failed to update favorites for ${item.name}!`, {
+        position: "top-center",
+        style: {
+          background: "#F59E0B", // Amber background for errors
+          color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
+        },
+        duration: 3000,
+      })
+
+      console.log("Failed to update favorites:", error)
+    }
   }
 
-  const handleAddToCart = (item) => {
-    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id)
+  const handleAddToCart = async (item) => {
+    try {
+      const existingItem = cartItems.find((cartItem) => cartItem.id === item.id)
 
-    if (existingItem) {
-      const newItems = cartItems.map((cartItem) =>
-        cartItem.id === item.id
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
-          : cartItem
-      )
-      increaseQuantity({
-        id,
-        item,
-        quantity: 1,
-        cartItems: [...newItems],
-      })
-      toast.success(`${item.name} quantity increased by 1!`, {
+      if (existingItem) {
+        // Increase quantity for existing item
+        const newItems = cartItems.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        )
+
+        const { token: _, ...updatedUser } = await increaseQuantity({
+          id,
+          item,
+          quantity: 1,
+          cartItems: [...newItems],
+        }).unwrap()
+
+        toast.success(`${item.name} quantity increased by 1!`, {
+          position: "top-center",
+          style: {
+            background: "#10B981",
+            color: "#fff",
+            width: "fit-content",
+            whiteSpace: "nowrap",
+            padding: "12px 24px",
+          },
+          duration: 2000,
+        })
+        dispatch(setCredentials({ user: updatedUser }))
+      } else {
+        // Add new item to cart
+        const { token: _, ...updatedUser } = await addItem({
+          id,
+          item,
+          quantity: 1,
+          cartItems: [{ ...item, quantity: 1 }, ...cartItems],
+        }).unwrap()
+
+        toast.success(`1 ${item.name} added to cart!`, {
+          position: "top-center",
+          style: {
+            background: "#10B981",
+            color: "#fff",
+            width: "fit-content",
+            whiteSpace: "nowrap",
+            padding: "12px 24px",
+          },
+          duration: 2000,
+        })
+        dispatch(setCredentials({ user: updatedUser }))
+      }
+    } catch (error) {
+      toast.dismiss() // Clear any existing success toasts
+      toast.error(`Failed to update cart for ${item.name}!`, {
         position: "top-center",
         style: {
-          background: "#10B981",
+          background: "#EF4444",
           color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
         },
+        duration: 3000,
       })
-    } else {
-      addItem({
-        id,
-        item,
-        quantity: 1,
-        cartItems: [{ ...item, quantity: 1 }, ...cartItems],
-      })
-      toast.success(`1 ${item.name} Added to the cart!`, {
-        position: "top-center",
-        style: {
-          background: "#10B981",
-          color: "#fff",
-        },
-      })
+      console.error("Failed to update cart:", error)
     }
   }
 
@@ -141,14 +240,14 @@ const PaginatedItemsSections = ({
               <button
                 onClick={(e) => {
                   e.preventDefault()
-                  toggleFavorite(item.id)
+                  toggleFavorite(item)
                 }}
                 className="absolute top-3 right-3 p-2 bg-white dark:bg-gray-700 rounded-full shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
                 aria-label={
                   item.isFavorite ? "Remove from favorites" : "Add to favorites"
                 }
               >
-                {item.isFavorite ? (
+                {user?.favorites?.some((food) => food.id === item.id) ? (
                   <FaHeart className="h-5 w-5 text-red-500" />
                 ) : (
                   <FaRegHeart className="h-5 w-5 text-gray-700 dark:text-gray-300" />
@@ -196,7 +295,7 @@ const PaginatedItemsSections = ({
                   <span>{item.prepTime} min</span>
                 </div>
                 <div className="text-lg font-bold text-orange-500 dark:text-orange-400">
-                  ${item.price.toFixed(2)}
+                  ₹{item.price.toFixed(2)}
                 </div>
               </div>
             </div>

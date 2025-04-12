@@ -123,6 +123,15 @@ const authApi = createApi({
         }
       },
     }),
+
+    updateUser: builder.mutation({
+      query: ({ id, userData }) => ({
+        url: `/users/${id}`,
+        method: "PATCH",
+        body: userData,
+      }),
+    }),
+
     deleteUser: builder.mutation({
       query: (id) => ({
         url: `/users/${id}`,
@@ -132,7 +141,11 @@ const authApi = createApi({
   }),
 })
 
-export const { useSignupMutation, useLoginMutation, useDeleteUserMutation } =
-  authApi
+export const {
+  useSignupMutation,
+  useLoginMutation,
+  useUpdateUserMutation,
+  useDeleteUserMutation,
+} = authApi
 
 export default authApi

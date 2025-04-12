@@ -1,17 +1,89 @@
 import { motion } from "motion/react"
-import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { FiHeart, FiShare2 } from "react-icons/fi"
+import { useUpdateFavoritesMutation } from "../../features/favoritesApiSlice"
+import { useAuth } from "../../hooks"
+import { useDispatch } from "react-redux"
+import { updateCredentials } from "../../features/authSlice"
 
 const AboutSection = ({ foodItem, renderStars, averageRating }) => {
-  const [isFavorite, setIsFavorite] = useState(false)
+  const dispatch = useDispatch()
+  const { user, id } = useAuth()
+  const [updateFavorites] = useUpdateFavoritesMutation()
+
   // Handle favorite toggle
-  const handleFavorite = () => {
-    setIsFavorite(!isFavorite)
-    toast.success(
-      isFavorite ? "Removed from favorites" : "Added to favorites!",
-      { position: "top-center" }
-    )
+  const handleFavorite = async (item) => {
+    try {
+      if (user?.favorites?.some((food) => food.id === item.id)) {
+        // Remove from favorites
+        const { token: _, ...updatedUser } = await updateFavorites({
+          id,
+          item,
+          favorites: user.favorites.filter((food) => food.id !== item.id),
+        }).unwrap()
+
+        const successToast = toast.success(
+          `${item.name} removed from favorites!`,
+          {
+            position: "top-center",
+            style: {
+              background: "#EF4444", // Red background for removal
+              color: "#fff",
+              width: "fit-content",
+              whiteSpace: "nowrap",
+              padding: "12px 24px",
+            },
+            duration: 2000,
+            icon: "🗑️", // Trash icon for removal
+          }
+        )
+
+        dispatch(updateCredentials({ user: updatedUser }))
+
+        return successToast
+      } else {
+        // Add to favorites
+        const { token: _, ...updatedUser } = await updateFavorites({
+          id,
+          item,
+          favorites: [item, ...user.favorites],
+        }).unwrap()
+
+        const successToast = toast.success(`${item.name} added to favorites!`, {
+          position: "top-center",
+          style: {
+            background: "#10B981", // Green background for addition
+            color: "#fff",
+            width: "fit-content",
+            whiteSpace: "nowrap",
+            padding: "12px 24px",
+          },
+          duration: 2000,
+          icon: "❤️", // Heart icon for addition
+        })
+
+        dispatch(updateCredentials({ user: updatedUser }))
+
+        return successToast
+      }
+    } catch (error) {
+      // Dismiss any existing success toasts before showing error
+      toast.dismiss()
+
+      toast.error(`Failed to update favorites for ${item.name}!`, {
+        position: "top-center",
+        style: {
+          background: "#F59E0B", // Amber background for errors
+          color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
+        },
+        duration: 3000,
+      })
+
+      console.log("Failed to update favorites:", error)
+    }
   }
 
   // Handle share
@@ -19,8 +91,10 @@ const AboutSection = ({ foodItem, renderStars, averageRating }) => {
     toast.success("Link copied to clipboard!", {
       position: "top-center",
     })
-    // In a real app, you would implement actual sharing functionality
   }
+
+  const isFavorite = user?.favorites?.some((food) => food.id === foodItem.id)
+
   return (
     <div className="flex flex-col lg:flex-row gap-8 mb-8">
       {/* Food Image */}
@@ -91,7 +165,7 @@ const AboutSection = ({ foodItem, renderStars, averageRating }) => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={handleFavorite}
+              onClick={() => handleFavorite(foodItem)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors border ${
                 isFavorite
                   ? "bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-300 border-rose-200 dark:border-rose-800/50"

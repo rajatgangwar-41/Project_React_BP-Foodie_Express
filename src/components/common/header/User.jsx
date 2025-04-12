@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useNavigate } from "react-router-dom"
-import { useDispatch } from "react-redux"
 import { useMediaQuery } from "react-responsive"
-import { toast } from "react-hot-toast"
+import { useDispatch } from "react-redux"
 import {
   FiUserCheck,
   FiShoppingBag,
@@ -12,7 +11,7 @@ import {
   FiUser,
 } from "react-icons/fi"
 import { useAuth } from "../../../hooks"
-import { logout } from "../../../features/authSlice"
+import { setActiveTab } from "../../../features/profileSlice"
 
 const useClickOutside = (ref, handler) => {
   useEffect(() => {
@@ -29,19 +28,27 @@ const useClickOutside = (ref, handler) => {
   }, [ref, handler])
 }
 
-const UserDropdownMenu = ({ handleMenuItemClick, handleLogout }) => {
+const UserDropdownMenu = ({ handleMenuItemClick }) => {
   const dropdownItems = [
     {
       text: "My Account",
+      tab: "account",
       icon: FiUserCheck,
     },
     {
       text: "My Favorites",
+      tab: "favorites",
       icon: FiHeart,
     },
     {
       text: "My Orders",
+      tab: "orders",
       icon: FiShoppingBag,
+    },
+    {
+      text: "Log out",
+      tab: "logout",
+      icon: FiLogOut,
     },
   ]
 
@@ -58,8 +65,8 @@ const UserDropdownMenu = ({ handleMenuItemClick, handleLogout }) => {
           whileTap={{ scale: 0.98 }}
         >
           <button
-            onClick={() => handleMenuItemClick(item.text)}
-            className="flex items-center px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all"
+            onClick={() => handleMenuItemClick(item.tab)}
+            className="flex w-full items-center px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all"
           >
             <span className="mr-3">
               {<item.icon className="text-gray-700 dark:text-gray-300" />}
@@ -68,23 +75,14 @@ const UserDropdownMenu = ({ handleMenuItemClick, handleLogout }) => {
           </button>
         </motion.div>
       ))}
-      <motion.button
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        onClick={handleLogout}
-        className="w-full flex items-center px-4 py-3 text-sm text-red-500 dark:text-red-400 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all"
-      >
-        <FiLogOut className="mr-3 h-4 w-4" />
-        Log Out
-      </motion.button>
     </motion.div>
   )
 }
 
 const User = ({ isScrolled, closeMobileMenu }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const navigate = useNavigate()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const dropdownRef = useRef(null)
   const isMobile = useMediaQuery({ maxWidth: 1024 })
   const { user, isLoggedIn } = useAuth()
@@ -100,55 +98,10 @@ const User = ({ isScrolled, closeMobileMenu }) => {
     }
   }
 
-  const handleMenuItemClick = () => {
+  const handleMenuItemClick = (tab) => {
     setIsOpen(false)
+    dispatch(setActiveTab(tab))
     navigate(`/user/${user.userId}`)
-  }
-
-  const handleLogout = () => {
-    const toastOptions = {
-      position: "top-center",
-      duration: 4000,
-      style: {
-        color: "#fff",
-      },
-    }
-
-    const toastId = toast.loading("Logging out...", {
-      ...toastOptions,
-      style: {
-        ...toastOptions.style,
-        background: "#F59E0B",
-      },
-      icon: "⏳",
-    })
-    try {
-      dispatch(logout())
-
-      setIsOpen(false)
-
-      toast.success("Logged out successfully!", {
-        ...toastOptions,
-        icon: "👋",
-        style: {
-          ...toastOptions.style,
-          background: "#10B981",
-        },
-        id: toastId,
-      })
-
-      navigate("/")
-    } catch (error) {
-      toast.error(`Failed to logout-${error}`, {
-        ...toastOptions,
-        icon: "❌",
-        style: {
-          ...toastOptions.style,
-          background: "#EF4444",
-        },
-        id: toastId,
-      })
-    }
   }
 
   return (
@@ -160,7 +113,7 @@ const User = ({ isScrolled, closeMobileMenu }) => {
         onClick={handleUserAction}
         className={`flex items-center gap-3 ml-2 rounded-full transition-all cursor-pointer ${
           isLoggedIn
-            ? "hover:bg-gray-100 dark:hover:bg-gray-700 p-1"
+            ? ""
             : isMobile
             ? ""
             : isScrolled
@@ -172,10 +125,10 @@ const User = ({ isScrolled, closeMobileMenu }) => {
           <div className="relative">
             <img
               src={
-                user.image || "https://randomuser.me/api/portraits/men/1.jpg"
+                user.image || "https://randomuser.me/api/portraits/men/32.jpg"
               }
               alt={user.firstName || "User Image"}
-              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover border-2 border-white dark:border-gray-800"
+              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover"
             />
             <span className="absolute bottom-0 right-0 h-2.5 w-2.5 bg-green-400 rounded-full border-2 border-white dark:border-gray-800"></span>
           </div>
@@ -236,10 +189,7 @@ const User = ({ isScrolled, closeMobileMenu }) => {
                 </p>
               </motion.div>
 
-              <UserDropdownMenu
-                handleMenuItemClick={handleMenuItemClick}
-                handleLogout={handleLogout}
-              />
+              <UserDropdownMenu handleMenuItemClick={handleMenuItemClick} />
             </div>
           </motion.div>
         )}

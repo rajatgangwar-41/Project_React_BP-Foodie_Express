@@ -107,8 +107,6 @@ const SignupForm = () => {
         })
       )
 
-      console.log(user)
-
       toast.success("Account created successfully! Welcome!", {
         ...toastOptions,
         icon: "🎉",

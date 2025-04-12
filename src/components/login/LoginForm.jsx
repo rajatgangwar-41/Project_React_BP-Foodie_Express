@@ -78,8 +78,6 @@ const LoginForm = () => {
         })
       )
 
-      console.log(user)
-
       // Show success toast
       toast.success("Logged in successfully!", {
         ...toastOptions,
