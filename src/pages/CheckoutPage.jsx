@@ -134,16 +134,51 @@ const CheckoutPage = () => {
       icon: "⏳",
     })
 
-    try {
-      const { originalDeliveryFee: _, ...updatedOrder } = order
+    const { originalDeliveryFee: _, ...updatedOrder } = order
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      address,
+      city,
+      zipCode,
+      specialInstructions,
+      ...payment
+    } = data
 
-      const orderDetails = {
-        orderid: `order-id-${btoa(user?.email)}-${Date.now()}`,
-        orderStatus: "Pending",
+    let orderDetails = {
+      orderId: `order-id-${btoa(user?.email)}-${Date.now()}`,
+      food: { ...updatedOrder, specialInstructions },
+      personal: {
+        firstName,
+        lastName,
+        email,
+        phone,
+        address,
+        city,
+        zipCode,
+      },
+      payment,
+    }
+
+    try {
+      const { token: __, ...updatedUser } = await orderFood({
+        id,
+        orders: [orderDetails, ...user.orders],
+      }).unwrap()
+
+      orderDetails = {
+        ...orderDetails,
+        orderStatus: "Order Placed",
         orderPlacedAt: new Date().toISOString(),
+        deliveryTime: 30,
         deliveredOn: new Date().toISOString(),
-        personal: { ...data },
-        food: { ...updatedOrder },
+        payment: {
+          ...orderDetails.payment,
+          paymentStatus:
+            payment.paymentMethod !== "cod" ? "success" : "pending",
+        },
         rider: {
           name: "Rider Name",
           phone: "Rider Phone",
@@ -151,15 +186,11 @@ const CheckoutPage = () => {
           rating: 4.5,
           vehicle: "Bike",
         },
-        deliveryTime: 1,
       }
 
-      await orderFood({
-        id,
-        orders: [orderDetails, ...user.orders],
-      }).unwrap()
+      dispatch(updateCredentials({ user: updatedUser }))
 
-      const { token: __, ...updatedUser } = await clearCart({ id }).unwrap()
+      const { token: ___, ...newUpdatedUser } = await clearCart({ id }).unwrap()
 
       toast.success("Order placed successfully!", {
         ...toastOptions,
@@ -172,25 +203,42 @@ const CheckoutPage = () => {
       })
 
       dispatch(resetOrder())
-      navigate(`/payment-status/${orderDetails.orderid}`, {
+      navigate(`/payment-status/${orderDetails.orderId}`, {
         state: { order: orderDetails },
         replace: true,
       })
-      setTimeout(() => dispatch(updateCredentials({ user: updatedUser })), 1000)
+      setTimeout(
+        () => dispatch(updateCredentials({ user: newUpdatedUser })),
+        1000
+      )
     } catch (error) {
       console.error("Order submission failed:", error)
-      toast.error(
-        error?.data?.message || "Failed to place order. Please try again.",
-        {
-          ...toastOptions,
-          icon: "❌",
-          style: {
-            ...toastOptions.style,
-            background: "#EF4444",
-          },
-          id: toastId,
-        }
+      toast.error(error?.error || "Failed to place order. Please try again.", {
+        ...toastOptions,
+        icon: "❌",
+        style: {
+          ...toastOptions.style,
+          background: "#EF4444",
+        },
+        id: toastId,
+      })
+      orderDetails = {
+        ...orderDetails,
+        orderStatus: "Order Not Placed",
+        payment: {
+          ...orderDetails.payment,
+          paymentStatus: "failed",
+          paymentError: error?.error,
+        },
+      }
+      dispatch(
+        updateCredentials({
+          user: { ...user, orders: [orderDetails, ...user.orders] },
+        })
       )
+      navigate(`/payment-status/${orderDetails.orderId}`, {
+        state: { order: orderDetails },
+      })
     }
   }
 

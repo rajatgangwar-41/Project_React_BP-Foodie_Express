@@ -49,14 +49,20 @@ const ProtectedRoute = ({ page, children }) => {
 
       return children
 
-    case "PaymentStatusPage":
+    case "PaymentStatusPage": {
       if (!isLoggedIn) {
-        return (
-          <Navigate to="/login" replace state={{ from: location.pathname }} />
-        )
+        return <Navigate to="/login" replace />
+      }
+
+      const validOrderId = user.orders.some(
+        (order) => order.orderId === location.pathname.split("/")[2]
+      )
+
+      if (!validOrderId) {
+        return <Navigate to="/menu" replace />
       }
       return children
-
+    }
     case "OrderDetailsPage":
       if (!isLoggedIn) {
         return (

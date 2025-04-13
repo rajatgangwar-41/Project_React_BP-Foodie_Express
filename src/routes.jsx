@@ -61,7 +61,14 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      { path: "/payment-status/:id", element: <PaymentStatusPage /> },
+      {
+        path: "/payment-status/:id",
+        element: (
+          <ProtectedRoute page={"PaymentStatusPage"}>
+            <PaymentStatusPage />
+          </ProtectedRoute>
+        ),
+      },
       { path: "/order-details/:id", element: <OrderDetailsPage /> },
     ],
   },
