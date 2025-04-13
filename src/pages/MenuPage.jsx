@@ -16,6 +16,7 @@ import {
   Shimmer,
   Error,
 } from "../components/menu"
+import { useLocation } from "react-router-dom"
 
 // Animation variants
 const containerVariants = {
@@ -57,6 +58,7 @@ const MenuPage = () => {
     currentPage,
     filtersSection,
   } = useMenuFilters(foodItems)
+  const { pathname } = useLocation()
 
   const itemsPerPage = 8
 
@@ -72,6 +74,13 @@ const MenuPage = () => {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [dispatch])
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }, [pathname])
 
   // Pagination logic
   const totalPages = Math.ceil(filteredItems?.length / itemsPerPage)

@@ -31,6 +31,13 @@ const PaymentStatusPage = () => {
     return () => clearInterval(timer)
   }, [navigate])
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }, [])
+
   // Status configuration
   const getStatusConfig = () => {
     switch (order.payment.paymentStatus) {

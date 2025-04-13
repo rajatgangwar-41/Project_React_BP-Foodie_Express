@@ -7,9 +7,19 @@ import {
   OrdersSection,
   Sidebar,
 } from "../components/profile"
+import { useLocation } from "react-router-dom"
+import { useEffect } from "react"
 
 const UserProfilePage = () => {
   const { activeTab } = useSelector((state) => state.profile)
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }, [pathname])
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">

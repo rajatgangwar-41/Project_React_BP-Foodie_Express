@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
@@ -105,6 +105,7 @@ const CheckoutPage = () => {
   })
 
   const navigate = useNavigate()
+  const { pathname } = useLocation()
   const [activePaymentMethod, setActivePaymentMethod] = useState("")
   const order = useSelector((state) => state.order)
   const [orderFood, { isLoading }] = useOrderFoodMutation()
@@ -241,6 +242,13 @@ const CheckoutPage = () => {
       })
     }
   }
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }, [pathname])
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">

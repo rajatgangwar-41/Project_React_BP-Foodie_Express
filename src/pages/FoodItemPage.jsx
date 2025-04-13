@@ -1,5 +1,6 @@
-import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa"
+import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
+import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa"
 import {
   HeroSection,
   AboutSection,
@@ -11,7 +12,14 @@ import {
 } from "../components/foodItem"
 
 const FoodItemPage = () => {
-  const { state: foodItem } = useLocation()
+  const { state: foodItem, pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }, [pathname])
 
   if (!foodItem) {
     return <NoFoodItemFound />
