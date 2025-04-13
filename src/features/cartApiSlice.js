@@ -144,6 +144,16 @@ const cartApi = createApi({
         }
       },
     }),
+
+    // Order Food
+    orderFood: builder.mutation({
+      query: ({ id, orders }) => ({
+        url: `/users/${id}`,
+        method: "PATCH",
+        body: { orders: [...orders] },
+      }),
+      invalidatesTags: (result, error, { id }) => [{ type: "Cart", id }],
+    }),
   }),
 })
 
@@ -154,6 +164,7 @@ export const {
   useIncreaseQuantityMutation,
   useDecreaseQuantityMutation,
   useClearCartMutation,
+  useOrderFoodMutation,
 } = cartApi
 
 export default cartApi

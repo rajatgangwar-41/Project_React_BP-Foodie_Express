@@ -6,9 +6,11 @@ import {
   popupReducer,
   contactReducer,
   profileReducer,
+  orderReducer,
   foodApi,
   authApi,
   cartApi,
+  orderApi,
   favoritesApi,
 } from "../features"
 
@@ -20,9 +22,11 @@ const store = configureStore({
     popup: popupReducer,
     contact: contactReducer,
     profile: profileReducer,
+    order: orderReducer,
     [foodApi.reducerPath]: foodApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
     [cartApi.reducerPath]: cartApi.reducer,
+    [orderApi.reducerPath]: orderApi.reducer,
     [favoritesApi.reducerPath]: favoritesApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
@@ -30,6 +34,7 @@ const store = configureStore({
       .concat(foodApi.middleware)
       .concat(authApi.middleware)
       .concat(cartApi.middleware)
+      .concat(orderApi.middleware)
       .concat(favoritesApi.middleware),
 })
 

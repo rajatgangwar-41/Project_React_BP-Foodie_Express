@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 import { FiMenu, FiX } from "react-icons/fi"
 import { toggleTheme } from "../../features/themeSlice"
 import { setIsCartOpen, setIsLoginPopupOpen } from "../../features/popupSlice"
-import { usePopup, useTheme, useAuth } from "../../hooks"
+import { useTheme, useAuth } from "../../hooks"
 import { DesktopNavigation, HeaderIcons, MobileMenu } from "./header"
 import { toast } from "react-hot-toast"
 
@@ -13,8 +13,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const { theme } = useTheme()
-  const { cartItemsCount } = usePopup()
-  const { isLoggedIn } = useAuth()
+  const { user, isLoggedIn } = useAuth()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -77,7 +76,7 @@ const Header = () => {
           <HeaderIcons
             theme={theme}
             isScrolled={isScrolled}
-            cartItemsCount={cartItemsCount}
+            cartItemsCount={user?.cart?.length}
             handleThemeToggle={handleThemeToggle}
             handleCartStatus={handleCartStatus}
             setIsMenuOpen={setIsMenuOpen}
@@ -110,7 +109,7 @@ const Header = () => {
         theme={theme}
         isScrolled={isScrolled}
         isMenuOpen={isMenuOpen}
-        cartItemsCount={cartItemsCount}
+        cartItemsCount={user?.cart?.length}
         setIsMenuOpen={setIsMenuOpen}
         handleCartStatus={handleCartStatus}
         handleThemeToggle={handleThemeToggle}

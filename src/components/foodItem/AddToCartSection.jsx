@@ -7,7 +7,7 @@ import {
   useAddItemMutation,
   useIncreaseQuantityMutation,
 } from "../../features/cartApiSlice"
-import { setCredentials } from "../../features/authSlice"
+import { updateCredentials } from "../../features/authSlice"
 import { useDispatch } from "react-redux"
 
 const AddToCartSection = ({ foodItem }) => {
@@ -51,7 +51,7 @@ const AddToCartSection = ({ foodItem }) => {
           },
           duration: 2000,
         })
-        dispatch(setCredentials({ user: updatedUser }))
+        dispatch(updateCredentials({ user: updatedUser }))
       } else {
         // Add new item to cart
         const { token: _, ...updatedUser } = await addItem({
@@ -72,7 +72,7 @@ const AddToCartSection = ({ foodItem }) => {
           },
           duration: 2000,
         })
-        dispatch(setCredentials({ user: updatedUser }))
+        dispatch(updateCredentials({ user: updatedUser }))
       }
     } catch (error) {
       toast.dismiss() // Clear any existing success toasts

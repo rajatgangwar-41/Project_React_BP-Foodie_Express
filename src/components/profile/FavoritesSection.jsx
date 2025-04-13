@@ -8,7 +8,7 @@ import {
   useUpdateFavoritesMutation,
 } from "../../features/favoritesApiSlice"
 import { useDispatch } from "react-redux"
-import { setCredentials, updateCredentials } from "../../features/authSlice"
+import { updateCredentials } from "../../features/authSlice"
 import toast from "react-hot-toast"
 import {
   useAddItemMutation,
@@ -147,7 +147,7 @@ const FavoritesSection = () => {
           cartItems: [...newItems],
         }).unwrap()
 
-        dispatch(setCredentials({ user: updatedUser }))
+        dispatch(updateCredentials({ user: updatedUser }))
       } else {
         // Add new item to cart
 
@@ -169,7 +169,7 @@ const FavoritesSection = () => {
           cartItems: [{ ...item, quantity: 1 }, ...cartItems],
         }).unwrap()
 
-        dispatch(setCredentials({ user: updatedUser }))
+        dispatch(updateCredentials({ user: updatedUser }))
       }
     } catch (error) {
       toast.dismiss() // Clear any existing success toasts

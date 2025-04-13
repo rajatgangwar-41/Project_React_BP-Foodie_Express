@@ -12,6 +12,7 @@ import {
   CartFooter,
 } from "./cart"
 import toast from "react-hot-toast"
+import { updateCredentials } from "../../features/authSlice"
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -31,74 +32,165 @@ const Cart = () => {
     totalAmount,
   } = usePopup()
 
-  const handleIncreaseQuantity = (item) => {
-    const cartItems = items.map((cartItem) =>
-      cartItem.id === item.id
-        ? { ...cartItem, quantity: cartItem.quantity + 1 }
-        : cartItem
-    )
-    increaseQuantity({
-      id,
-      item,
-      quantity: 1,
-      cartItems: [...cartItems],
-    })
-    toast.success(`${item.name} quantity increased by 1!`, {
-      position: "top-center",
-      style: {
-        background: "#10B981",
-        color: "#fff",
-      },
-    })
+  const handleIncreaseQuantity = async (item) => {
+    try {
+      const cartItems = items.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      )
+
+      const { token: _, ...updatedUser } = await increaseQuantity({
+        id,
+        item,
+        quantity: 1,
+        cartItems: [...cartItems],
+      }).unwrap()
+
+      toast.success(`${item.name} quantity increased by 1!`, {
+        position: "top-center",
+        style: {
+          background: "#10B981",
+          color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
+        },
+        duration: 2000,
+      })
+      dispatch(updateCredentials({ user: updatedUser }))
+    } catch (error) {
+      toast.dismiss() // Clear any existing success toasts
+      toast.error(`Failed to update cart for ${item.name}!`, {
+        position: "top-center",
+        style: {
+          background: "#EF4444",
+          color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
+        },
+        duration: 3000,
+      })
+      console.error("Failed to update cart:", error)
+    }
   }
 
-  const handleDecreaseQuantity = (item) => {
+  const handleDecreaseQuantity = async (item) => {
     if (item.quantity <= 1) return
-    const cartItems = items.map((cartItem) =>
-      cartItem.id === item.id
-        ? { ...cartItem, quantity: cartItem.quantity - 1 }
-        : cartItem
-    )
-    decreaseQuantity({
-      id,
-      item,
-      cartItems: [...cartItems],
-    })
-    toast.success(`${item.name} quantity decreased by 1!`, {
-      position: "top-center",
-      style: {
-        background: "#10B981",
-        color: "#fff",
-      },
-    })
+
+    try {
+      const cartItems = items.map((cartItem) =>
+        cartItem.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity - 1 }
+          : cartItem
+      )
+
+      const { token: _, ...updatedUser } = await decreaseQuantity({
+        id,
+        item,
+        cartItems: [...cartItems],
+      }).unwrap()
+
+      toast.success(`${item.name} quantity decreased by 1!`, {
+        position: "top-center",
+        style: {
+          background: "#10B981",
+          color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
+        },
+        duration: 2000,
+      })
+      dispatch(updateCredentials({ user: updatedUser }))
+    } catch (error) {
+      toast.dismiss() // Clear any existing success toasts
+      toast.error(`Failed to update cart for ${item.name}!`, {
+        position: "top-center",
+        style: {
+          background: "#EF4444",
+          color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
+        },
+        duration: 3000,
+      })
+      console.error("Failed to update cart:", error)
+    }
   }
 
-  const handleRemoveItem = (item) => {
-    const restCartItems = items.filter((cartItem) => cartItem.id !== item.id)
+  const handleRemoveItem = async (item) => {
+    try {
+      const cartItems = items.filter((cartItem) => cartItem.id !== item.id)
 
-    removeItem({
-      id,
-      item,
-      cartItems: [...restCartItems],
-    })
-    toast.success(`${item.name} Removed from the cart!`, {
-      position: "top-center",
-      style: {
-        background: "#10B981",
-        color: "#fff",
-      },
-    })
+      const { token: _, ...updatedUser } = await removeItem({
+        id,
+        item,
+        cartItems: [...cartItems],
+      }).unwrap()
+
+      toast.success(`${item.name} Removed from the cart!`, {
+        position: "top-center",
+        style: {
+          background: "#10B981",
+          color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
+        },
+        duration: 2000,
+      })
+      dispatch(updateCredentials({ user: updatedUser }))
+    } catch (error) {
+      toast.dismiss() // Clear any existing success toasts
+      toast.error(`Failed to update cart for ${item.name}!`, {
+        position: "top-center",
+        style: {
+          background: "#EF4444",
+          color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
+        },
+        duration: 3000,
+      })
+      console.error("Failed to update cart:", error)
+    }
   }
 
-  const handleClearCart = () => {
-    clearCart({ id })
-    toast.success(`Cart Cleared!`, {
-      position: "top-center",
-      style: {
-        background: "#10B981",
-        color: "#fff",
-      },
-    })
+  const handleClearCart = async () => {
+    try {
+      const { token: _, ...updatedUser } = await clearCart({ id }).unwrap()
+
+      toast.success(`Cart Cleared!`, {
+        position: "top-center",
+        style: {
+          background: "#10B981",
+          color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
+        },
+        duration: 2000,
+      })
+      dispatch(updateCredentials({ user: updatedUser }))
+    } catch (error) {
+      toast.dismiss() // Clear any existing success toasts
+      toast.error(`Failed to clear the cart!`, {
+        position: "top-center",
+        style: {
+          background: "#EF4444",
+          color: "#fff",
+          width: "fit-content",
+          whiteSpace: "nowrap",
+          padding: "12px 24px",
+        },
+        duration: 3000,
+      })
+      console.error("Failed to update cart:", error)
+    }
   }
 
   return (

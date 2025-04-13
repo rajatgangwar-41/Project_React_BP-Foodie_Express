@@ -9,7 +9,7 @@ import {
 import { useAuth } from "../../hooks"
 import toast from "react-hot-toast"
 import { useDispatch } from "react-redux"
-import { setCredentials, updateCredentials } from "../../features/authSlice"
+import { updateCredentials } from "../../features/authSlice"
 import { useUpdateFavoritesMutation } from "../../features/favoritesApiSlice"
 
 // Tag colors mapping
@@ -173,7 +173,7 @@ const PaginatedItemsSections = ({
           },
           duration: 2000,
         })
-        dispatch(setCredentials({ user: updatedUser }))
+        dispatch(updateCredentials({ user: updatedUser }))
       } else {
         // Add new item to cart
         const { token: _, ...updatedUser } = await addItem({
@@ -194,7 +194,7 @@ const PaginatedItemsSections = ({
           },
           duration: 2000,
         })
-        dispatch(setCredentials({ user: updatedUser }))
+        dispatch(updateCredentials({ user: updatedUser }))
       }
     } catch (error) {
       toast.dismiss() // Clear any existing success toasts
