@@ -1,61 +1,96 @@
 import { motion } from "motion/react"
 import { useState } from "react"
 import { FiCheckCircle, FiShoppingBag } from "react-icons/fi"
+import { Link } from "react-router-dom"
+import { useAuth } from "../../hooks"
+import { useGetOrdersQuery } from "../../features/orderApiSlice"
+
+const ErrorMessage = ({ message, onRetry, className = "" }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={`bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 ${className}`}
+    >
+      <div className="flex flex-col items-center text-center">
+        <FiAlertCircle className="text-red-500 dark:text-red-400 text-2xl mb-2" />
+        <h3 className="text-red-600 dark:text-red-400 font-medium mb-2">
+          Something went wrong
+        </h3>
+        <p className="text-red-500 dark:text-red-400 text-sm mb-4">
+          {message || "Failed to load data"}
+        </p>
+        {onRetry && (
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={onRetry}
+            className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg text-sm"
+          >
+            Try Again
+          </motion.button>
+        )}
+      </div>
+    </motion.div>
+  )
+}
+
+const LoadingSpinner = ({ size = "medium", className = "" }) => {
+  const sizeClasses = {
+    small: "h-6 w-6 border-2",
+    medium: "h-8 w-8 border-3",
+    large: "h-12 w-12 border-4",
+  }
+
+  return (
+    <div className={`flex justify-center items-center ${className}`}>
+      <motion.div
+        className={`rounded-full border-t-transparent border-orange-500 ${sizeClasses[size]}`}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+      />
+    </div>
+  )
+}
 
 const OrdersSection = () => {
   const [activeOrderTab, setActiveOrderTab] = useState("inProcess")
+  const { id } = useAuth()
 
-  const [orders, _setOrders] = useState({
-    inProcess: [
-      {
-        id: "ORD-89123",
-        date: "2023-06-02T14:30:00",
-        items: 2,
-        total: 24.98,
-        status: "On the way",
-        itemsPreview: [
-          {
-            name: "Margherita Pizza",
-            image:
-              "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
-          },
-          {
-            name: "Garlic Bread",
-            image:
-              "https://images.unsplash.com/photo-1608190003443-86a8cd7f754c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
-          },
-        ],
-      },
-    ],
-    completed: [
-      {
-        id: "ORD-78945",
-        date: "2023-05-15T18:45:00",
-        deliveredDate: "2023-05-15T19:30:00",
-        items: 3,
-        total: 38.97,
-        status: "Delivered",
-        rated: false,
-        itemsPreview: [
-          {
-            name: "Pepperoni Pizza",
-            image:
-              "https://images.unsplash.com/photo-1620374645498-af6bd681a0bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
-          },
-          {
-            name: "Caesar Salad",
-            image:
-              "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
-          },
-          {
-            name: "Chocolate Brownie",
-            image:
-              "https://images.unsplash.com/photo-1564355808539-22fda35bed7e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&q=80",
-          },
-        ],
-      },
-    ],
-  })
+  // Fetch favorites with loading and error states
+  const { data, isLoading, isError, error, refetch } = useGetOrdersQuery(id)
+  const orders = data?.orders || []
+
+  const inProcess = orders.filter(
+    (order) => order.tracking.at(-1).completed === false
+  )
+  const completed = orders.filter(
+    (order) => order.tracking.at(-1).completed === true
+  )
+
+  console.log(inProcess, completed)
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <LoadingSpinner size="large" />
+      </div>
+    )
+  }
+
+  // Error state
+  if (isError) {
+    return (
+      <div className="p-6">
+        <ErrorMessage
+          message={error?.data?.message || "Failed to load favorites"}
+          onRetry={refetch}
+        />
+      </div>
+    )
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
@@ -96,10 +131,10 @@ const OrdersSection = () => {
       {/* Order Content */}
       <div className="space-y-6">
         {activeOrderTab === "inProcess" ? (
-          orders.inProcess.length > 0 ? (
-            orders.inProcess.map((order) => (
+          inProcess.length > 0 ? (
+            inProcess.map((order) => (
               <motion.div
-                key={order.id}
+                key={order.orderId}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.2 }}
@@ -109,15 +144,19 @@ const OrdersSection = () => {
                   <div>
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-lg font-semibold text-gray-800 dark:text-white">
-                        Order #{order.id}
+                        Order #{order?.orderId}
                       </span>
                       <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-full">
-                        {order.status}
+                        {
+                          order?.tracking
+                            .filter((step) => step.completed)
+                            .at(-1)?.status
+                        }
                       </span>
                     </div>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
                       Ordered on{" "}
-                      {new Date(order.date).toLocaleDateString("en-US", {
+                      {new Date(order?.date).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "long",
                         day: "numeric",
@@ -127,19 +166,27 @@ const OrdersSection = () => {
                     </p>
 
                     <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                      <span>{order.items} items</span>
+                      <span>{order?.food?.items.length} items</span>
                       <span>•</span>
-                      <span>${order.total.toFixed(2)}</span>
+                      <span>₹{order?.food?.total?.toFixed(2)}</span>
                     </div>
                   </div>
 
                   <div className="flex flex-col sm:items-end gap-2">
-                    <button className="px-4 py-2 bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-gray-200 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-500 transition-colors">
+                    <Link
+                      to={`/order-details/${order?.orderId}`}
+                      state={order}
+                      className="px-4 py-2 bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-gray-200 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-500 transition-colors"
+                    >
                       Track Order
-                    </button>
-                    <button className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-sm font-medium transition-colors">
+                    </Link>
+                    <Link
+                      to={`/order-details/${order?.orderId}`}
+                      state={order}
+                      className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-sm font-medium transition-colors"
+                    >
                       View Details
-                    </button>
+                    </Link>
                   </div>
                 </div>
 
@@ -149,9 +196,9 @@ const OrdersSection = () => {
                     Items
                   </h4>
                   <div className="flex gap-3 overflow-x-auto pb-2">
-                    {order.itemsPreview.map((item, index) => (
+                    {order?.food?.items?.map((item) => (
                       <div
-                        key={index}
+                        key={item.id}
                         className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-600"
                       >
                         <img
@@ -178,10 +225,10 @@ const OrdersSection = () => {
               </p>
             </div>
           )
-        ) : orders.completed.length > 0 ? (
-          orders.completed.map((order) => (
+        ) : completed.length > 0 ? (
+          completed.map((order) => (
             <motion.div
-              key={order.id}
+              key={order.OrderId}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
@@ -191,10 +238,13 @@ const OrdersSection = () => {
                 <div>
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-lg font-semibold text-gray-800 dark:text-white">
-                      Order #{order.id}
+                      Order #{order.orderId}
                     </span>
                     <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs rounded-full">
-                      {order.status}
+                      {
+                        order?.tracking.filter((step) => step.completed).at(-1)
+                          ?.status
+                      }
                     </span>
                   </div>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
@@ -206,26 +256,23 @@ const OrdersSection = () => {
                       hour: "2-digit",
                       minute: "2-digit",
                     })}
-                    {order.deliveredDate && (
+                    {order.toLocaleDateString && (
                       <>
                         <br />
                         Delivered on{" "}
-                        {new Date(order.deliveredDate).toLocaleDateString(
-                          "en-US",
-                          {
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          }
-                        )}
+                        {new Date(order.date).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
                       </>
                     )}
                   </p>
 
                   <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                    <span>{order.items} items</span>
+                    <span>{order.food.items.length} items</span>
                     <span>•</span>
-                    <span>${order.total.toFixed(2)}</span>
+                    <span>₹{order.food.total.toFixed(2)}</span>
                   </div>
                 </div>
 
@@ -233,9 +280,13 @@ const OrdersSection = () => {
                   <button className="px-4 py-2 bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 text-gray-700 dark:text-gray-200 rounded-lg text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-500 transition-colors">
                     Reorder
                   </button>
-                  <button className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-sm font-medium transition-colors">
+                  <Link
+                    to={`/order-details/${order?.orderId}`}
+                    state={order}
+                    className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-sm font-medium transition-colors"
+                  >
                     View Details
-                  </button>
+                  </Link>
                 </div>
               </div>
 
@@ -245,9 +296,9 @@ const OrdersSection = () => {
                   Items
                 </h4>
                 <div className="flex gap-3 overflow-x-auto pb-2">
-                  {order.itemsPreview.map((item, index) => (
+                  {order.food.items.map((item) => (
                     <div
-                      key={index}
+                      key={item.id}
                       className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-white dark:bg-gray-600"
                     >
                       <img

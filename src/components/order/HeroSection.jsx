@@ -1,6 +1,6 @@
 import { motion } from "motion/react"
 
-const HeroSection = ({ activeTab }) => {
+const HeroSection = ({ orderId }) => {
   return (
     <motion.section
       className="relative h-96 w-full overflow-hidden"
@@ -12,7 +12,7 @@ const HeroSection = ({ activeTab }) => {
       <img
         className="w-full h-full object-cover opacity-70 overflow-hidden"
         src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-        alt="My Profile"
+        alt="Order Details"
         loading="lazy"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
@@ -27,20 +27,14 @@ const HeroSection = ({ activeTab }) => {
           whileHover={{ scale: 1.02 }}
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-amber-500">
-            {activeTab === "account"
-              ? "My Account"
-              : activeTab === "favorites"
-              ? "My Favorites"
-              : activeTab === "orders"
-              ? "My Orders"
-              : "Log Out"}
+            Order Details
           </span>
         </motion.h1>
         <motion.p
-          className="text-xl md:text-2xl text-white max-w-2xl"
+          className="text-lg sm:text-xl md:text-2xl text-white max-w-2xl"
           whileHover={{ scale: 1.01 }}
         >
-          Manage your account and preferences{" "}
+          Order #{orderId}
         </motion.p>
       </motion.div>
     </motion.section>

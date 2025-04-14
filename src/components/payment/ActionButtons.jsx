@@ -1,6 +1,6 @@
 import { motion } from "motion/react"
-import { FiHome, FiShoppingBag } from "react-icons/fi"
 import { useNavigate } from "react-router-dom"
+import { FiHome, FiShoppingBag } from "react-icons/fi"
 
 const ActionButtons = ({ order }) => {
   const navigate = useNavigate()
@@ -29,7 +29,9 @@ const ActionButtons = ({ order }) => {
         </button>
       ) : (
         <button
-          onClick={() => navigate(`/order-details/${order.orderId}`)}
+          onClick={() =>
+            navigate(`/order-details/${order.orderId}`, { state: { order } })
+          }
           className="w-full px-6 py-4 border-2 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all font-medium flex items-center justify-center gap-3 shadow-sm hover:shadow-md"
         >
           <FiShoppingBag className="text-lg" />

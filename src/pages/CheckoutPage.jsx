@@ -16,6 +16,7 @@ import { updateCredentials } from "../features/authSlice"
 import { useClearCartMutation } from "../features/cartApiSlice"
 import { useOrderFoodMutation } from "../features/orderApiSlice"
 import { resetOrder, updateOrder } from "../features/orderSlice"
+import { generateTrackingData, getRandomRider } from "../utils"
 
 // Base schema with all common fields
 const baseSchema = z.object({
@@ -108,7 +109,7 @@ const CheckoutPage = () => {
   const { pathname } = useLocation()
   const [activePaymentMethod, setActivePaymentMethod] = useState("")
   const order = useSelector((state) => state.order)
-  const [orderFood, { isLoading }] = useOrderFoodMutation()
+  const [orderFood, { isLoading, isError }] = useOrderFoodMutation()
   const [clearCart] = useClearCartMutation()
   const { user, id } = useAuth()
   const dispatch = useDispatch()
@@ -149,7 +150,11 @@ const CheckoutPage = () => {
     } = data
 
     let orderDetails = {
-      orderId: `order-id-${btoa(user?.email)}-${Date.now()}`,
+      // orderId: `order-id-${btoa(user?.email)}-${Date.now()}`,
+      orderId: `ORD-${Math.floor(10000 + Math.random() * 90000)}`,
+      orderStatus: "Accepted",
+      date: new Date().toISOString(),
+      deliveryTime: 30,
       food: { ...updatedOrder, specialInstructions },
       personal: {
         firstName,
@@ -160,7 +165,12 @@ const CheckoutPage = () => {
         city,
         zipCode,
       },
-      payment,
+      payment: {
+        ...payment,
+        paymentStatus: payment.paymentMethod !== "cod" ? "success" : "pending",
+      },
+      rider: getRandomRider(),
+      tracking: generateTrackingData(),
     }
 
     try {
@@ -169,29 +179,8 @@ const CheckoutPage = () => {
         orders: [orderDetails, ...user.orders],
       }).unwrap()
 
-      orderDetails = {
-        ...orderDetails,
-        orderStatus: "Order Placed",
-        orderPlacedAt: new Date().toISOString(),
-        deliveryTime: 30,
-        deliveredOn: new Date().toISOString(),
-        payment: {
-          ...orderDetails.payment,
-          paymentStatus:
-            payment.paymentMethod !== "cod" ? "success" : "pending",
-        },
-        rider: {
-          name: "Rider Name",
-          phone: "Rider Phone",
-          image: "Rider Image",
-          rating: 4.5,
-          vehicle: "Bike",
-        },
-      }
-
       dispatch(updateCredentials({ user: updatedUser }))
-
-      const { token: ___, ...newUpdatedUser } = await clearCart({ id }).unwrap()
+      dispatch(resetOrder())
 
       toast.success("Order placed successfully!", {
         ...toastOptions,
@@ -203,15 +192,10 @@ const CheckoutPage = () => {
         id: toastId,
       })
 
-      dispatch(resetOrder())
       navigate(`/payment-status/${orderDetails.orderId}`, {
         state: { order: orderDetails },
         replace: true,
       })
-      setTimeout(
-        () => dispatch(updateCredentials({ user: newUpdatedUser })),
-        1000
-      )
     } catch (error) {
       console.error("Order submission failed:", error)
       toast.error(error?.error || "Failed to place order. Please try again.", {
@@ -223,23 +207,41 @@ const CheckoutPage = () => {
         },
         id: toastId,
       })
-      orderDetails = {
-        ...orderDetails,
-        orderStatus: "Order Not Placed",
+
+      let {
+        orderPlacedAt: ____,
+        deliveryTime: _____,
+        rider: _______,
+        tracking: ________,
+        ...updatedOrderDetails
+      } = orderDetails
+
+      updatedOrderDetails = {
+        ...updatedOrderDetails,
+        orderStatus: "Declined",
         payment: {
-          ...orderDetails.payment,
+          ...updatedOrderDetails.payment,
           paymentStatus: "failed",
           paymentError: error?.error,
         },
       }
       dispatch(
         updateCredentials({
-          user: { ...user, orders: [orderDetails, ...user.orders] },
+          user: { ...user, orders: [updatedOrderDetails, ...user.orders] },
         })
       )
       navigate(`/payment-status/${orderDetails.orderId}`, {
         state: { order: orderDetails },
       })
+    } finally {
+      if (!isError) {
+        const { token: ___, ...newUpdatedUser } = await clearCart({
+          id,
+        }).unwrap()
+        setTimeout(() => {
+          dispatch(updateCredentials({ user: newUpdatedUser }))
+        }, 1000)
+      }
     }
   }
 

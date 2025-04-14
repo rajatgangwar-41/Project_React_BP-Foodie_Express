@@ -37,7 +37,9 @@ const ProtectedRoute = ({ page, children }) => {
 
     case "CheckoutPage":
       if (!isLoggedIn) {
-        return <Navigate to="/login" replace />
+        return (
+          <Navigate to="/login" replace state={{ from: location.pathname }} />
+        )
       }
 
       if (
@@ -51,25 +53,60 @@ const ProtectedRoute = ({ page, children }) => {
 
     case "PaymentStatusPage": {
       if (!isLoggedIn) {
-        return <Navigate to="/login" replace />
+        return (
+          <Navigate to="/login" replace state={{ from: location.pathname }} />
+        )
       }
 
-      const validOrderId = user.orders.some(
-        (order) => order.orderId === location.pathname.split("/")[2]
+      const orderId = location.pathname.split("/")[2]
+      const matchedOrder = user.orders.find(
+        (order) => order.orderId === orderId
       )
 
-      if (!validOrderId) {
+      if (!matchedOrder) {
         return <Navigate to="/menu" replace />
       }
+
+      if (!location.state?.order) {
+        return (
+          <Navigate
+            to={location.pathname}
+            replace
+            state={{ order: matchedOrder }}
+          />
+        )
+      }
+
       return children
     }
-    case "OrderDetailsPage":
+    case "OrderDetailsPage": {
       if (!isLoggedIn) {
         return (
           <Navigate to="/login" replace state={{ from: location.pathname }} />
         )
       }
+
+      const orderId = location.pathname.split("/")[2]
+      const matchedOrder = user.orders.find(
+        (order) => order.orderId === orderId && order.orderStatus !== "Declined"
+      )
+
+      if (!matchedOrder) {
+        return <Navigate to="/menu" replace />
+      }
+
+      if (!location.state?.order) {
+        return (
+          <Navigate
+            to={location.pathname}
+            replace
+            state={{ order: matchedOrder }}
+          />
+        )
+      }
+
       return children
+    }
 
     default:
       return children

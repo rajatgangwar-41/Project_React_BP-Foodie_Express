@@ -14,6 +14,12 @@ const orderApi = createApi({
   }),
   tagTypes: ["Orders"],
   endpoints: (builder) => ({
+    // Get User Orders
+    getOrders: builder.query({
+      query: (id) => `/users/${id}`,
+      transformResponse: (response) => response || { orders: [] },
+      providesTags: (result, _error, id) => [{ type: "Orders", id }],
+    }),
     // Order Food
     orderFood: builder.mutation({
       query: ({ id, orders }) => ({
@@ -26,6 +32,6 @@ const orderApi = createApi({
   }),
 })
 
-export const { useOrderFoodMutation } = orderApi
+export const { useGetOrdersQuery, useOrderFoodMutation } = orderApi
 
 export default orderApi

@@ -22,7 +22,7 @@ const PaymentStatusPage = () => {
       setCountdown((prev) => {
         if (prev <= 1) {
           clearInterval(timer)
-          // navigate("/")
+          navigate("/")
           return 0
         }
         return prev - 1

@@ -52,10 +52,19 @@ const orderSlice = createSlice({
       state.subTotal = subTotal
       state.total = subTotal + state.deliveryFee + state.tax - state.discount
     },
+    updateOrderStatus: (state, action) => {
+      const { orderId, status, tracking } = action.payload
+      const order = state.orders.find((o) => o.id === orderId)
+      if (order) {
+        order.status = status
+        order.tracking = tracking
+      }
+    },
     resetOrder: () => getInitialState(),
   },
 })
 
-export const { setDiscount, updateOrder, resetOrder } = orderSlice.actions
+export const { setDiscount, updateOrder, resetOrder, updateOrderStatus } =
+  orderSlice.actions
 
 export default orderSlice.reducer

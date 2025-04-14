@@ -5499,16 +5499,1006 @@
   ],
   "users": [
     {
-      "id": "ffa3",
-      "username": "hello",
-      "email": "hello@gmail.com",
-      "phone": "1111111111",
-      "password": "hello123",
-      "userId": "user-id-aGVsbG9AZ21haWwuY29t-1744372897472",
-      "token": "token-aGVsbG9AZ21haWwuY29t-1744372897472",
-      "cart": [],
-      "favorites": [],
-      "orders": []
+      "id": "e634",
+      "username": "rajat",
+      "email": "rajat@gmail.com",
+      "phone": "9492935783",
+      "password": "rajat92587",
+      "userId": "user-id-cmFqYXRAZ21haWwuY29t-1744628183611",
+      "token": "token-cmFqYXRAZ21haWwuY29t-1744628183611",
+      "cart": [
+        {
+          "id": "sweet-surrender-5640",
+          "type": "Curry",
+          "name": "Rogan Josh",
+          "cuisine": "Indian",
+          "ingredients": [
+            "Onions",
+            "Tomatoes",
+            "Ginger-garlic paste",
+            "Turmeric",
+            "Coriander powder",
+            "Cumin",
+            "Garam masala",
+            "Lamb",
+            "Kashmiri chilies",
+            "Fennel",
+            "Yogurt"
+          ],
+          "tags": ["Spicy", "Sweet"],
+          "prepTime": "30-45",
+          "price": 225,
+          "restaurant": "Sweet Surrender",
+          "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
+          "image": "https://images.unsplash.com/photo-1652545297020-f5e8ad779eb4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG11dHRvbiUyMGN1cnJ5fGVufDB8fDB8fHww",
+          "calories": null,
+          "about": "Aromatic lamb curry from Kashmir with deep red color",
+          "description": "Fall-off-the-bone lamb in fragrant red gravy - Kashmiri royalty",
+          "servingSuggestions": [
+            "Serve butter chicken with naan or jeera rice",
+            "Pair paneer tikka masala with garlic kulcha",
+            "Enjoy chana masala with bhatura or steamed rice",
+            "Serve rogan josh with saffron pulao",
+            "Present malai kofta in copper bowls garnished with cream",
+            "Accompany dal tadka with plain roti or rice",
+            "Serve fish curry with appam or steamed rice"
+          ],
+          "dietaryInfo": {
+            "vegetarian": false,
+            "glutenFree": false,
+            "spicy": true
+          },
+          "reviews": [
+            {
+              "id": 1,
+              "user": "User 818",
+              "avatar": "https://randomuser.me/api/portraits/women/43.jpg",
+              "rating": 4,
+              "comment": "Butter Chicken perfection! Creamy, tomato-rich, tender chicken. A truly indulgent and comforting dish.",
+              "date": "7 week ago"
+            },
+            {
+              "id": 2,
+              "user": "User 911",
+              "avatar": "https://randomuser.me/api/portraits/men/36.jpg",
+              "rating": 5,
+              "comment": "Curry perfection! Ingredients were fresh, spices were vibrant. A true Indian culinary delight. Highly recommended.",
+              "date": "7 day ago"
+            },
+            {
+              "id": 3,
+              "user": "User 719",
+              "avatar": "https://randomuser.me/api/portraits/men/2.jpg",
+              "rating": 5,
+              "comment": "Okay curry. The sauce was average, and the protein was a bit tough. Not bad, but not particularly exciting.",
+              "date": "1 week ago"
+            }
+          ],
+          "rating": "5.0",
+          "ratingCount": 167,
+          "deliveryTime": "45-64",
+          "isPopular": true,
+          "lastOrdered": "2025-04-01T05:27:34.500Z",
+          "quantity": 1
+        },
+        {
+          "id": "urban-eats-3921",
+          "type": "Dumpling",
+          "name": "Shrimp Har Gow",
+          "cuisine": "Chinese",
+          "ingredients": [
+            "Dough wrapper",
+            "Ginger",
+            "Soy sauce",
+            "Shrimp",
+            "Bamboo shoots",
+            "Pork fat"
+          ],
+          "tags": ["Juicy", "Authentic"],
+          "prepTime": "20-30",
+          "price": 349,
+          "restaurant": "Urban Eats",
+          "restaurantImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&h=500&q=80",
+          "image": "https://plus.unsplash.com/premium_photo-1673809798703-6082a015f931?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "calories": 227,
+          "about": "Classic dim sum dumplings with translucent wrappers showcasing the pink shrimp filling. The wrapper has just the right chew.",
+          "description": "Translucent shrimp dumplings. Sweet shrimp visible through wrapper.",
+          "servingSuggestions": [
+            "Serve with black vinegar and ginger",
+            "Provide chili oil on side",
+            "Offer steamer baskets for presentation",
+            "Serve immediately after cooking",
+            "Include soup spoons for xiao long bao"
+          ],
+          "dietaryInfo": {
+            "vegetarian": false,
+            "glutenFree": false,
+            "spicy": false
+          },
+          "reviews": [
+            {
+              "id": 1,
+              "user": "User 638",
+              "avatar": "https://randomuser.me/api/portraits/men/26.jpg",
+              "rating": 4,
+              "comment": "This dumpling experience was a flavor journey! The combination of ingredients was masterful. Every bite was a delightful discovery.",
+              "date": "7 day ago"
+            },
+            {
+              "id": 2,
+              "user": "User 206",
+              "avatar": "https://randomuser.me/api/portraits/men/41.jpg",
+              "rating": 5,
+              "comment": "Xiao Long Bao's soup-filled delight! Delicate wrappers, rich broth. Each bite a burst of flavor. Truly a culinary gem.",
+              "date": "4 day ago"
+            },
+            {
+              "id": 3,
+              "user": "User 535",
+              "avatar": "https://randomuser.me/api/portraits/women/9.jpg",
+              "rating": 4,
+              "comment": "Solid dumplings. The flavors were balanced, and the ingredients seemed fresh. A reliable choice for a quick snack.",
+              "date": "4 week ago"
+            },
+            {
+              "id": 4,
+              "user": "User 500",
+              "avatar": "https://randomuser.me/api/portraits/men/21.jpg",
+              "rating": 4,
+              "comment": "Siu Mai's savory goodness! Open-topped delights, flavorful filling. A satisfying bite, perfect for sharing.",
+              "date": "5 day ago"
+            },
+            {
+              "id": 5,
+              "user": "User 187",
+              "avatar": "https://randomuser.me/api/portraits/women/45.jpg",
+              "rating": 4,
+              "comment": "Cheung Fun's silky smoothness! Rice noodle rolls, delicate fillings. A unique texture, a delightful experience.",
+              "date": "7 day ago"
+            },
+            {
+              "id": 6,
+              "user": "User 547",
+              "avatar": "https://randomuser.me/api/portraits/men/20.jpg",
+              "rating": 4,
+              "comment": "Siu Mai's savory goodness! Open-topped delights, flavorful filling. A satisfying bite, perfect for sharing.",
+              "date": "6 day ago"
+            },
+            {
+              "id": 7,
+              "user": "User 366",
+              "avatar": "https://randomuser.me/api/portraits/men/39.jpg",
+              "rating": 4,
+              "comment": "Siu Mai's savory goodness! Open-topped delights, flavorful filling. A satisfying bite, perfect for sharing.",
+              "date": "2 week ago"
+            },
+            {
+              "id": 8,
+              "user": "User 855",
+              "avatar": "https://randomuser.me/api/portraits/women/7.jpg",
+              "rating": 5,
+              "comment": "Good dumplings, but not great. The texture was a bit off, and the flavors were a bit bland. It was fine, but nothing special.",
+              "date": "5 week ago"
+            },
+            {
+              "id": 9,
+              "user": "User 529",
+              "avatar": "https://randomuser.me/api/portraits/women/13.jpg",
+              "rating": 5,
+              "comment": "Good dumplings, but not great. The texture was a bit off, and the flavors were a bit bland. It was fine, but nothing special.",
+              "date": "6 day ago"
+            },
+            {
+              "id": 10,
+              "user": "User 817",
+              "avatar": "https://randomuser.me/api/portraits/men/30.jpg",
+              "rating": 5,
+              "comment": "This dumpling experience was a flavor journey! The combination of ingredients was masterful. Every bite was a delightful discovery.",
+              "date": "6 day ago"
+            },
+            {
+              "id": 11,
+              "user": "User 572",
+              "avatar": "https://randomuser.me/api/portraits/men/30.jpg",
+              "rating": 5,
+              "comment": "Siu Mai's savory goodness! Open-topped delights, flavorful filling. A satisfying bite, perfect for sharing.",
+              "date": "1 week ago"
+            },
+            {
+              "id": 12,
+              "user": "User 673",
+              "avatar": "https://randomuser.me/api/portraits/men/31.jpg",
+              "rating": 4,
+              "comment": "Cheung Fun's silky smoothness! Rice noodle rolls, delicate fillings. A unique texture, a delightful experience.",
+              "date": "1 day ago"
+            },
+            {
+              "id": 13,
+              "user": "User 919",
+              "avatar": "https://randomuser.me/api/portraits/women/3.jpg",
+              "rating": 5,
+              "comment": "Fantastic dumplings! The flavors were authentic and delicious. The ingredients tasted very fresh and high quality.",
+              "date": "5 day ago"
+            },
+            {
+              "id": 14,
+              "user": "User 640",
+              "avatar": "https://randomuser.me/api/portraits/men/27.jpg",
+              "rating": 5,
+              "comment": "Okay dumplings. The fillings were average, and the wrappers were a bit thick. Not bad, but not particularly exciting.",
+              "date": "3 week ago"
+            }
+          ],
+          "rating": "4.5",
+          "ratingCount": 159,
+          "deliveryTime": "46-55",
+          "isPopular": false,
+          "lastOrdered": "2025-04-05T05:27:34.500Z",
+          "quantity": 1
+        },
+        {
+          "id": "sweet-surrender-6649",
+          "type": "Sushi",
+          "name": "Rainbow Roll",
+          "cuisine": "Japanese",
+          "ingredients": [
+            "Sushi rice",
+            "Nori seaweed",
+            "Wasabi",
+            "Pickled ginger",
+            "Crab",
+            "Avocado",
+            "Assorted fish"
+          ],
+          "tags": ["Healthy", "Best Seller"],
+          "prepTime": "15-25",
+          "price": 263,
+          "restaurant": "Sweet Surrender",
+          "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
+          "image": "https://plus.unsplash.com/premium_photo-1668143358351-b20146dbcc02?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3VzaGl8ZW58MHx8MHx8fDA%3D",
+          "calories": 557,
+          "about": "California roll topped with an array of colorful fish slices. The combination of creamy avocado and fresh fish creates perfect harmony.",
+          "description": "Colorful assortment of fish over California roll. A feast for eyes and palate.",
+          "servingSuggestions": [
+            "Serve with premium soy sauce",
+            "Add wasabi to taste",
+            "Refresh palate with pickled ginger",
+            "Pair with green tea or sake",
+            "Enjoy immediately for best texture"
+          ],
+          "dietaryInfo": {
+            "vegetarian": false,
+            "glutenFree": false,
+            "spicy": false
+          },
+          "reviews": [
+            {
+              "id": 1,
+              "user": "User 853",
+              "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
+              "rating": 4,
+              "comment": "Dragon Roll decadence! Eel's sweetness, avocado's richness. A perfect balance of textures, each bite a luxurious treat.",
+              "date": "5 day ago"
+            },
+            {
+              "id": 2,
+              "user": "User 240",
+              "avatar": "https://randomuser.me/api/portraits/women/49.jpg",
+              "rating": 5,
+              "comment": "Sushi excellence! Fish was incredibly fresh, rice perfectly seasoned. A truly authentic Japanese experience. Highly recommended.",
+              "date": "2 week ago"
+            },
+            {
+              "id": 3,
+              "user": "User 169",
+              "avatar": "https://randomuser.me/api/portraits/women/16.jpg",
+              "rating": 4,
+              "comment": "Solid sushi. The rolls were decent, and the ingredients seemed fresh. A reliable choice for a quick lunch.",
+              "date": "2 week ago"
+            },
+            {
+              "id": 4,
+              "user": "User 143",
+              "avatar": "https://randomuser.me/api/portraits/women/42.jpg",
+              "rating": 5,
+              "comment": "Vegetable Temaki's freshness! Crisp veggies, delicate nori. A light, refreshing option, perfect for a healthy meal.",
+              "date": "3 week ago"
+            },
+            {
+              "id": 5,
+              "user": "User 46",
+              "avatar": "https://randomuser.me/api/portraits/women/5.jpg",
+              "rating": 5,
+              "comment": "Fantastic sushi! The flavors were vibrant, and the textures were perfect. The presentation was artistic and impressive.",
+              "date": "1 week ago"
+            }
+          ],
+          "rating": "3.7",
+          "ratingCount": 36,
+          "deliveryTime": "37-46",
+          "isPopular": true,
+          "lastOrdered": "2025-03-31T05:27:34.500Z",
+          "quantity": 1
+        }
+      ],
+      "favorites": [
+        {
+          "id": "urban-eats-8136",
+          "type": "Dessert",
+          "name": "Jalebi",
+          "cuisine": "Indian",
+          "ingredients": [
+            "Sugar",
+            "Cardamom",
+            "Ghee",
+            "Milk",
+            "Saffron",
+            "Maida",
+            "Yogurt",
+            "Food coloring"
+          ],
+          "tags": ["Sweet", "Classic"],
+          "prepTime": "30-120",
+          "price": 488,
+          "restaurant": "Urban Eats",
+          "restaurantImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
+          "image": "https://images.pexels.com/photos/7566499/pexels-photo-7566499.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          "calories": 220,
+          "about": "Crispy orange swirls soaked in sugar syrup. Best served hot with rabri or milk.",
+          "description": "Crispy, syrupy spirals - India's answer to funnel cakes with floral notes",
+          "servingSuggestions": [
+            "Serve Gulab Jamun warm with vanilla ice cream",
+            "Chill Rasgullas before serving in clay pots",
+            "Garnish Gajar Halwa with silver leaf during weddings",
+            "Pair hot Jalebis with chilled rabri",
+            "Serve Kheer in earthen bowls garnished with pistachios"
+          ],
+          "dietaryInfo": {
+            "vegetarian": true,
+            "glutenFree": false,
+            "spicy": false
+          },
+          "reviews": [
+            {
+              "id": 1,
+              "user": "User 513",
+              "avatar": "https://randomuser.me/api/portraits/women/34.jpg",
+              "rating": 4,
+              "comment": "Delicious dessert! The sweetness was perfectly balanced, and the textures were delightful. A great end to any meal.",
+              "date": "1 week ago"
+            },
+            {
+              "id": 2,
+              "user": "User 317",
+              "avatar": "https://randomuser.me/api/portraits/women/11.jpg",
+              "rating": 5,
+              "comment": "Okay dessert. The sweetness was average, and the texture was a bit bland. Not bad, but not particularly exciting.",
+              "date": "5 day ago"
+            },
+            {
+              "id": 3,
+              "user": "User 43",
+              "avatar": "https://randomuser.me/api/portraits/men/19.jpg",
+              "rating": 4,
+              "comment": "Kulfi's creamy, frozen bliss! Flavored milk, nuts. A rich, dense ice cream, perfect for hot days.",
+              "date": "7 week ago"
+            },
+            {
+              "id": 4,
+              "user": "User 402",
+              "avatar": "https://randomuser.me/api/portraits/women/37.jpg",
+              "rating": 4,
+              "comment": "Perfect dessert experience! The taste was incredible, and the variety was great. I couldn't have asked for more.",
+              "date": "7 week ago"
+            },
+            {
+              "id": 5,
+              "user": "User 139",
+              "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+              "rating": 4,
+              "comment": "Dessert perfection! Ingredients were fresh, flavors were vibrant. A true Indian culinary delight. Highly recommended.",
+              "date": "1 week ago"
+            },
+            {
+              "id": 6,
+              "user": "User 347",
+              "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
+              "rating": 4,
+              "comment": "Great dessert! The spices were aromatic, and the richness was perfect. The service was fast, and the dessert arrived fresh.",
+              "date": "7 week ago"
+            },
+            {
+              "id": 7,
+              "user": "User 385",
+              "avatar": "https://randomuser.me/api/portraits/women/23.jpg",
+              "rating": 5,
+              "comment": "Solid dessert. The flavors were balanced, and the ingredients seemed fresh. A reliable choice for a sweet treat.",
+              "date": "1 week ago"
+            },
+            {
+              "id": 8,
+              "user": "User 911",
+              "avatar": "https://randomuser.me/api/portraits/women/32.jpg",
+              "rating": 5,
+              "comment": "Okay dessert. The sweetness was average, and the texture was a bit bland. Not bad, but not particularly exciting.",
+              "date": "4 week ago"
+            },
+            {
+              "id": 9,
+              "user": "User 629",
+              "avatar": "https://randomuser.me/api/portraits/women/28.jpg",
+              "rating": 5,
+              "comment": "Kulfi's creamy, frozen bliss! Flavored milk, nuts. A rich, dense ice cream, perfect for hot days.",
+              "date": "7 day ago"
+            },
+            {
+              "id": 10,
+              "user": "User 676",
+              "avatar": "https://randomuser.me/api/portraits/men/23.jpg",
+              "rating": 4,
+              "comment": "Gajar Halwa's rich, carrot delight! Grated carrots, creamy milk. A decadent, flavorful dessert, truly irresistible.",
+              "date": "1 week ago"
+            },
+            {
+              "id": 11,
+              "user": "User 420",
+              "avatar": "https://randomuser.me/api/portraits/men/20.jpg",
+              "rating": 4,
+              "comment": "Solid dessert. The flavors were balanced, and the ingredients seemed fresh. A reliable choice for a sweet treat.",
+              "date": "6 day ago"
+            }
+          ],
+          "rating": "3.9",
+          "ratingCount": 131,
+          "deliveryTime": "52-145",
+          "isPopular": true,
+          "lastOrdered": "2025-03-31T05:27:34.500Z"
+        },
+        {
+          "id": "sweet-surrender-9889",
+          "type": "Curry",
+          "name": "Chana Masala",
+          "cuisine": "Indian",
+          "ingredients": [
+            "Onions",
+            "Tomatoes",
+            "Ginger-garlic paste",
+            "Turmeric",
+            "Coriander powder",
+            "Cumin",
+            "Garam masala",
+            "Chickpeas",
+            "Amchur",
+            "Tea leaves (for color)"
+          ],
+          "tags": ["Sweet", "Classic"],
+          "prepTime": "30-45",
+          "price": 810,
+          "restaurant": "Sweet Surrender",
+          "restaurantImage": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
+          "image": "https://plus.unsplash.com/premium_photo-1695456063769-e291a14c3ca1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hpY2twZWElMjBjdXJyeXxlbnwwfHwwfHx8MA%3D%3D",
+          "calories": null,
+          "about": "Spicy chickpea curry popular as street food and home meal",
+          "description": "Hearty chickpeas in robust spicy gravy - protein-packed comfort food",
+          "servingSuggestions": [
+            "Serve butter chicken with naan or jeera rice",
+            "Pair paneer tikka masala with garlic kulcha",
+            "Enjoy chana masala with bhatura or steamed rice",
+            "Serve rogan josh with saffron pulao",
+            "Present malai kofta in copper bowls garnished with cream",
+            "Accompany dal tadka with plain roti or rice",
+            "Serve fish curry with appam or steamed rice"
+          ],
+          "dietaryInfo": {
+            "vegetarian": true,
+            "glutenFree": false,
+            "spicy": true
+          },
+          "reviews": [
+            {
+              "id": 1,
+              "user": "User 776",
+              "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+              "rating": 4,
+              "comment": "Good curry, but not great. The texture was a bit off, and the flavors were a bit bland. It was fine, but nothing special.",
+              "date": "5 week ago"
+            },
+            {
+              "id": 2,
+              "user": "User 278",
+              "avatar": "https://randomuser.me/api/portraits/men/33.jpg",
+              "rating": 4,
+              "comment": "Great curry! The spices were aromatic, and the texture was delightful. The service was fast, and the curry arrived hot.",
+              "date": "3 day ago"
+            },
+            {
+              "id": 3,
+              "user": "User 548",
+              "avatar": "https://randomuser.me/api/portraits/men/34.jpg",
+              "rating": 4,
+              "comment": "Paneer Tikka Masala's vegetarian delight! Soft paneer, vibrant spices, rich gravy. A flavorful, satisfying choice.",
+              "date": "2 week ago"
+            },
+            {
+              "id": 4,
+              "user": "User 816",
+              "avatar": "https://randomuser.me/api/portraits/women/5.jpg",
+              "rating": 4,
+              "comment": "Perfect curry experience! The taste was incredible, and the variety was great. I couldn't have asked for more.",
+              "date": "4 week ago"
+            },
+            {
+              "id": 5,
+              "user": "User 758",
+              "avatar": "https://randomuser.me/api/portraits/women/22.jpg",
+              "rating": 4,
+              "comment": "Solid curry. The flavors were balanced, and the ingredients seemed fresh. A reliable choice for any meal.",
+              "date": "1 day ago"
+            },
+            {
+              "id": 6,
+              "user": "User 403",
+              "avatar": "https://randomuser.me/api/portraits/men/49.jpg",
+              "rating": 5,
+              "comment": "Amazing curry! The herbs and spices were perfectly blended. The protein was fresh and plentiful.",
+              "date": "6 week ago"
+            },
+            {
+              "id": 7,
+              "user": "User 694",
+              "avatar": "https://randomuser.me/api/portraits/men/13.jpg",
+              "rating": 4,
+              "comment": "Perfect curry experience! The taste was incredible, and the variety was great. I couldn't have asked for more.",
+              "date": "1 day ago"
+            },
+            {
+              "id": 8,
+              "user": "User 62",
+              "avatar": "https://randomuser.me/api/portraits/men/44.jpg",
+              "rating": 4,
+              "comment": "Okay curry. The sauce was average, and the protein was a bit tough. Not bad, but not particularly exciting.",
+              "date": "6 week ago"
+            },
+            {
+              "id": 9,
+              "user": "User 510",
+              "avatar": "https://randomuser.me/api/portraits/women/26.jpg",
+              "rating": 4,
+              "comment": "Curry perfection! Ingredients were fresh, spices were vibrant. A true Indian culinary delight. Highly recommended.",
+              "date": "6 day ago"
+            }
+          ],
+          "rating": "3.6",
+          "ratingCount": 128,
+          "deliveryTime": "47-66",
+          "isPopular": false,
+          "lastOrdered": "2025-04-04T05:27:34.500Z"
+        }
+      ],
+      "orders": [
+        {
+          "orderId": "ORD-67831",
+          "orderStatus": "Accepted",
+          "date": "2025-04-14T10:56:54.388Z",
+          "deliveryTime": 30,
+          "food": {
+            "items": [
+              {
+                "id": "urban-eats-8136",
+                "type": "Dessert",
+                "name": "Jalebi",
+                "cuisine": "Indian",
+                "ingredients": [
+                  "Sugar",
+                  "Cardamom",
+                  "Ghee",
+                  "Milk",
+                  "Saffron",
+                  "Maida",
+                  "Yogurt",
+                  "Food coloring"
+                ],
+                "tags": ["Sweet", "Classic"],
+                "prepTime": "30-120",
+                "price": 488,
+                "restaurant": "Urban Eats",
+                "restaurantImage": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
+                "image": "https://images.pexels.com/photos/7566499/pexels-photo-7566499.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "calories": 220,
+                "about": "Crispy orange swirls soaked in sugar syrup. Best served hot with rabri or milk.",
+                "description": "Crispy, syrupy spirals - India's answer to funnel cakes with floral notes",
+                "servingSuggestions": [
+                  "Serve Gulab Jamun warm with vanilla ice cream",
+                  "Chill Rasgullas before serving in clay pots",
+                  "Garnish Gajar Halwa with silver leaf during weddings",
+                  "Pair hot Jalebis with chilled rabri",
+                  "Serve Kheer in earthen bowls garnished with pistachios"
+                ],
+                "dietaryInfo": {
+                  "vegetarian": true,
+                  "glutenFree": false,
+                  "spicy": false
+                },
+                "reviews": [
+                  {
+                    "id": 1,
+                    "user": "User 513",
+                    "avatar": "https://randomuser.me/api/portraits/women/34.jpg",
+                    "rating": 4,
+                    "comment": "Delicious dessert! The sweetness was perfectly balanced, and the textures were delightful. A great end to any meal.",
+                    "date": "1 week ago"
+                  },
+                  {
+                    "id": 2,
+                    "user": "User 317",
+                    "avatar": "https://randomuser.me/api/portraits/women/11.jpg",
+                    "rating": 5,
+                    "comment": "Okay dessert. The sweetness was average, and the texture was a bit bland. Not bad, but not particularly exciting.",
+                    "date": "5 day ago"
+                  },
+                  {
+                    "id": 3,
+                    "user": "User 43",
+                    "avatar": "https://randomuser.me/api/portraits/men/19.jpg",
+                    "rating": 4,
+                    "comment": "Kulfi's creamy, frozen bliss! Flavored milk, nuts. A rich, dense ice cream, perfect for hot days.",
+                    "date": "7 week ago"
+                  },
+                  {
+                    "id": 4,
+                    "user": "User 402",
+                    "avatar": "https://randomuser.me/api/portraits/women/37.jpg",
+                    "rating": 4,
+                    "comment": "Perfect dessert experience! The taste was incredible, and the variety was great. I couldn't have asked for more.",
+                    "date": "7 week ago"
+                  },
+                  {
+                    "id": 5,
+                    "user": "User 139",
+                    "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+                    "rating": 4,
+                    "comment": "Dessert perfection! Ingredients were fresh, flavors were vibrant. A true Indian culinary delight. Highly recommended.",
+                    "date": "1 week ago"
+                  },
+                  {
+                    "id": 6,
+                    "user": "User 347",
+                    "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
+                    "rating": 4,
+                    "comment": "Great dessert! The spices were aromatic, and the richness was perfect. The service was fast, and the dessert arrived fresh.",
+                    "date": "7 week ago"
+                  },
+                  {
+                    "id": 7,
+                    "user": "User 385",
+                    "avatar": "https://randomuser.me/api/portraits/women/23.jpg",
+                    "rating": 5,
+                    "comment": "Solid dessert. The flavors were balanced, and the ingredients seemed fresh. A reliable choice for a sweet treat.",
+                    "date": "1 week ago"
+                  },
+                  {
+                    "id": 8,
+                    "user": "User 911",
+                    "avatar": "https://randomuser.me/api/portraits/women/32.jpg",
+                    "rating": 5,
+                    "comment": "Okay dessert. The sweetness was average, and the texture was a bit bland. Not bad, but not particularly exciting.",
+                    "date": "4 week ago"
+                  },
+                  {
+                    "id": 9,
+                    "user": "User 629",
+                    "avatar": "https://randomuser.me/api/portraits/women/28.jpg",
+                    "rating": 5,
+                    "comment": "Kulfi's creamy, frozen bliss! Flavored milk, nuts. A rich, dense ice cream, perfect for hot days.",
+                    "date": "7 day ago"
+                  },
+                  {
+                    "id": 10,
+                    "user": "User 676",
+                    "avatar": "https://randomuser.me/api/portraits/men/23.jpg",
+                    "rating": 4,
+                    "comment": "Gajar Halwa's rich, carrot delight! Grated carrots, creamy milk. A decadent, flavorful dessert, truly irresistible.",
+                    "date": "1 week ago"
+                  },
+                  {
+                    "id": 11,
+                    "user": "User 420",
+                    "avatar": "https://randomuser.me/api/portraits/men/20.jpg",
+                    "rating": 4,
+                    "comment": "Solid dessert. The flavors were balanced, and the ingredients seemed fresh. A reliable choice for a sweet treat.",
+                    "date": "6 day ago"
+                  }
+                ],
+                "rating": "3.9",
+                "ratingCount": 131,
+                "deliveryTime": "52-145",
+                "isPopular": true,
+                "lastOrdered": "2025-03-31T05:27:34.500Z",
+                "quantity": 1
+              },
+              {
+                "id": "sweet-surrender-9889",
+                "type": "Curry",
+                "name": "Chana Masala",
+                "cuisine": "Indian",
+                "ingredients": [
+                  "Onions",
+                  "Tomatoes",
+                  "Ginger-garlic paste",
+                  "Turmeric",
+                  "Coriander powder",
+                  "Cumin",
+                  "Garam masala",
+                  "Chickpeas",
+                  "Amchur",
+                  "Tea leaves (for color)"
+                ],
+                "tags": ["Sweet", "Classic"],
+                "prepTime": "30-45",
+                "price": 810,
+                "restaurant": "Sweet Surrender",
+                "restaurantImage": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D",
+                "image": "https://plus.unsplash.com/premium_photo-1695456063769-e291a14c3ca1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hpY2twZWElMjBjdXJyeXxlbnwwfHwwfHx8MA%3D%3D",
+                "calories": null,
+                "about": "Spicy chickpea curry popular as street food and home meal",
+                "description": "Hearty chickpeas in robust spicy gravy - protein-packed comfort food",
+                "servingSuggestions": [
+                  "Serve butter chicken with naan or jeera rice",
+                  "Pair paneer tikka masala with garlic kulcha",
+                  "Enjoy chana masala with bhatura or steamed rice",
+                  "Serve rogan josh with saffron pulao",
+                  "Present malai kofta in copper bowls garnished with cream",
+                  "Accompany dal tadka with plain roti or rice",
+                  "Serve fish curry with appam or steamed rice"
+                ],
+                "dietaryInfo": {
+                  "vegetarian": true,
+                  "glutenFree": false,
+                  "spicy": true
+                },
+                "reviews": [
+                  {
+                    "id": 1,
+                    "user": "User 776",
+                    "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+                    "rating": 4,
+                    "comment": "Good curry, but not great. The texture was a bit off, and the flavors were a bit bland. It was fine, but nothing special.",
+                    "date": "5 week ago"
+                  },
+                  {
+                    "id": 2,
+                    "user": "User 278",
+                    "avatar": "https://randomuser.me/api/portraits/men/33.jpg",
+                    "rating": 4,
+                    "comment": "Great curry! The spices were aromatic, and the texture was delightful. The service was fast, and the curry arrived hot.",
+                    "date": "3 day ago"
+                  },
+                  {
+                    "id": 3,
+                    "user": "User 548",
+                    "avatar": "https://randomuser.me/api/portraits/men/34.jpg",
+                    "rating": 4,
+                    "comment": "Paneer Tikka Masala's vegetarian delight! Soft paneer, vibrant spices, rich gravy. A flavorful, satisfying choice.",
+                    "date": "2 week ago"
+                  },
+                  {
+                    "id": 4,
+                    "user": "User 816",
+                    "avatar": "https://randomuser.me/api/portraits/women/5.jpg",
+                    "rating": 4,
+                    "comment": "Perfect curry experience! The taste was incredible, and the variety was great. I couldn't have asked for more.",
+                    "date": "4 week ago"
+                  },
+                  {
+                    "id": 5,
+                    "user": "User 758",
+                    "avatar": "https://randomuser.me/api/portraits/women/22.jpg",
+                    "rating": 4,
+                    "comment": "Solid curry. The flavors were balanced, and the ingredients seemed fresh. A reliable choice for any meal.",
+                    "date": "1 day ago"
+                  },
+                  {
+                    "id": 6,
+                    "user": "User 403",
+                    "avatar": "https://randomuser.me/api/portraits/men/49.jpg",
+                    "rating": 5,
+                    "comment": "Amazing curry! The herbs and spices were perfectly blended. The protein was fresh and plentiful.",
+                    "date": "6 week ago"
+                  },
+                  {
+                    "id": 7,
+                    "user": "User 694",
+                    "avatar": "https://randomuser.me/api/portraits/men/13.jpg",
+                    "rating": 4,
+                    "comment": "Perfect curry experience! The taste was incredible, and the variety was great. I couldn't have asked for more.",
+                    "date": "1 day ago"
+                  },
+                  {
+                    "id": 8,
+                    "user": "User 62",
+                    "avatar": "https://randomuser.me/api/portraits/men/44.jpg",
+                    "rating": 4,
+                    "comment": "Okay curry. The sauce was average, and the protein was a bit tough. Not bad, but not particularly exciting.",
+                    "date": "6 week ago"
+                  },
+                  {
+                    "id": 9,
+                    "user": "User 510",
+                    "avatar": "https://randomuser.me/api/portraits/women/26.jpg",
+                    "rating": 4,
+                    "comment": "Curry perfection! Ingredients were fresh, spices were vibrant. A true Indian culinary delight. Highly recommended.",
+                    "date": "6 day ago"
+                  }
+                ],
+                "rating": "3.6",
+                "ratingCount": 128,
+                "deliveryTime": "47-66",
+                "isPopular": false,
+                "lastOrdered": "2025-04-04T05:27:34.500Z",
+                "quantity": 1
+              },
+              {
+                "id": "sweet-surrender-6649",
+                "type": "Sushi",
+                "name": "Rainbow Roll",
+                "cuisine": "Japanese",
+                "ingredients": [
+                  "Sushi rice",
+                  "Nori seaweed",
+                  "Wasabi",
+                  "Pickled ginger",
+                  "Crab",
+                  "Avocado",
+                  "Assorted fish"
+                ],
+                "tags": ["Healthy", "Best Seller"],
+                "prepTime": "15-25",
+                "price": 263,
+                "restaurant": "Sweet Surrender",
+                "restaurantImage": "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D",
+                "image": "https://plus.unsplash.com/premium_photo-1668143358351-b20146dbcc02?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3VzaGl8ZW58MHx8MHx8fDA%3D",
+                "calories": 557,
+                "about": "California roll topped with an array of colorful fish slices. The combination of creamy avocado and fresh fish creates perfect harmony.",
+                "description": "Colorful assortment of fish over California roll. A feast for eyes and palate.",
+                "servingSuggestions": [
+                  "Serve with premium soy sauce",
+                  "Add wasabi to taste",
+                  "Refresh palate with pickled ginger",
+                  "Pair with green tea or sake",
+                  "Enjoy immediately for best texture"
+                ],
+                "dietaryInfo": {
+                  "vegetarian": false,
+                  "glutenFree": false,
+                  "spicy": false
+                },
+                "reviews": [
+                  {
+                    "id": 1,
+                    "user": "User 853",
+                    "avatar": "https://randomuser.me/api/portraits/women/1.jpg",
+                    "rating": 4,
+                    "comment": "Dragon Roll decadence! Eel's sweetness, avocado's richness. A perfect balance of textures, each bite a luxurious treat.",
+                    "date": "5 day ago"
+                  },
+                  {
+                    "id": 2,
+                    "user": "User 240",
+                    "avatar": "https://randomuser.me/api/portraits/women/49.jpg",
+                    "rating": 5,
+                    "comment": "Sushi excellence! Fish was incredibly fresh, rice perfectly seasoned. A truly authentic Japanese experience. Highly recommended.",
+                    "date": "2 week ago"
+                  },
+                  {
+                    "id": 3,
+                    "user": "User 169",
+                    "avatar": "https://randomuser.me/api/portraits/women/16.jpg",
+                    "rating": 4,
+                    "comment": "Solid sushi. The rolls were decent, and the ingredients seemed fresh. A reliable choice for a quick lunch.",
+                    "date": "2 week ago"
+                  },
+                  {
+                    "id": 4,
+                    "user": "User 143",
+                    "avatar": "https://randomuser.me/api/portraits/women/42.jpg",
+                    "rating": 5,
+                    "comment": "Vegetable Temaki's freshness! Crisp veggies, delicate nori. A light, refreshing option, perfect for a healthy meal.",
+                    "date": "3 week ago"
+                  },
+                  {
+                    "id": 5,
+                    "user": "User 46",
+                    "avatar": "https://randomuser.me/api/portraits/women/5.jpg",
+                    "rating": 5,
+                    "comment": "Fantastic sushi! The flavors were vibrant, and the textures were perfect. The presentation was artistic and impressive.",
+                    "date": "1 week ago"
+                  }
+                ],
+                "rating": "3.7",
+                "ratingCount": 36,
+                "deliveryTime": "37-46",
+                "isPopular": true,
+                "lastOrdered": "2025-03-31T05:27:34.500Z",
+                "quantity": 1
+              }
+            ],
+            "subTotal": 1561,
+            "deliveryFee": 21,
+            "discount": 50,
+            "couponCode": "SAVE50",
+            "tax": 12.46,
+            "total": 1544.46,
+            "specialInstructions": ""
+          },
+          "personal": {
+            "firstName": "Rajat",
+            "lastName": "Gangwar",
+            "email": "rajat@gmail.com",
+            "phone": "1111111111",
+            "address": "Street Colony",
+            "city": "Delhi",
+            "zipCode": "11111"
+          },
+          "payment": {
+            "paymentMethod": "paypal",
+            "paymentStatus": "success"
+          },
+          "rider": {
+            "name": "Taylor Smith",
+            "phone": "9615624111",
+            "rating": 5.3,
+            "vehicle": "Car",
+            "image": "https://randomuser.me/api/portraits/men/45.jpg"
+          },
+          "tracking": [
+            {
+              "status": "Order placed",
+              "time": "2025-04-14T10:12:37.043Z",
+              "completed": true
+            },
+            {
+              "status": "Restaurant accepted",
+              "time": "2025-04-14T10:14:07.109Z",
+              "completed": true
+            },
+            {
+              "status": "Preparing food",
+              "time": "2025-04-14T10:18:34.759Z",
+              "completed": true
+            },
+            {
+              "status": "Food ready",
+              "time": "2025-04-14T10:31:32.734Z",
+              "completed": true
+            },
+            {
+              "status": "Driver assigned",
+              "time": "2025-04-14T10:34:25.002Z",
+              "completed": true
+            },
+            {
+              "status": "Picked up",
+              "time": "2025-04-14T10:45:02.372Z",
+              "completed": true
+            },
+            {
+              "status": "On the way",
+              "time": "2025-04-14T10:48:05.732Z",
+              "completed": true
+            },
+            {
+              "status": "Nearby",
+              "time": "2025-04-14T10:51:58.912Z",
+              "completed": false
+            },
+            {
+              "status": "Delivered",
+              "time": "2025-04-14T10:56:13.319Z",
+              "completed": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }

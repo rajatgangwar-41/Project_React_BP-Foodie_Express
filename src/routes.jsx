@@ -69,11 +69,16 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      { path: "/order-details/:id", element: <OrderDetailsPage /> },
+      {
+        path: "/order-details/:id",
+        element: (
+          <ProtectedRoute page={"OrderDetailsPage"}>
+            <OrderDetailsPage />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ])
 
 export default router
-
-// ₹
